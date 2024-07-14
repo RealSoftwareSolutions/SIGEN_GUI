@@ -1,6 +1,6 @@
 ﻿namespace SIGEN_GUI
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -37,4 +37,3 @@
         #endregion
     }
 }
-
