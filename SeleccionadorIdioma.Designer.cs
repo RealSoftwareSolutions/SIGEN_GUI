@@ -1,4 +1,6 @@
-﻿namespace SIGEN_GUI
+﻿using System.Data.SqlTypes;
+
+namespace SIGEN_GUI
 {
     partial class SeleccionadorIdioma
     {
@@ -16,6 +18,7 @@
             if (disposing && (components != null))
             {
                 components.Dispose();
+                
             }
             base.Dispose(disposing);
         }
