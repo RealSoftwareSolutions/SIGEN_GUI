@@ -1,6 +1,6 @@
 ﻿namespace SIGEN_GUI
 {
-    partial class SeleccionadorIdioma
+    partial class MenuPrincipalEntrenador
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // SeleccionadorIdioma
+            // MenuPrincipalEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "SeleccionadorIdioma";
-            this.Text = "Selecciona Idioma";
-            this.Load += new System.EventHandler(this.SeleccionadorIdioma_Load);
+            this.Name = "MenuPrincipalEntrenador";
+            this.Text = "Menu Principal";
             this.ResumeLayout(false);
 
         }
