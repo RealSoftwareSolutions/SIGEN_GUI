@@ -1,6 +1,6 @@
 ﻿namespace SIGEN_GUI
 {
-    partial class Login
+    partial class SeleccionadorIdioma
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Login
+            // SeleccionadorIdioma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "Login";
-            this.Text = "Login";
+            this.Name = "SeleccionadorIdioma";
+            this.Text = "SeleccionadorIdioma";
             this.ResumeLayout(false);
 
         }
