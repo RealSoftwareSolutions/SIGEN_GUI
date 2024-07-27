@@ -1,8 +1,6 @@
-﻿using System.Data.SqlTypes;
-
-namespace SIGEN_GUI
+﻿namespace SIGEN_GUI
 {
-    partial class SeleccionadorIdioma
+    partial class CalendarioMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -18,7 +16,6 @@ namespace SIGEN_GUI
             if (disposing && (components != null))
             {
                 components.Dispose();
-                
             }
             base.Dispose(disposing);
         }
@@ -31,19 +28,10 @@ namespace SIGEN_GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // SeleccionadorIdioma
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "SeleccionadorIdioma";
-            this.Text = "Selecciona Idioma";
-            this.Load += new System.EventHandler(this.SeleccionadorIdioma_Load);
-            this.ResumeLayout(false);
-
+            this.Text = "CalendarioMenu";
         }
 
         #endregion

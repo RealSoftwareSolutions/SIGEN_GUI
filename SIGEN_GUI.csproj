@@ -46,11 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrativo.Designer.cs">
+      <DependentUpon>Administrativo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agenda_Administrativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agenda_Administrativo.Designer.cs">
+      <DependentUpon>Agenda_Administrativo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Agenda_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Agenda_Cliente.Designer.cs">
       <DependentUpon>Agenda_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarEjercicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarEjercicio.Designer.cs">
+      <DependentUpon>AsignarEjercicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarioMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalendarioMenu.Designer.cs">
+      <DependentUpon>CalendarioMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Calificar.cs">
       <SubType>Form</SubType>
@@ -58,11 +82,89 @@
     <Compile Include="Calificar.Designer.cs">
       <DependentUpon>Calificar.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClienteAgendaInfo2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteAgendaInfo2.Designer.cs">
+      <DependentUpon>ClienteAgendaInfo2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteInfoAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteInfoAgenda.Designer.cs">
+      <DependentUpon>ClienteInfoAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClubsSelecionadorAñadirEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClubsSelecionadorAñadirEquipo.Designer.cs">
+      <DependentUpon>ClubsSelecionadorAñadirEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClubsSelecionadorRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClubsSelecionadorRol.Designer.cs">
+      <DependentUpon>ClubsSelecionadorRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeporteSeleccioandorrol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeporteSeleccioandorrol.Designer.cs">
+      <DependentUpon>DeporteSeleccioandorrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EjercicioIngresar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EjercicioIngresar.Designer.cs">
+      <DependentUpon>EjercicioIngresar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngresarClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngresarClub.Designer.cs">
+      <DependentUpon>IngresarClub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngresarDeporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngresarDeporte.Designer.cs">
+      <DependentUpon>IngresarDeporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngresarEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngresarEntrenador.Designer.cs">
+      <DependentUpon>IngresarEntrenador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngresarUsuarioBasico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngresarUsuarioBasico.Designer.cs">
+      <DependentUpon>IngresarUsuarioBasico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipalAdministradorTI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipalAdministradorTI.Designer.cs">
+      <DependentUpon>MenuPrincipalAdministradorTI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipalAdministrativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipalAdministrativo.Designer.cs">
+      <DependentUpon>MenuPrincipalAdministrativo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipalAvanzado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipalAvanzado.Designer.cs">
+      <DependentUpon>MenuPrincipalAvanzado.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuPrincipalCliente.cs">
       <SubType>Form</SubType>
@@ -75,6 +177,12 @@
     </Compile>
     <Compile Include="MenuPrincipalEntrenador.Designer.cs">
       <DependentUpon>MenuPrincipalEntrenador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipalSeleccionador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipalSeleccionador.Designer.cs">
+      <DependentUpon>MenuPrincipalSeleccionador.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,11 +198,17 @@
     <Compile Include="RutinaCliente.Designer.cs">
       <DependentUpon>RutinaCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="SeleccionadorIdioma.cs">
+    <Compile Include="SeleccionadordeIdioma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SeleccionadorIdioma.Designer.cs">
-      <DependentUpon>SeleccionadorIdioma.cs</DependentUpon>
+    <Compile Include="SeleccionadordeIdioma.Designer.cs">
+      <DependentUpon>SeleccionadordeIdioma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioCliente_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsuarioCliente_Login.Designer.cs">
+      <DependentUpon>UsuarioCliente_Login.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Agenda_Cliente.resx">
       <DependentUpon>Agenda_Cliente.cs</DependentUpon>
@@ -123,8 +237,8 @@
     <EmbeddedResource Include="RutinaCliente.resx">
       <DependentUpon>RutinaCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SeleccionadorIdioma.resx">
-      <DependentUpon>SeleccionadorIdioma.cs</DependentUpon>
+    <EmbeddedResource Include="SeleccionadordeIdioma.resx">
+      <DependentUpon>SeleccionadordeIdioma.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

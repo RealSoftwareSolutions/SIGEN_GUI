@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace SIGEN_GUI
 {
-    public partial class SeleccionadorIdioma : Form
+    public partial class MenuPrincipalAdministradorTI : Form
     {
-        public SeleccionadorIdioma()
+        public MenuPrincipalAdministradorTI()
         {
             InitializeComponent();
-        }
-
-        private void SeleccionadorIdioma_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
