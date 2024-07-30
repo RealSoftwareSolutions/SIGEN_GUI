@@ -10,19 +10,25 @@ using System.Windows.Forms;
 
 namespace SIGEN_GUI
 {
-    public partial class Login : Form
+    public partial class Principal : Form
     {
-        public Login()
+        public Principal()
         {
             InitializeComponent();
         }
+        private void label1_Click(object sender, EventArgs e)
+        {
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        }
+        // 
+        // label2
+        // 
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Principal_Load(object sender, EventArgs e)
         {
 
         }

@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -142,11 +145,11 @@
     <Compile Include="IngresarUsuarioBasico.Designer.cs">
       <DependentUpon>IngresarUsuarioBasico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuPrincipalAdministradorTI.cs">
       <SubType>Form</SubType>
@@ -213,8 +216,8 @@
     <EmbeddedResource Include="Agenda_Cliente.resx">
       <DependentUpon>Agenda_Cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipalCliente.resx">
       <DependentUpon>MenuPrincipalCliente.cs</DependentUpon>
@@ -230,6 +233,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RendimientoCliente.resx">
       <DependentUpon>RendimientoCliente.cs</DependentUpon>
@@ -239,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SeleccionadordeIdioma.resx">
       <DependentUpon>SeleccionadordeIdioma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsuarioCliente_Login.resx">
+      <DependentUpon>UsuarioCliente_Login.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -253,8 +260,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="assets\" />
+    <None Include="assets\espanol_es.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\ingles_en.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
