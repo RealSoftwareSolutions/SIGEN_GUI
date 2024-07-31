@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace SIGEN_GUI
 {
+
     internal static class Program
     {
         /// <summary>

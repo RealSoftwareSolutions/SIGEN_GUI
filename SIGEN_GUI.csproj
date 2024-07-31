@@ -145,6 +145,12 @@
     <Compile Include="IngresarUsuarioBasico.Designer.cs">
       <DependentUpon>IngresarUsuarioBasico.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginInicial.Designer.cs">
+      <DependentUpon>LoginInicial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,14 +213,11 @@
     <Compile Include="SeleccionadordeIdioma.Designer.cs">
       <DependentUpon>SeleccionadordeIdioma.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsuarioCliente_Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UsuarioCliente_Login.Designer.cs">
-      <DependentUpon>UsuarioCliente_Login.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Agenda_Cliente.resx">
       <DependentUpon>Agenda_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginInicial.resx">
+      <DependentUpon>LoginInicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -243,9 +246,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SeleccionadordeIdioma.resx">
       <DependentUpon>SeleccionadordeIdioma.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UsuarioCliente_Login.resx">
-      <DependentUpon>UsuarioCliente_Login.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

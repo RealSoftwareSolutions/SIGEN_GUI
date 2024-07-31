@@ -32,5 +32,38 @@ namespace SIGEN_GUI
         {
 
         }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuLogin_Click(object sender, EventArgs e)
+        {
+            if (Program.cn.State == 0)
+            { //Coneccion Abierta
+                menuLogin.Text = "Cerrar Sesión";
+                
+            }
+            else
+            {
+                DialogResult respuesta = MessageBox.Show("¿Desea cerrar sesión?", "Logout", MessageBoxButtons.YesNo);
+                if (respuesta == DialogResult.Yes)
+                {
+                    Program.cn.Close();
+                    menuLogin.Text = "Login";
+
+                }
+
+            }
+
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+            this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void menuSalir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
