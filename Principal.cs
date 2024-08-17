@@ -16,34 +16,40 @@ namespace SIGEN_GUI
         {
             InitializeComponent();
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        // 
-        // label2
-        // 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Principal_Load(object sender, EventArgs e)
         {
-
+            this.menuAplicasiones.Enabled = false;
         }
 
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuAplicasiones_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void MenuLogin_Click(object sender, EventArgs e)
+        private void menuClientes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuEntrenador_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuAdministrador_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuLogin_Click(object sender, EventArgs e)
         {
             if (Program.cn.State == 0)
             { //Coneccion Abierta
                 menuLogin.Text = "Cerrar Sesión";
-                
+                Program.frmLogin = new LoginInicial();
+                Program.frmLogin.MdiParent = this;
+                Program.frmLogin.Show();
             }
             else
             {
@@ -59,6 +65,11 @@ namespace SIGEN_GUI
 
             this.LayoutMdi(MdiLayout.TileHorizontal);
             this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void menuIngresar_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void menuSalir_Click(object sender, EventArgs e)

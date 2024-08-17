@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menu_ingreso = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAplicasiones = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuEntrenador = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAdministrador = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuIngresar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLogin = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuSalir_Click = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,48 +43,81 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menu_ingreso});
+            this.menuAplicasiones,
+            this.menuIngresar});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1278, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1220, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // menu_ingreso
+            // menuAplicasiones
             // 
-            this.menu_ingreso.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuAplicasiones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuClientes,
+            this.menuEntrenador,
+            this.menuAdministrador});
+            this.menuAplicasiones.Name = "menuAplicasiones";
+            this.menuAplicasiones.Size = new System.Drawing.Size(106, 24);
+            this.menuAplicasiones.Text = "Aplicasiones";
+            this.menuAplicasiones.Click += new System.EventHandler(this.menuAplicasiones_Click);
+            // 
+            // menuClientes
+            // 
+            this.menuClientes.Name = "menuClientes";
+            this.menuClientes.Size = new System.Drawing.Size(187, 26);
+            this.menuClientes.Text = "Clientes";
+            this.menuClientes.Click += new System.EventHandler(this.menuClientes_Click);
+            // 
+            // menuEntrenador
+            // 
+            this.menuEntrenador.Name = "menuEntrenador";
+            this.menuEntrenador.Size = new System.Drawing.Size(187, 26);
+            this.menuEntrenador.Text = "Entrenador";
+            this.menuEntrenador.Click += new System.EventHandler(this.menuEntrenador_Click);
+            // 
+            // menuAdministrador
+            // 
+            this.menuAdministrador.Name = "menuAdministrador";
+            this.menuAdministrador.Size = new System.Drawing.Size(187, 26);
+            this.menuAdministrador.Text = "Administrador";
+            this.menuAdministrador.Click += new System.EventHandler(this.menuAdministrador_Click);
+            // 
+            // menuIngresar
+            // 
+            this.menuIngresar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuLogin,
-            this.MenuSalir_Click});
-            this.menu_ingreso.Name = "menu_ingreso";
-            this.menu_ingreso.Size = new System.Drawing.Size(67, 24);
-            this.menu_ingreso.Text = "Ingeso";
-            this.menu_ingreso.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+            this.menuSalir});
+            this.menuIngresar.Name = "menuIngresar";
+            this.menuIngresar.Size = new System.Drawing.Size(76, 24);
+            this.menuIngresar.Text = "Ingresar";
+            this.menuIngresar.Click += new System.EventHandler(this.menuIngresar_Click);
             // 
             // menuLogin
             // 
             this.menuLogin.Name = "menuLogin";
             this.menuLogin.Size = new System.Drawing.Size(224, 26);
             this.menuLogin.Text = "Login";
-            this.menuLogin.Click += new System.EventHandler(this.MenuLogin_Click);
+            this.menuLogin.Click += new System.EventHandler(this.menuLogin_Click);
             // 
-            // MenuSalir_Click
+            // menuSalir
             // 
-            this.MenuSalir_Click.Name = "MenuSalir_Click";
-            this.MenuSalir_Click.Size = new System.Drawing.Size(224, 26);
-            this.MenuSalir_Click.Text = "Salir";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.menuSalir.Name = "menuSalir";
+            this.menuSalir.Size = new System.Drawing.Size(224, 26);
+            this.menuSalir.Text = "Salir";
+            this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
             // 
             // Principal
             // 
-            this.ClientSize = new System.Drawing.Size(1278, 580);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1220, 547);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Principal";
+            this.Text = "Principal";
+            this.Load += new System.EventHandler(this.Principal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -92,12 +127,13 @@
 
         #endregion
 
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem menu_ingreso;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        public System.Windows.Forms.ToolStripMenuItem menuAplicasiones;
+        public System.Windows.Forms.ToolStripMenuItem menuClientes;
+        public System.Windows.Forms.ToolStripMenuItem menuEntrenador;
+        public System.Windows.Forms.ToolStripMenuItem menuAdministrador;
+        private System.Windows.Forms.ToolStripMenuItem menuIngresar;
         private System.Windows.Forms.ToolStripMenuItem menuLogin;
-        private System.Windows.Forms.ToolStripMenuItem MenuSalir_Click;
+        private System.Windows.Forms.ToolStripMenuItem menuSalir;
     }
 }

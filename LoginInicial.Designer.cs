@@ -125,7 +125,7 @@
             this.Controls.Add(this.lblContrasenia);
             this.Controls.Add(this.lblUsuario);
             this.Name = "LoginInicial";
-            this.Text = "LoginInicial";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginInicial_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
