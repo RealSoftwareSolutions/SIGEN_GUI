@@ -20,13 +20,23 @@ namespace SIGEN_GUI
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             try
-            {      /*Primero la direccion de coneccion*/
+
+            {
+                // debugMessageBox.Show($"Intentando conectar con:\nUsuario: {txtUsuario.Text}\nContraseña: {txtContrasenia.Text}");
+
+                // Crear una cadena de conexión manualmente
+               // string connectionString = "Driver={MySQL ODBC 8.0 Driver};Server=localhost;Database=miodbc;Trusted_Connection=yes;User=" + txtUsuario.Text + ";Password=" + txtContrasenia.Text + ";"; //fuerzo conexion
+               // Program.cn.Open(connectionString);
+               
+                /*Primero la direccion de coneccion*/
                 Program.cn.Open("miodbc", txtUsuario.Text, txtContrasenia.Text);
             }
-            catch
+            catch (Exception ex) //debug donde nos dira la variable
             {
-                MessageBox.Show("Usuario o Contraseña Incorrectos");
+                MessageBox.Show($"Error al intentar conectar: {ex.Message}"); //que error tendre? dira
                 return;
+               // MessageBox.Show("Usuario o Contraseña Incorrectos");
+                // return;
             }
             Program.cn.CursorLocation = ADODB.CursorLocationEnum.adUseClient;
             //Program.frmPrincipal.menuAplicacion.Enabled = true;

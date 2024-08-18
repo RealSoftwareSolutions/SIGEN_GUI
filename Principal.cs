@@ -29,7 +29,7 @@ namespace SIGEN_GUI
 
         private void menuClientes_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void menuEntrenador_Click(object sender, EventArgs e)
@@ -73,6 +73,41 @@ namespace SIGEN_GUI
         }
 
         private void menuSalir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuCalendario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuClienteAdministrativo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuAgendaEntrenador_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuCalificarEntrenador_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuAsignarEntrenamiento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuRutina_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuAgenda_Click(object sender, EventArgs e)
         {
 
         }

@@ -31,8 +31,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuAplicasiones = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAgenda = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuRutina = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuRendimiento = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEntrenador = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAgendaEntrenador = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCalificarEntrenador = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAsignarEntrenamiento = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAdministrador = new System.Windows.Forms.ToolStripMenuItem();
+            this.administrativoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCalendario = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuClienteAdministrativo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuIngresar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSalir = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +56,7 @@
             this.menuIngresar});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1220, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1220, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -56,7 +65,8 @@
             this.menuAplicasiones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuClientes,
             this.menuEntrenador,
-            this.menuAdministrador});
+            this.menuAdministrador,
+            this.administrativoToolStripMenuItem});
             this.menuAplicasiones.Name = "menuAplicasiones";
             this.menuAplicasiones.Size = new System.Drawing.Size(106, 24);
             this.menuAplicasiones.Text = "Aplicasiones";
@@ -64,24 +74,96 @@
             // 
             // menuClientes
             // 
+            this.menuClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuAgenda,
+            this.menuRutina,
+            this.menuRendimiento});
             this.menuClientes.Name = "menuClientes";
-            this.menuClientes.Size = new System.Drawing.Size(187, 26);
+            this.menuClientes.Size = new System.Drawing.Size(189, 26);
             this.menuClientes.Text = "Clientes";
             this.menuClientes.Click += new System.EventHandler(this.menuClientes_Click);
             // 
+            // menuAgenda
+            // 
+            this.menuAgenda.Name = "menuAgenda";
+            this.menuAgenda.Size = new System.Drawing.Size(177, 26);
+            this.menuAgenda.Text = "Agenda";
+            this.menuAgenda.Click += new System.EventHandler(this.menuAgenda_Click);
+            // 
+            // menuRutina
+            // 
+            this.menuRutina.Name = "menuRutina";
+            this.menuRutina.Size = new System.Drawing.Size(177, 26);
+            this.menuRutina.Text = "Rutina";
+            this.menuRutina.Click += new System.EventHandler(this.menuRutina_Click);
+            // 
+            // menuRendimiento
+            // 
+            this.menuRendimiento.Name = "menuRendimiento";
+            this.menuRendimiento.Size = new System.Drawing.Size(177, 26);
+            this.menuRendimiento.Text = "Rendimiento";
+            // 
             // menuEntrenador
             // 
+            this.menuEntrenador.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuAgendaEntrenador,
+            this.menuCalificarEntrenador,
+            this.menuAsignarEntrenamiento});
             this.menuEntrenador.Name = "menuEntrenador";
-            this.menuEntrenador.Size = new System.Drawing.Size(187, 26);
+            this.menuEntrenador.Size = new System.Drawing.Size(189, 26);
             this.menuEntrenador.Text = "Entrenador";
             this.menuEntrenador.Click += new System.EventHandler(this.menuEntrenador_Click);
+            // 
+            // menuAgendaEntrenador
+            // 
+            this.menuAgendaEntrenador.Name = "menuAgendaEntrenador";
+            this.menuAgendaEntrenador.Size = new System.Drawing.Size(243, 26);
+            this.menuAgendaEntrenador.Text = "Agenda";
+            this.menuAgendaEntrenador.Click += new System.EventHandler(this.menuAgendaEntrenador_Click);
+            // 
+            // menuCalificarEntrenador
+            // 
+            this.menuCalificarEntrenador.Name = "menuCalificarEntrenador";
+            this.menuCalificarEntrenador.Size = new System.Drawing.Size(243, 26);
+            this.menuCalificarEntrenador.Text = "Calificar";
+            this.menuCalificarEntrenador.Click += new System.EventHandler(this.menuCalificarEntrenador_Click);
+            // 
+            // menuAsignarEntrenamiento
+            // 
+            this.menuAsignarEntrenamiento.Name = "menuAsignarEntrenamiento";
+            this.menuAsignarEntrenamiento.Size = new System.Drawing.Size(243, 26);
+            this.menuAsignarEntrenamiento.Text = "Asignar Entrenamiento";
+            this.menuAsignarEntrenamiento.Click += new System.EventHandler(this.menuAsignarEntrenamiento_Click);
             // 
             // menuAdministrador
             // 
             this.menuAdministrador.Name = "menuAdministrador";
-            this.menuAdministrador.Size = new System.Drawing.Size(187, 26);
+            this.menuAdministrador.Size = new System.Drawing.Size(189, 26);
             this.menuAdministrador.Text = "Administrador";
             this.menuAdministrador.Click += new System.EventHandler(this.menuAdministrador_Click);
+            // 
+            // administrativoToolStripMenuItem
+            // 
+            this.administrativoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuCalendario,
+            this.menuClienteAdministrativo});
+            this.administrativoToolStripMenuItem.Name = "administrativoToolStripMenuItem";
+            this.administrativoToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.administrativoToolStripMenuItem.Text = "Administrativo";
+            // 
+            // menuCalendario
+            // 
+            this.menuCalendario.Name = "menuCalendario";
+            this.menuCalendario.Size = new System.Drawing.Size(164, 26);
+            this.menuCalendario.Text = "Calendario";
+            this.menuCalendario.Click += new System.EventHandler(this.menuCalendario_Click);
+            // 
+            // menuClienteAdministrativo
+            // 
+            this.menuClienteAdministrativo.Name = "menuClienteAdministrativo";
+            this.menuClienteAdministrativo.Size = new System.Drawing.Size(164, 26);
+            this.menuClienteAdministrativo.Text = "Cliente";
+            this.menuClienteAdministrativo.Click += new System.EventHandler(this.menuClienteAdministrativo_Click);
             // 
             // menuIngresar
             // 
@@ -96,14 +178,14 @@
             // menuLogin
             // 
             this.menuLogin.Name = "menuLogin";
-            this.menuLogin.Size = new System.Drawing.Size(224, 26);
+            this.menuLogin.Size = new System.Drawing.Size(129, 26);
             this.menuLogin.Text = "Login";
             this.menuLogin.Click += new System.EventHandler(this.menuLogin_Click);
             // 
             // menuSalir
             // 
             this.menuSalir.Name = "menuSalir";
-            this.menuSalir.Size = new System.Drawing.Size(224, 26);
+            this.menuSalir.Size = new System.Drawing.Size(129, 26);
             this.menuSalir.Text = "Salir";
             this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
             // 
@@ -114,6 +196,7 @@
             this.ClientSize = new System.Drawing.Size(1220, 547);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Principal";
             this.Text = "Principal";
@@ -135,5 +218,14 @@
         private System.Windows.Forms.ToolStripMenuItem menuIngresar;
         private System.Windows.Forms.ToolStripMenuItem menuLogin;
         private System.Windows.Forms.ToolStripMenuItem menuSalir;
+        private System.Windows.Forms.ToolStripMenuItem menuAgenda;
+        private System.Windows.Forms.ToolStripMenuItem menuRutina;
+        private System.Windows.Forms.ToolStripMenuItem menuRendimiento;
+        private System.Windows.Forms.ToolStripMenuItem menuAgendaEntrenador;
+        private System.Windows.Forms.ToolStripMenuItem menuCalificarEntrenador;
+        private System.Windows.Forms.ToolStripMenuItem menuAsignarEntrenamiento;
+        private System.Windows.Forms.ToolStripMenuItem administrativoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuCalendario;
+        private System.Windows.Forms.ToolStripMenuItem menuClienteAdministrativo;
     }
 }
