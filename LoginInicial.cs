@@ -24,22 +24,22 @@ namespace SIGEN_GUI
             {
                 // debugMessageBox.Show($"Intentando conectar con:\nUsuario: {txtUsuario.Text}\nContraseña: {txtContrasenia.Text}");
 
-                // Crear una cadena de conexión manualmente
+                //Crear una cadena de conexión manualmente
                // string connectionString = "Driver={MySQL ODBC 8.0 Driver};Server=localhost;Database=miodbc;Trusted_Connection=yes;User=" + txtUsuario.Text + ";Password=" + txtContrasenia.Text + ";"; //fuerzo conexion
                // Program.cn.Open(connectionString);
                
                 /*Primero la direccion de coneccion*/
                 Program.cn.Open("miodbc", txtUsuario.Text, txtContrasenia.Text);
             }
-            catch (Exception ex) //debug donde nos dira la variable
+            catch //(Exception ex) //debug donde nos dira la variable
             {
-                MessageBox.Show($"Error al intentar conectar: {ex.Message}"); //que error tendre? dira
+                //MessageBox.Show($"Error al intentar conectar: {ex.Message}"); //que error tendre? dira
+                //return;
+               MessageBox.Show("Usuario o Contraseña Incorrectos");
                 return;
-               // MessageBox.Show("Usuario o Contraseña Incorrectos");
-                // return;
             }
             Program.cn.CursorLocation = ADODB.CursorLocationEnum.adUseClient;
-            //Program.frmPrincipal.menuAplicacion.Enabled = true;
+            Program.frmPrincipal.menuAplicasiones.Enabled = true;
             Program.Doypermisos(txtUsuario.Text);
             this.Close();
         }

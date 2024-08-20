@@ -178,14 +178,14 @@
             // menuLogin
             // 
             this.menuLogin.Name = "menuLogin";
-            this.menuLogin.Size = new System.Drawing.Size(129, 26);
+            this.menuLogin.Size = new System.Drawing.Size(224, 26);
             this.menuLogin.Text = "Login";
             this.menuLogin.Click += new System.EventHandler(this.menuLogin_Click);
             // 
             // menuSalir
             // 
             this.menuSalir.Name = "menuSalir";
-            this.menuSalir.Size = new System.Drawing.Size(129, 26);
+            this.menuSalir.Size = new System.Drawing.Size(224, 26);
             this.menuSalir.Text = "Salir";
             this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
             // 
