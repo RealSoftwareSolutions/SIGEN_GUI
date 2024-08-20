@@ -35,8 +35,6 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.lblContrasenia = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.dataSet11 = new SIGEN_GUI.DataSet1();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -114,11 +112,6 @@
             this.lblUsuario.Text = "Usuario";
             this.lblUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
             // 
-            // dataSet11
-            // 
-            this.dataSet11.DataSetName = "DataSet1";
-            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // LoginInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -136,7 +129,6 @@
             this.Name = "LoginInicial";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginInicial_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,6 +143,5 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label lblContrasenia;
         private System.Windows.Forms.Label lblUsuario;
-        private DataSet1 dataSet11;
     }
 }
