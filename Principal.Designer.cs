@@ -42,6 +42,10 @@
             this.administrativoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCalendario = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClienteAdministrativo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAvanzado = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuIngresarUusarioBasicos = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuingresarDeportes = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuIngresarEjercicios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuIngresar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSalir = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +70,8 @@
             this.menuClientes,
             this.menuEntrenador,
             this.menuAdministrador,
-            this.administrativoToolStripMenuItem});
+            this.administrativoToolStripMenuItem,
+            this.menuAvanzado});
             this.menuAplicasiones.Name = "menuAplicasiones";
             this.menuAplicasiones.Size = new System.Drawing.Size(106, 24);
             this.menuAplicasiones.Text = "Aplicasiones";
@@ -79,7 +84,7 @@
             this.menuRutina,
             this.menuRendimiento});
             this.menuClientes.Name = "menuClientes";
-            this.menuClientes.Size = new System.Drawing.Size(189, 26);
+            this.menuClientes.Size = new System.Drawing.Size(224, 26);
             this.menuClientes.Text = "Clientes";
             this.menuClientes.Click += new System.EventHandler(this.menuClientes_Click);
             // 
@@ -110,7 +115,7 @@
             this.menuCalificarEntrenador,
             this.menuAsignarEntrenamiento});
             this.menuEntrenador.Name = "menuEntrenador";
-            this.menuEntrenador.Size = new System.Drawing.Size(189, 26);
+            this.menuEntrenador.Size = new System.Drawing.Size(224, 26);
             this.menuEntrenador.Text = "Entrenador";
             this.menuEntrenador.Click += new System.EventHandler(this.menuEntrenador_Click);
             // 
@@ -138,7 +143,7 @@
             // menuAdministrador
             // 
             this.menuAdministrador.Name = "menuAdministrador";
-            this.menuAdministrador.Size = new System.Drawing.Size(189, 26);
+            this.menuAdministrador.Size = new System.Drawing.Size(224, 26);
             this.menuAdministrador.Text = "Administrador";
             this.menuAdministrador.Click += new System.EventHandler(this.menuAdministrador_Click);
             // 
@@ -148,22 +153,54 @@
             this.menuCalendario,
             this.menuClienteAdministrativo});
             this.administrativoToolStripMenuItem.Name = "administrativoToolStripMenuItem";
-            this.administrativoToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.administrativoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.administrativoToolStripMenuItem.Text = "Administrativo";
             // 
             // menuCalendario
             // 
             this.menuCalendario.Name = "menuCalendario";
-            this.menuCalendario.Size = new System.Drawing.Size(164, 26);
+            this.menuCalendario.Size = new System.Drawing.Size(224, 26);
             this.menuCalendario.Text = "Calendario";
             this.menuCalendario.Click += new System.EventHandler(this.menuCalendario_Click);
             // 
             // menuClienteAdministrativo
             // 
             this.menuClienteAdministrativo.Name = "menuClienteAdministrativo";
-            this.menuClienteAdministrativo.Size = new System.Drawing.Size(164, 26);
+            this.menuClienteAdministrativo.Size = new System.Drawing.Size(224, 26);
             this.menuClienteAdministrativo.Text = "Cliente";
             this.menuClienteAdministrativo.Click += new System.EventHandler(this.menuClienteAdministrativo_Click);
+            // 
+            // menuAvanzado
+            // 
+            this.menuAvanzado.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuIngresarUusarioBasicos,
+            this.menuingresarDeportes,
+            this.menuIngresarEjercicios});
+            this.menuAvanzado.Name = "menuAvanzado";
+            this.menuAvanzado.Size = new System.Drawing.Size(224, 26);
+            this.menuAvanzado.Text = "Avanzado";
+            this.menuAvanzado.Click += new System.EventHandler(this.menuAvanzado_Click);
+            // 
+            // menuIngresarUusarioBasicos
+            // 
+            this.menuIngresarUusarioBasicos.Name = "menuIngresarUusarioBasicos";
+            this.menuIngresarUusarioBasicos.Size = new System.Drawing.Size(262, 26);
+            this.menuIngresarUusarioBasicos.Text = " Ingresar Usuarios Básicos";
+            this.menuIngresarUusarioBasicos.Click += new System.EventHandler(this.menuIngresarUusarioBasicos_Click);
+            // 
+            // menuingresarDeportes
+            // 
+            this.menuingresarDeportes.Name = "menuingresarDeportes";
+            this.menuingresarDeportes.Size = new System.Drawing.Size(262, 26);
+            this.menuingresarDeportes.Text = "  Deportes Ingresar";
+            this.menuingresarDeportes.Click += new System.EventHandler(this.menuingresarDeportes_Click);
+            // 
+            // menuIngresarEjercicios
+            // 
+            this.menuIngresarEjercicios.Name = "menuIngresarEjercicios";
+            this.menuIngresarEjercicios.Size = new System.Drawing.Size(262, 26);
+            this.menuIngresarEjercicios.Text = "Ingresar Ejercicios";
+            this.menuIngresarEjercicios.Click += new System.EventHandler(this.menuIngresarEjercicios_Click);
             // 
             // menuIngresar
             // 
@@ -178,14 +215,14 @@
             // menuLogin
             // 
             this.menuLogin.Name = "menuLogin";
-            this.menuLogin.Size = new System.Drawing.Size(224, 26);
+            this.menuLogin.Size = new System.Drawing.Size(129, 26);
             this.menuLogin.Text = "Login";
             this.menuLogin.Click += new System.EventHandler(this.menuLogin_Click);
             // 
             // menuSalir
             // 
             this.menuSalir.Name = "menuSalir";
-            this.menuSalir.Size = new System.Drawing.Size(224, 26);
+            this.menuSalir.Size = new System.Drawing.Size(129, 26);
             this.menuSalir.Text = "Salir";
             this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
             // 
@@ -215,17 +252,21 @@
         public System.Windows.Forms.ToolStripMenuItem menuClientes;
         public System.Windows.Forms.ToolStripMenuItem menuEntrenador;
         public System.Windows.Forms.ToolStripMenuItem menuAdministrador;
-        private System.Windows.Forms.ToolStripMenuItem menuIngresar;
-        private System.Windows.Forms.ToolStripMenuItem menuLogin;
-        private System.Windows.Forms.ToolStripMenuItem menuSalir;
-        private System.Windows.Forms.ToolStripMenuItem menuAgenda;
-        private System.Windows.Forms.ToolStripMenuItem menuRutina;
-        private System.Windows.Forms.ToolStripMenuItem menuRendimiento;
-        private System.Windows.Forms.ToolStripMenuItem menuAgendaEntrenador;
-        private System.Windows.Forms.ToolStripMenuItem menuCalificarEntrenador;
-        private System.Windows.Forms.ToolStripMenuItem menuAsignarEntrenamiento;
-        private System.Windows.Forms.ToolStripMenuItem administrativoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuCalendario;
-        private System.Windows.Forms.ToolStripMenuItem menuClienteAdministrativo;
+        public System.Windows.Forms.ToolStripMenuItem menuIngresar;
+        public System.Windows.Forms.ToolStripMenuItem menuLogin;
+        public System.Windows.Forms.ToolStripMenuItem menuSalir;
+        public System.Windows.Forms.ToolStripMenuItem menuAgenda;
+        public System.Windows.Forms.ToolStripMenuItem menuRutina;
+        public System.Windows.Forms.ToolStripMenuItem menuRendimiento;
+        public System.Windows.Forms.ToolStripMenuItem menuAgendaEntrenador;
+        public System.Windows.Forms.ToolStripMenuItem menuCalificarEntrenador;
+        public System.Windows.Forms.ToolStripMenuItem menuAsignarEntrenamiento;
+        public System.Windows.Forms.ToolStripMenuItem administrativoToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem menuCalendario;
+        public System.Windows.Forms.ToolStripMenuItem menuClienteAdministrativo;
+        public System.Windows.Forms.ToolStripMenuItem menuAvanzado;
+        public System.Windows.Forms.ToolStripMenuItem menuIngresarUusarioBasicos;
+        public System.Windows.Forms.ToolStripMenuItem menuingresarDeportes;
+        public System.Windows.Forms.ToolStripMenuItem menuIngresarEjercicios;
     }
 }

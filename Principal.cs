@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SIGEN_GUI
@@ -29,7 +22,7 @@ namespace SIGEN_GUI
 
         private void menuClientes_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void menuEntrenador_Click(object sender, EventArgs e)
@@ -108,6 +101,30 @@ namespace SIGEN_GUI
         }
 
         private void menuAgenda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuAvanzado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuIngresarUusarioBasicos_Click(object sender, EventArgs e)
+        {
+            Program.frmngBasico = new IngresarUsuarioBasico();
+            Program.frmngBasico.MdiParent = this;
+            Program.frmngBasico.Show();
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+            this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void menuingresarDeportes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuIngresarEjercicios_Click(object sender, EventArgs e)
         {
 
         }
