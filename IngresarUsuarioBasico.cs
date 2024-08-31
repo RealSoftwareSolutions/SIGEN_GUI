@@ -46,65 +46,43 @@ namespace SIGEN_GUI
                 cbSi.Checked = false;
             }
         }
-        private Connection _conexion;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
-            _conexion = new Connection();
-            _conexion.ConnectionString = "Driver={MySQL ODBC 8.0 ANSI Driver};Server=localhost;Database=miodbc;User=pepe;Password=1234;Option=3;";
-            _conexion.Open();
-            // Asume que 'c' es una instancia válida de la clase Cliente
-            Cliente c = new Cliente
+            Int32 cedula = 0; Cliente c;
+            if (!Int32.TryParse(txtCedula.Text, out cedula))
             {
-                Nombre = txtNombre.Text,
-                Direccion = txtDireccionLoc.Text,
-                Edad = new List<int> { /* Asigna edades si hay datos en el formulario */ },
-                Departamentos = new List<string> { /* Asigna departamentos si hay datos en el formulario */ },
-                Gmail = new List<string> { /* Asigna correos Gmail si hay datos en el formulario */ },
-                Genero = txtGenero.Text,
-                Dificultad = cbSi.Checked,
-                DescripcionDificultad = txtDescripcionDificultad.Text,
-                FechaNacimiento = DateTime.TryParse(txtFechaNacimiento.Text, out DateTime fechaNacimiento) ? fechaNacimiento : DateTime.MinValue,
-                Telefonos = new List<string>(cboTelefonos.Items.Cast<string>()),
-                Conexion = Program.cn
-            };
-
-            // Construir la consulta SQL 
-            string sql = $"UPDATE clientes SET " +
-                          $"nombre = '{EscapeSql(c.Nombre)}', " +
-                          $"direccion = '{EscapeSql(c.Direccion)}', " +
-                          $"genero = '{EscapeSql(c.Genero)}', " +
-                          $"departamento = '{EscapeSql(string.Join(",", c.Departamentos))}', " +
-                          $"edad = '{string.Join(",", c.Edad)}', " +
-                          $"correo_gmail = '{string.Join(",", c.Gmail)}', " +
-                          $"dificultad = {(c.Dificultad ? 1 : 0)}, " +
-                          $"descripcion_dificultad = '{EscapeSql(c.DescripcionDificultad)}', " +
-                          $"fecha_nacimiento = {(c.FechaNacimiento != DateTime.MinValue ? $"'{c.FechaNacimiento:yyyy-MM-dd}'" : "NULL")} " +
-                          $"WHERE ci = {c.Ci};";
-
-            // Mostrar la consulta SQL en un cuadro de mensaje para depuración
-            MessageBox.Show($"Consulta SQL: {sql}");
-
-            try
-            {
-                // Ejecutar la consulta SQL
-                _conexion.Execute(sql, out object filasAfectadas);
+                MessageBox.Show("CI debe ser numerica");
             }
-            catch (COMException comEx)
+            else
             {
-                MessageBox.Show($"COM Error: {comEx.Message}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}");
-            }
-        }
+                c = new Cliente();
+                c.Ci = cedula;
+                c.Nombre = txtNombre.Text;
+                c.Conexion = Program.cn;
+                foreach (string telefono in cboTelefonos.Items)
+                {
+                    c.Telefonos.Add(telefono);
 
-        // Método para escapar caracteres especiales en SQL
-        private string EscapeSql(string input)
-        {
-            return input.Replace("'", "''"); // Escapa comillas simples
-        }
+                }
+                switch (c.Guardar(btnEliminar.Enabled))
+                {
+                    case 0:
+                        gbDatos.Visible = false;
+                        txtCedula.Text = "";
+
+                        break;
+                    case 1:
+                        MessageBox.Show("perdio la sesiòn. Debe loguearse nuevamente");
+
+                        break;
+
+                    case 3: MessageBox.Show("Error 3"); break;// error borrar telefonos 
+                    case 4: MessageBox.Show("Error 4"); break;// error al insertar telefonos 
+                }//switch
+                c = null;
+            } // if
+        }//btn guardar
+
 
         private void txtDescripcionDificultad_TextChanged(object sender, EventArgs e)
         {
@@ -112,6 +90,31 @@ namespace SIGEN_GUI
         }
 
         private void txtFechaNacimiento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnQuitarTelefono_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarTelefono_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
 
         }

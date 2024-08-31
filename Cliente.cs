@@ -11,13 +11,12 @@ namespace SIGEN_GUI
         protected int _ci;
         protected string _nombre;
         protected List<string> _telefonos;
-        protected DateTime? _fechanacimiento; // Cambiado de List<string> a DateTime
-        protected string _direccion = "";
-        protected List<int> _edad;
-        protected List<string> _departamentos;
-        protected List<string> _gmail;
+        protected DateTime? _fechanacimiento;
+        protected string _direccion;
+        protected string _departamentos;
+        protected string _gmail;
         protected string _genero;
-        protected Boolean _dificultad;
+        protected bool _dificultad;
         protected string _descripciondificultad;
         protected ADODB.Connection _conexion;
 
@@ -27,35 +26,31 @@ namespace SIGEN_GUI
             _nombre = "";
             _telefonos = new List<string>();
             _fechanacimiento = null;
-            _direccion = ""; // Inicialización
-            _edad = new List<int>(); //  inicializar List<int> también
-            _departamentos = new List<string>(); // Inicialización de listas
-            _gmail = new List<string>();
+            _direccion = "";
+            _departamentos = "";
+            _gmail = "";
             _genero = "";
-            _dificultad = false; // Inicialización correcta
+            _dificultad = false;
             _descripciondificultad = "";
             _conexion = new ADODB.Connection();
         }
 
-        public Cliente(int ci, string nombre, List<string> telefonos, DateTime? fechanacimiento, string direccion, List<int> edad, List<string> departamentos, List<string> gmail, string genero, bool dificultad, string descripciondificultad, Connection conexion)
+        public Cliente(int ci, string nombre, List<string> telefonos, DateTime? fechanacimiento, string direccion, string departamentos, string gmail, string genero, bool dificultad, string descripciondificultad, Connection conexion)
         {
             _ci = ci;
             _nombre = nombre;
             _telefonos = telefonos;
             _fechanacimiento = null;
             _direccion = direccion;
-            _edad = edad;
             _departamentos = departamentos;
             _gmail = gmail;
-            Genero = genero;
+            _genero = genero;
             _dificultad = dificultad;
             _descripciondificultad = descripciondificultad;
             _conexion = conexion;
-            Genero = genero;
         }
 
-
-        // Propiedades
+        // Propiedades públicas (getters y setters)
         public int Ci
         {
             get { return _ci; }
@@ -73,32 +68,26 @@ namespace SIGEN_GUI
             get { return _telefonos; }
             set { _telefonos = value; }
         }
-        public DateTime FechaNacimiento
+
+        public DateTime? FechaNacimiento
         {
-            get { return _fechaNacimiento; }
-            set { _fechaNacimiento = value; }
+            get { return _fechanacimiento; }
+            set { _fechanacimiento = value; }
         }
 
-        private DateTime _fechaNacimiento;
         public string Direccion
         {
             get { return _direccion; }
             set { _direccion = value; }
         }
 
-        public List<int> Edad
-        {
-            get { return _edad; }
-            set { _edad = value; }
-        }
-
-        public List<string> Departamentos
+        public string Departamentos
         {
             get { return _departamentos; }
             set { _departamentos = value; }
         }
 
-        public List<string> Gmail
+        public string Gmail
         {
             get { return _gmail; }
             set { _gmail = value; }
@@ -127,17 +116,17 @@ namespace SIGEN_GUI
             get { return _conexion; }
             set { _conexion = value; }
         }
+
         internal class UsuPass
         {
-            public String Usuario { set; get; }
-            public String Contrasenia { set; get; }
-
+            public string Usuario { get; set; }
+            public string Contrasenia { get; set; }
         }
         public byte Guardar(bool modificacion)
         {
             string sql = "";
             Cliente c = new Cliente();
-            List<string> telefonos = c.Telefonos; // Obtén los teléfonos
+            List<string> telefonos = c.Telefonos;
 
             // Construye la consulta SQL para insertar/actualizar el cliente
             if (modificacion)
@@ -146,20 +135,19 @@ namespace SIGEN_GUI
                       $"nombre = '{EscapeSql(c.Nombre)}', " +
                       $"direccion = '{EscapeSql(c.Direccion)}', " +
                       $"genero = '{EscapeSql(c.Genero)}', " +
-                      $"departamento = '{EscapeSql(string.Join(",", c.Departamentos))}', " +
-                      $"edad = '{string.Join(",", c.Edad)}', " +
-                      $"correo_gmail = '{string.Join(",", c.Gmail)}', " +
+                      $"departamento = '{EscapeSql(c.Departamentos)}', " +
+                      $"correo_gmail = '{EscapeSql(c.Gmail)}', " +
                       $"dificultad = {(c.Dificultad ? 1 : 0)}, " +
                       $"descripcion_dificultad = '{EscapeSql(c.DescripcionDificultad)}', " +
-                      $"fecha_nacimiento = '{(c.FechaNacimiento != DateTime.MinValue ? c.FechaNacimiento.ToString("yyyy-MM-dd") : "NULL")}' " +
+                      $"fecha_nacimiento = {(c.FechaNacimiento.HasValue ? $"'{c.FechaNacimiento:yyyy-MM-dd}'" : "NULL")} " +
                       $"WHERE ci = {c.Ci};";
             }
             else
             {
-                sql = $"INSERT INTO clientes (ci, nombre, direccion, genero, departamento, edad, correo_gmail, dificultad, descripcion_dificultad, fecha_nacimiento) VALUES " +
-                      $"({c.Ci}, '{EscapeSql(c.Nombre)}', '{EscapeSql(c.Direccion)}', '{EscapeSql(c.Genero)}', '{EscapeSql(string.Join(",", c.Departamentos))}', " +
-                      $"'{string.Join(",", c.Edad)}', '{string.Join(",", c.Gmail)}', {(c.Dificultad ? 1 : 0)}, '{EscapeSql(c.DescripcionDificultad)}', " +
-                      $"'{(c.FechaNacimiento != DateTime.MinValue ? c.FechaNacimiento.ToString("yyyy-MM-dd") : "NULL")}');";
+                sql = $"INSERT INTO clientes (ci, nombre, direccion, genero, departamento, correo_gmail, dificultad, descripcion_dificultad, fecha_nacimiento) VALUES " +
+                      $"({c.Ci}, '{EscapeSql(c.Nombre)}', '{EscapeSql(c.Direccion)}', '{EscapeSql(c.Genero)}', '{EscapeSql(c.Departamentos)}', " +
+                      $"'{EscapeSql(c.Gmail)}', {(c.Dificultad ? 1 : 0)}, '{EscapeSql(c.DescripcionDificultad)}', " +
+                      $"{(c.FechaNacimiento.HasValue ? $"'{c.FechaNacimiento:yyyy-MM-dd}'" : "NULL")});";
             }
 
             // Mostrar la consulta SQL en un cuadro de mensaje para depuración
@@ -168,7 +156,7 @@ namespace SIGEN_GUI
             try
             {
                 // Ejecutar la consulta SQL
-                _conexion.Execute(sql, out object filasAfectadas);
+                c.Conexion.Execute(sql, out object filasAfectadas);
 
                 // Manejo de eliminación e inserción de teléfonos
                 foreach (string telefono in telefonos)
@@ -178,7 +166,7 @@ namespace SIGEN_GUI
                     // Mostrar la consulta SQL para teléfonos en un cuadro de mensaje para depuración
                     MessageBox.Show($"Consulta SQL Teléfono: {sqlTelefono}");
 
-                    _conexion.Execute(sqlTelefono, out object filasTelefonoAfectadas);
+                    c.Conexion.Execute(sqlTelefono, out object filasTelefonoAfectadas);
                 }
             }
             catch (COMException comEx)
@@ -194,7 +182,6 @@ namespace SIGEN_GUI
 
             return 0; // Éxito
         }
-
         // Método para escapar caracteres especiales en SQL
         private string EscapeSql(string input)
         {
@@ -203,4 +190,3 @@ namespace SIGEN_GUI
 
     }
 }
-
