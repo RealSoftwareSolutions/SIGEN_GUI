@@ -30,10 +30,10 @@
         {
             this.btnSalir = new System.Windows.Forms.Button();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.dpkFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.txtDescripcionDificultad = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtFechaNacimiento = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbFechaNacimiento = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbSi = new System.Windows.Forms.CheckBox();
             this.txtGenero = new System.Windows.Forms.TextBox();
@@ -49,7 +49,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnQuitarTelefono = new System.Windows.Forms.Button();
-            this.btnAgregarTelefono = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.cboTelefonos = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -75,10 +75,10 @@
             // 
             // gbDatos
             // 
+            this.gbDatos.Controls.Add(this.dpkFechaNacimiento);
             this.gbDatos.Controls.Add(this.txtDescripcionDificultad);
             this.gbDatos.Controls.Add(this.label8);
-            this.gbDatos.Controls.Add(this.txtFechaNacimiento);
-            this.gbDatos.Controls.Add(this.label7);
+            this.gbDatos.Controls.Add(this.lbFechaNacimiento);
             this.gbDatos.Controls.Add(this.label6);
             this.gbDatos.Controls.Add(this.cbSi);
             this.gbDatos.Controls.Add(this.txtGenero);
@@ -94,7 +94,7 @@
             this.gbDatos.Controls.Add(this.btnCancelar);
             this.gbDatos.Controls.Add(this.btnEliminar);
             this.gbDatos.Controls.Add(this.btnQuitarTelefono);
-            this.gbDatos.Controls.Add(this.btnAgregarTelefono);
+            this.gbDatos.Controls.Add(this.btnAgregar);
             this.gbDatos.Controls.Add(this.cboTelefonos);
             this.gbDatos.Controls.Add(this.label4);
             this.gbDatos.Controls.Add(this.btnGuardar);
@@ -104,11 +104,18 @@
             this.gbDatos.Margin = new System.Windows.Forms.Padding(4);
             this.gbDatos.Name = "gbDatos";
             this.gbDatos.Padding = new System.Windows.Forms.Padding(4);
-            this.gbDatos.Size = new System.Drawing.Size(698, 271);
+            this.gbDatos.Size = new System.Drawing.Size(777, 271);
             this.gbDatos.TabIndex = 5;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Ingresar Datos";
             this.gbDatos.Enter += new System.EventHandler(this.gbDatos_Enter);
+            // 
+            // dpkFechaNacimiento
+            // 
+            this.dpkFechaNacimiento.Location = new System.Drawing.Point(570, 59);
+            this.dpkFechaNacimiento.Name = "dpkFechaNacimiento";
+            this.dpkFechaNacimiento.Size = new System.Drawing.Size(192, 22);
+            this.dpkFechaNacimiento.TabIndex = 28;
             // 
             // txtDescripcionDificultad
             // 
@@ -131,24 +138,15 @@
             this.label8.TabIndex = 26;
             this.label8.Text = "Descripcion de Dificultad";
             // 
-            // txtFechaNacimiento
+            // lbFechaNacimiento
             // 
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(575, 59);
-            this.txtFechaNacimiento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
-            this.txtFechaNacimiento.Size = new System.Drawing.Size(110, 22);
-            this.txtFechaNacimiento.TabIndex = 25;
-            this.txtFechaNacimiento.TextChanged += new System.EventHandler(this.txtFechaNacimiento_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(432, 62);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(135, 16);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "Fecha de Nacimiento";
+            this.lbFechaNacimiento.AutoSize = true;
+            this.lbFechaNacimiento.Location = new System.Drawing.Point(428, 63);
+            this.lbFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbFechaNacimiento.Name = "lbFechaNacimiento";
+            this.lbFechaNacimiento.Size = new System.Drawing.Size(135, 16);
+            this.lbFechaNacimiento.TabIndex = 24;
+            this.lbFechaNacimiento.Text = "Fecha de Nacimiento";
             // 
             // label6
             // 
@@ -295,16 +293,16 @@
             this.btnQuitarTelefono.UseVisualStyleBackColor = true;
             this.btnQuitarTelefono.Click += new System.EventHandler(this.btnQuitarTelefono_Click);
             // 
-            // btnAgregarTelefono
+            // btnAgregar
             // 
-            this.btnAgregarTelefono.Location = new System.Drawing.Point(475, 225);
-            this.btnAgregarTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAgregarTelefono.Name = "btnAgregarTelefono";
-            this.btnAgregarTelefono.Size = new System.Drawing.Size(100, 28);
-            this.btnAgregarTelefono.TabIndex = 6;
-            this.btnAgregarTelefono.Text = "Agregar";
-            this.btnAgregarTelefono.UseVisualStyleBackColor = true;
-            this.btnAgregarTelefono.Click += new System.EventHandler(this.btnAgregarTelefono_Click);
+            this.btnAgregar.Location = new System.Drawing.Point(475, 225);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(100, 28);
+            this.btnAgregar.TabIndex = 6;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // cboTelefonos
             // 
@@ -427,7 +425,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnQuitarTelefono;
-        private System.Windows.Forms.Button btnAgregarTelefono;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ComboBox cboTelefonos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGuardar;
@@ -445,13 +443,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox cbSi;
-        private System.Windows.Forms.TextBox txtFechaNacimiento;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbFechaNacimiento;
         private System.Windows.Forms.TextBox txtDescripcionDificultad;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox gbBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtCi;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dpkFechaNacimiento;
     }
 }

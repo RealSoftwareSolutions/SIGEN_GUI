@@ -1,6 +1,7 @@
 ﻿using ADODB;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -122,71 +123,111 @@ namespace SIGEN_GUI
             public string Usuario { get; set; }
             public string Contrasenia { get; set; }
         }
-        public byte Guardar(bool modificacion)
+        public byte Buscar()
         {
-            string sql = "";
-            Cliente c = new Cliente();
-            List<string> telefonos = c.Telefonos;
-
-            // Construye la consulta SQL para insertar/actualizar el cliente
-            if (modificacion)
+            string sql;
+            ADODB.Recordset rs;
+            object filasAfectadas;
+            byte resultado = 0;// POR DEFECTO ASUME QUE LO ENCONTRE
+            if (_conexion.State == 0)
             {
-                sql = $"UPDATE clientes SET " +
-                      $"nombre = '{EscapeSql(c.Nombre)}', " +
-                      $"direccion = '{EscapeSql(c.Direccion)}', " +
-                      $"genero = '{EscapeSql(c.Genero)}', " +
-                      $"departamento = '{EscapeSql(c.Departamentos)}', " +
-                      $"correo_gmail = '{EscapeSql(c.Gmail)}', " +
-                      $"dificultad = {(c.Dificultad ? 1 : 0)}, " +
-                      $"descripcion_dificultad = '{EscapeSql(c.DescripcionDificultad)}', " +
-                      $"fecha_nacimiento = {(c.FechaNacimiento.HasValue ? $"'{c.FechaNacimiento:yyyy-MM-dd}'" : "NULL")} " +
-                      $"WHERE ci = {c.Ci};";
+                resultado = 1; //CONEXION CERRADA
+
             }
             else
             {
-                sql = $"INSERT INTO clientes (ci, nombre, direccion, genero, departamento, correo_gmail, dificultad, descripcion_dificultad, fecha_nacimiento) VALUES " +
-                      $"({c.Ci}, '{EscapeSql(c.Nombre)}', '{EscapeSql(c.Direccion)}', '{EscapeSql(c.Genero)}', '{EscapeSql(c.Departamentos)}', " +
-                      $"'{EscapeSql(c.Gmail)}', {(c.Dificultad ? 1 : 0)}, '{EscapeSql(c.DescripcionDificultad)}', " +
-                      $"{(c.FechaNacimiento.HasValue ? $"'{c.FechaNacimiento:yyyy-MM-dd}'" : "NULL")});";
-            }
+                sql = "select nombre from clientes where ci=" + _ci;
+                try
+                {
+                    rs = _conexion.Execute(sql, out filasAfectadas);
+                }
+                catch
+                {
+                    return (2);// ERROR AL CONSULTAR CLIENTE
 
-            // Mostrar la consulta SQL en un cuadro de mensaje para depuración
-            MessageBox.Show($"Consulta SQL: {sql}");
+                }
+                if (rs.RecordCount == 0)
+                {
+                    resultado = 3;//NO ENCONTRE
+                }
+                else
+                {
+                    _nombre = Convert.ToString(rs.Fields[0].Value);
+                    sql = "select telefono from cliente_telefonos where cliente=" + _ci;
+                    try
+                    {
+                        rs = _conexion.Execute(sql, out filasAfectadas);
+                    }
+                    catch
+                    {
+                        return (4);
+                    }
+                    _telefonos.Clear();
+                    while (!rs.EOF)/*INDICADOR DE QUE TERMINO EL RECORRIDO */
+                    {
+                        _telefonos.Add(Convert.ToString(rs.Fields[0].Value));
+                        rs.MoveNext();
+                    }
+                }//if Record Count
+                rs = null;
+                filasAfectadas = null;
+            } //if conection State
+
+            return resultado;
+
+
+        }
+        public byte Guardar()
+        {
+            string sql;
+            object filasAfectadas;
+            byte resultado = 0;
+
+            if (_conexion.State == 0) // CONEXIÓN CERRADA
+            {
+                return 1; // ERROR DE CONEXIÓN
+            }
 
             try
             {
-                // Ejecutar la consulta SQL
-                c.Conexion.Execute(sql, out object filasAfectadas);
+                // Insertar nuevo cliente
+                sql = "INSERT INTO clientes (ci, nombre, fechanacimiento, direccion, departamentos, gmail, genero, dificultad, descripciondificultad) " +
+                      "VALUES ('" + _ci + "', " +
+                      "'" + _nombre + "', " +
+                      (_fechanacimiento.HasValue ? "'" + _fechanacimiento.Value.ToString("yyyy-MM-dd HH:mm:ss") + "'" : "NULL") + ", " +
+                      "'" + _direccion + "', " +
+                      "'" + _departamentos + "', " +
+                      "'" + _gmail + "', " +
+                      "'" + _genero + "', " +
+                      (_dificultad ? "1" : "0") + ", " +
+                      "'" + _descripciondificultad + "')";
 
-                // Manejo de eliminación e inserción de teléfonos
-                foreach (string telefono in telefonos)
-                {
-                    string sqlTelefono = $"INSERT INTO cliente_telefonos (cliente, telefono) VALUES ({c.Ci}, '{EscapeSql(telefono)}');";
-
-                    // Mostrar la consulta SQL para teléfonos en un cuadro de mensaje para depuración
-                    MessageBox.Show($"Consulta SQL Teléfono: {sqlTelefono}");
-
-                    c.Conexion.Execute(sqlTelefono, out object filasTelefonoAfectadas);
-                }
-            }
-            catch (COMException comEx)
-            {
-                MessageBox.Show($"COM Error: {comEx.Message}");
-                return 2;
+                _conexion.Execute(sql, out filasAfectadas);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
-                return 2;
+                MessageBox.Show("Error al ejecutar la consulta: " + ex.Message);
+                return 2; // ERROR AL GUARDAR CLIENTE
             }
 
-            return 0; // Éxito
-        }
-        // Método para escapar caracteres especiales en SQL
-        private string EscapeSql(string input)
-        {
-            return input.Replace("'", "''"); // Escapa comillas simples
-        }
+            // Insertar teléfonos del cliente
+            foreach (string tel in _telefonos)
+            {
+                try
+                {
+                    sql = "INSERT INTO cliente_telefonos (cliente, telefono) VALUES (" + _ci + ", '" + tel + "')";
+                    _conexion.Execute(sql, out filasAfectadas);
+                }catch (Exception ex)
+                
+                {
+                    MessageBox.Show("Error al insertar teléfono: " + ex.Message);
+                    return 3; // ERROR AL INSERTAR TELÉFONO
+                }
+            }
+
+            return resultado;
+        }// guardar
 
     }
+
 }
