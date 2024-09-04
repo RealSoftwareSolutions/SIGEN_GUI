@@ -112,9 +112,9 @@ namespace SIGEN_GUI
 
         private void menuIngresarUusarioBasicos_Click(object sender, EventArgs e)
         {
-            Program.frmngBasico = new IngresarUsuarioBasico();
-            Program.frmngBasico.MdiParent = this;
-            Program.frmngBasico.Show();
+            Program.frmBasico = new IngresarUsuarioBasico();
+            Program.frmBasico.MdiParent = this;
+            Program.frmBasico.Show();
             this.LayoutMdi(MdiLayout.TileHorizontal);
             this.LayoutMdi(MdiLayout.TileVertical);
         }
