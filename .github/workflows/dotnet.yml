@@ -20,10 +20,12 @@ jobs:
         vs-version: 'latest' # Usa la última versión de Visual Studio
 
     - name: Restore NuGet packages
-      run: nuget restore YourSolution.sln
+      run: nuget restore SIGEN_GUI.sln
 
     - name: Build Solution
-      run: msbuild YourSolution.sln /p:Configuration=Release
+      run: msbuild SIGEN_GUI.sln /p:Configuration=Release
 
     - name: Run Tests
-      run: vstest.console.exe path\to\your\test\project.dll
+      run: |
+        # Asegúrate de que el archivo de pruebas DLL esté en el directorio correcto
+        vstest.console.exe path/to/your/test/project.dll
