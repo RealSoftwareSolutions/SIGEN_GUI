@@ -38,7 +38,6 @@
             this.lbFechaNacimiento = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbSi = new System.Windows.Forms.CheckBox();
-            this.txtGenero = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtGmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.streamClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cboGenero = new System.Windows.Forms.ComboBox();
             this.gbDatos.SuspendLayout();
             this.gbBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.streamClassBindingSource)).BeginInit();
@@ -80,6 +80,7 @@
             // 
             // gbDatos
             // 
+            this.gbDatos.Controls.Add(this.cboGenero);
             this.gbDatos.Controls.Add(this.cboDepartamento);
             this.gbDatos.Controls.Add(this.dpkFechaNacimiento);
             this.gbDatos.Controls.Add(this.txtDescripcionDificultad);
@@ -87,7 +88,6 @@
             this.gbDatos.Controls.Add(this.lbFechaNacimiento);
             this.gbDatos.Controls.Add(this.label6);
             this.gbDatos.Controls.Add(this.cbSi);
-            this.gbDatos.Controls.Add(this.txtGenero);
             this.gbDatos.Controls.Add(this.label5);
             this.gbDatos.Controls.Add(this.txtGmail);
             this.gbDatos.Controls.Add(this.label3);
@@ -204,14 +204,6 @@
             this.cbSi.Text = "Si?";
             this.cbSi.UseVisualStyleBackColor = true;
             this.cbSi.CheckedChanged += new System.EventHandler(this.cbSi_CheckedChanged);
-            // 
-            // txtGenero
-            // 
-            this.txtGenero.Location = new System.Drawing.Point(288, 59);
-            this.txtGenero.Margin = new System.Windows.Forms.Padding(4);
-            this.txtGenero.Name = "txtGenero";
-            this.txtGenero.Size = new System.Drawing.Size(132, 22);
-            this.txtGenero.TabIndex = 21;
             // 
             // label5
             // 
@@ -430,6 +422,19 @@
             // 
             this.clienteBindingSource.DataSource = typeof(SIGEN_GUI.Cliente);
             // 
+            // cboGenero
+            // 
+            this.cboGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGenero.FormattingEnabled = true;
+            this.cboGenero.Items.AddRange(new object[] {
+            "Hombre",
+            "Mujer",
+            "Otro"});
+            this.cboGenero.Location = new System.Drawing.Point(295, 61);
+            this.cboGenero.Name = "cboGenero";
+            this.cboGenero.Size = new System.Drawing.Size(121, 24);
+            this.cboGenero.TabIndex = 30;
+            // 
             // IngresarUsuarioBasico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -472,7 +477,6 @@
         private System.Windows.Forms.Label lblDepartamento;
         private System.Windows.Forms.TextBox txtGmail;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtGenero;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox cbSi;
@@ -487,5 +491,6 @@
         private System.Windows.Forms.ComboBox cboDepartamento;
         private System.Windows.Forms.BindingSource streamClassBindingSource;
         private System.Windows.Forms.BindingSource clienteBindingSource;
+        private System.Windows.Forms.ComboBox cboGenero;
     }
 }

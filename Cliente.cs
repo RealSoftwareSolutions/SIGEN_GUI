@@ -138,7 +138,7 @@ namespace SIGEN_GUI
             }
             else
             {
-                sql = "select nombre from clientes where ci=" + _ci;
+                sql = "SELECT nombre, cliente_telefono FROM clientes WHERE CI =" + _ci;
                 try
                 {
                     rs = _conexion.Execute(sql, out filasAfectadas);
@@ -191,16 +191,17 @@ namespace SIGEN_GUI
             try
             {
                 // Insertar nuevo cliente
-                sql = "INSERT INTO clientes (ci, nombre, fechanacimiento, direccion, departamentos, gmail, genero, dificultad, descripciondificultad) " +
-                      "VALUES ('" + _ci + "', " +
+                sql = "INSERT INTO clientes (CI, nombre, fechanacimiento, direccion, departamentos, gmail, genero, dificultad, descripciondificultad, fecha_ingreso) " +
+                      "VALUES (" + _ci + ", " +
                       "'" + _nombre + "', " +
-                      (_fechanacimiento.HasValue ? "'" + _fechanacimiento.Value.ToString("yyyy-MM-dd HH:mm:ss") + "'" : "NULL") + ", " +
+                      (_fechanacimiento.HasValue ? "'" + _fechanacimiento.Value.ToString("yyyy-MM-dd") + "'" : "NULL") + ", " +
                       "'" + _direccion + "', " +
-                      "'" + _departamentos + "', " +
+                      "'" + _departamentos + "', " + // Corregido a 'departamento'
                       "'" + _gmail + "', " +
                       "'" + _genero + "', " +
-                      (_dificultad ? "1" : "0") + ", " +
-                      "'" + _descripciondificultad + "')";
+                      (_dificultad ? "SI" : "NO") + ", " +
+                      "'" + _descripciondificultad + "', " +
+                      "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
                 _conexion.Execute(sql, out filasAfectadas);
             }

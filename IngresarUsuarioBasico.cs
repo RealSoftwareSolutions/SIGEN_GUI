@@ -55,11 +55,10 @@ namespace SIGEN_GUI
             txtCedula.Text = "";
             txtNombre.Text = "";
             txtDireccionLoc.Text = "";
-            cboDepartamento.Text = "";
+            cboDepartamento.SelectedItem = -1;
             txtGmail.Text = "";
-            txtGenero.Text = "";
+            cboGenero.SelectedItem = -1;
             txtDescripcionDificultad.Text = "";
-            cboTelefonos.Items.Clear();
             cboTelefonos.Text = "";
             cbSi.Checked = false;
             dpkFechaNacimiento.Value = DateTime.Now;
@@ -93,7 +92,7 @@ namespace SIGEN_GUI
                     Direccion = txtDireccionLoc.Text,
                     Departamentos = cboDepartamento.SelectedItem.ToString(),
                     Gmail = txtGmail.Text,
-                    Genero = txtGenero.Text,
+                    Genero = cboGenero.SelectedItem.ToString(),
                     FechaNacimiento = dpkFechaNacimiento.Value, // Asumiendo que tienes un DateTimePicker
                     Dificultad = cbSi.Checked, // Asumiendo que tienes un CheckBox
                     DescripcionDificultad = txtDescripcionDificultad.Text
