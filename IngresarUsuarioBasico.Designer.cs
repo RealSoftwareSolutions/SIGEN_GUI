@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSalir = new System.Windows.Forms.Button();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.cboDepartamento = new System.Windows.Forms.ComboBox();
             this.dpkFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.txtDescripcionDificultad = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -40,7 +42,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtGmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtDepartamento = new System.Windows.Forms.TextBox();
             this.lblDepartamento = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.lblCi = new System.Windows.Forms.Label();
@@ -59,8 +60,12 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtCi = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.streamClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbDatos.SuspendLayout();
             this.gbBuscar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.streamClassBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
@@ -75,6 +80,7 @@
             // 
             // gbDatos
             // 
+            this.gbDatos.Controls.Add(this.cboDepartamento);
             this.gbDatos.Controls.Add(this.dpkFechaNacimiento);
             this.gbDatos.Controls.Add(this.txtDescripcionDificultad);
             this.gbDatos.Controls.Add(this.label8);
@@ -85,7 +91,6 @@
             this.gbDatos.Controls.Add(this.label5);
             this.gbDatos.Controls.Add(this.txtGmail);
             this.gbDatos.Controls.Add(this.label3);
-            this.gbDatos.Controls.Add(this.txtDepartamento);
             this.gbDatos.Controls.Add(this.lblDepartamento);
             this.gbDatos.Controls.Add(this.txtCedula);
             this.gbDatos.Controls.Add(this.lblCi);
@@ -109,6 +114,37 @@
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Ingresar Datos";
             this.gbDatos.Enter += new System.EventHandler(this.gbDatos_Enter);
+            // 
+            // cboDepartamento
+            // 
+            this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDepartamento.FormattingEnabled = true;
+            this.cboDepartamento.ItemHeight = 16;
+            this.cboDepartamento.Items.AddRange(new object[] {
+            "Artigas",
+            "Canelones",
+            "Cerro Largo",
+            "Colonia",
+            "Durazno",
+            "Flores",
+            "Florida",
+            "Lavalleja",
+            "Maldonado",
+            "Montevideo",
+            "Paysandú",
+            "Río Negro",
+            "Rivera",
+            "Rocha",
+            "Salto",
+            "San José",
+            "Soriano",
+            "Tacuarembó",
+            "Treinta y Tres"});
+            this.cboDepartamento.Location = new System.Drawing.Point(104, 60);
+            this.cboDepartamento.MaxDropDownItems = 19;
+            this.cboDepartamento.Name = "cboDepartamento";
+            this.cboDepartamento.Size = new System.Drawing.Size(121, 24);
+            this.cboDepartamento.TabIndex = 29;
             // 
             // dpkFechaNacimiento
             // 
@@ -204,14 +240,6 @@
             this.label3.Size = new System.Drawing.Size(118, 16);
             this.label3.TabIndex = 18;
             this.label3.Text = "Correo Electronico";
-            // 
-            // txtDepartamento
-            // 
-            this.txtDepartamento.Location = new System.Drawing.Point(96, 61);
-            this.txtDepartamento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDepartamento.Name = "txtDepartamento";
-            this.txtDepartamento.Size = new System.Drawing.Size(132, 22);
-            this.txtDepartamento.TabIndex = 15;
             // 
             // lblDepartamento
             // 
@@ -398,6 +426,10 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Ci";
             // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataSource = typeof(SIGEN_GUI.Cliente);
+            // 
             // IngresarUsuarioBasico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -414,6 +446,8 @@
             this.gbDatos.PerformLayout();
             this.gbBuscar.ResumeLayout(false);
             this.gbBuscar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.streamClassBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -435,7 +469,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label lblCi;
-        private System.Windows.Forms.TextBox txtDepartamento;
         private System.Windows.Forms.Label lblDepartamento;
         private System.Windows.Forms.TextBox txtGmail;
         private System.Windows.Forms.Label label3;
@@ -451,5 +484,8 @@
         private System.Windows.Forms.TextBox txtCi;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dpkFechaNacimiento;
+        private System.Windows.Forms.ComboBox cboDepartamento;
+        private System.Windows.Forms.BindingSource streamClassBindingSource;
+        private System.Windows.Forms.BindingSource clienteBindingSource;
     }
 }

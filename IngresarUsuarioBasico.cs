@@ -1,9 +1,12 @@
 ﻿using ADODB;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SIGEN_GUI
 {
@@ -52,7 +55,7 @@ namespace SIGEN_GUI
             txtCedula.Text = "";
             txtNombre.Text = "";
             txtDireccionLoc.Text = "";
-            txtDepartamento.Text = "";
+            cboDepartamento.Text = "";
             txtGmail.Text = "";
             txtGenero.Text = "";
             txtDescripcionDificultad.Text = "";
@@ -61,6 +64,11 @@ namespace SIGEN_GUI
             cbSi.Checked = false;
             dpkFechaNacimiento.Value = DateTime.Now;
 
+        }
+        static bool IsGmail(string email)
+        {
+            string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
+            return Regex.IsMatch(email, pattern);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -72,15 +80,18 @@ namespace SIGEN_GUI
             {
                 MessageBox.Show("CI debe ser numérico");
             }
-            else
+            else if (!IsGmail(txtGmail.Text))
             {
+              MessageBox.Show("El gmail tiene que ser @gmail.com ejemplo: gonzalo@gmail.com"); 
+
+            } else {
                 c = new Cliente
                 {
                     Ci = cedula,
                     Conexion = Program.cn,
                     Nombre = txtNombre.Text,
                     Direccion = txtDireccionLoc.Text,
-                    Departamentos = txtDepartamento.Text,
+                    Departamentos = cboDepartamento.SelectedItem.ToString(),
                     Gmail = txtGmail.Text,
                     Genero = txtGenero.Text,
                     FechaNacimiento = dpkFechaNacimiento.Value, // Asumiendo que tienes un DateTimePicker
@@ -212,8 +223,10 @@ namespace SIGEN_GUI
 
         }
 
+       
+       }
     }
-    }
+    
 
 
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SIGEN_GUI
@@ -11,8 +12,10 @@ namespace SIGEN_GUI
         /// </summary>
         public static LoginInicial frmLogin;
         public static IngresarUsuarioBasico frmngBasico;
+
         public static Principal frmPrincipal;
         public static ADODB.Connection cn = new ADODB.Connection(); /*Conector a una base de datos - 21/05/2024 - Público para que lo tengan todos los archivos del proyecto y Est+atico porque est+a en la clase estática program*/
+
 
         [STAThread]
 

@@ -1,6 +1,8 @@
 ﻿using ADODB;
 using System;
 using System.Collections.Generic;
+using System.Data.Odbc;
+using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -182,12 +184,10 @@ namespace SIGEN_GUI
             string sql;
             object filasAfectadas;
             byte resultado = 0;
-
             if (_conexion.State == 0) // CONEXIÓN CERRADA
             {
                 return 1; // ERROR DE CONEXIÓN
             }
-
             try
             {
                 // Insertar nuevo cliente
@@ -217,8 +217,9 @@ namespace SIGEN_GUI
                 {
                     sql = "INSERT INTO cliente_telefonos (cliente, telefono) VALUES (" + _ci + ", '" + tel + "')";
                     _conexion.Execute(sql, out filasAfectadas);
-                }catch (Exception ex)
-                
+                }
+                catch (Exception ex)
+
                 {
                     MessageBox.Show("Error al insertar teléfono: " + ex.Message);
                     return 3; // ERROR AL INSERTAR TELÉFONO
@@ -229,5 +230,6 @@ namespace SIGEN_GUI
         }// guardar
 
     }
+
 
 }

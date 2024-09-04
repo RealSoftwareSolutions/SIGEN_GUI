@@ -339,6 +339,126 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Administrativo.datasource" />
+    <None Include="Properties\DataSources\ADODB.ADOCommandConstruction.datasource" />
+    <None Include="Properties\DataSources\ADODB.ADOConnectionConstruction.datasource" />
+    <None Include="Properties\DataSources\ADODB.ADOConnectionConstruction15.datasource" />
+    <None Include="Properties\DataSources\ADODB.ADORecordConstruction.datasource" />
+    <None Include="Properties\DataSources\ADODB.ADORecordsetConstruction.datasource" />
+    <None Include="Properties\DataSources\ADODB.ADOStreamConstruction.datasource" />
+    <None Include="Properties\DataSources\ADODB.Command.datasource" />
+    <None Include="Properties\DataSources\ADODB.Command15.datasource" />
+    <None Include="Properties\DataSources\ADODB.Command15_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.Command25.datasource" />
+    <None Include="Properties\DataSources\ADODB.Command25_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.CommandClass.datasource" />
+    <None Include="Properties\DataSources\ADODB.Connection.datasource" />
+    <None Include="Properties\DataSources\ADODB.Connection15.datasource" />
+    <None Include="Properties\DataSources\ADODB.Connection15_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionClass.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEventsVt.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEventsVt_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_BeginTransCompleteEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_CommitTransCompleteEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_ConnectCompleteEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_DisconnectEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_Event.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_ExecuteCompleteEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_InfoMessageEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_RollbackTransCompleteEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_SinkHelper.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_WillConnectEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.ConnectionEvents_WillExecuteEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.Error.datasource" />
+    <None Include="Properties\DataSources\ADODB.Errors.datasource" />
+    <None Include="Properties\DataSources\ADODB.Field.datasource" />
+    <None Include="Properties\DataSources\ADODB.Field15.datasource" />
+    <None Include="Properties\DataSources\ADODB.Field15_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.Field20.datasource" />
+    <None Include="Properties\DataSources\ADODB.Field20_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.Fields.datasource" />
+    <None Include="Properties\DataSources\ADODB.Fields15.datasource" />
+    <None Include="Properties\DataSources\ADODB.Fields15_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.Fields20.datasource" />
+    <None Include="Properties\DataSources\ADODB.Fields20_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.Fields_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.Field_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.Parameter.datasource" />
+    <None Include="Properties\DataSources\ADODB.ParameterClass.datasource" />
+    <None Include="Properties\DataSources\ADODB.Parameters.datasource" />
+    <None Include="Properties\DataSources\ADODB.Parameters_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.Properties.datasource" />
+    <None Include="Properties\DataSources\ADODB.Property.datasource" />
+    <None Include="Properties\DataSources\ADODB.Record.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordClass.datasource" />
+    <None Include="Properties\DataSources\ADODB.Recordset.datasource" />
+    <None Include="Properties\DataSources\ADODB.Recordset15.datasource" />
+    <None Include="Properties\DataSources\ADODB.Recordset15_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.Recordset20.datasource" />
+    <None Include="Properties\DataSources\ADODB.Recordset20_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.Recordset21.datasource" />
+    <None Include="Properties\DataSources\ADODB.Recordset21_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetClass.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEventsVt.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEventsVt_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_EndOfRecordsetEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_Event.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_FetchCompleteEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_FetchProgressEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_FieldChangeCompleteEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_MoveCompleteEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_RecordChangeCompleteEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_RecordsetChangeCompleteEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_SinkHelper.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_WillChangeFieldEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_WillChangeRecordEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_WillChangeRecordsetEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.RecordsetEvents_WillMoveEventHandler.datasource" />
+    <None Include="Properties\DataSources\ADODB.Stream.datasource" />
+    <None Include="Properties\DataSources\ADODB.StreamClass.datasource" />
+    <None Include="Properties\DataSources\ADODB._ADO.datasource" />
+    <None Include="Properties\DataSources\ADODB._Collection.datasource" />
+    <None Include="Properties\DataSources\ADODB._Command.datasource" />
+    <None Include="Properties\DataSources\ADODB._Command_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB._Connection.datasource" />
+    <None Include="Properties\DataSources\ADODB._Connection_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB._DynaCollection.datasource" />
+    <None Include="Properties\DataSources\ADODB._Parameter.datasource" />
+    <None Include="Properties\DataSources\ADODB._Parameter_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB._Record.datasource" />
+    <None Include="Properties\DataSources\ADODB._Recordset.datasource" />
+    <None Include="Properties\DataSources\ADODB._Recordset_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB._Record_Deprecated.datasource" />
+    <None Include="Properties\DataSources\ADODB._Stream.datasource" />
+    <None Include="Properties\DataSources\ADODB._Stream_Deprecated.datasource" />
+    <None Include="Properties\DataSources\Agenda_Administrativo.datasource" />
+    <None Include="Properties\DataSources\Agenda_Cliente.datasource" />
+    <None Include="Properties\DataSources\AsignarEjercicio.datasource" />
+    <None Include="Properties\DataSources\CalendarioMenu.datasource" />
+    <None Include="Properties\DataSources\Calificar.datasource" />
+    <None Include="Properties\DataSources\Cliente.datasource" />
+    <None Include="Properties\DataSources\ClienteAgendaInfo2.datasource" />
+    <None Include="Properties\DataSources\ClienteInfoAgenda.datasource" />
+    <None Include="Properties\DataSources\ClubsSelecionadorAñadirEquipo.datasource" />
+    <None Include="Properties\DataSources\ClubsSelecionadorRol.datasource" />
+    <None Include="Properties\DataSources\DeporteSeleccioandorrol.datasource" />
+    <None Include="Properties\DataSources\EjercicioIngresar.datasource" />
+    <None Include="Properties\DataSources\IngresarClub.datasource" />
+    <None Include="Properties\DataSources\IngresarDeporte.datasource" />
+    <None Include="Properties\DataSources\IngresarEntrenador.datasource" />
+    <None Include="Properties\DataSources\IngresarUsuarioBasico.datasource" />
+    <None Include="Properties\DataSources\LoginInicial.datasource" />
+    <None Include="Properties\DataSources\Principal.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\RendimientoCliente.datasource" />
+    <None Include="Properties\DataSources\RutinaCliente.datasource" />
+    <None Include="Properties\DataSources\SeleccionadordeIdioma.datasource" />
+    <None Include="Properties\DataSources\SIGEN_GUI.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\SIGEN_GUI.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -380,6 +500,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
