@@ -13,7 +13,7 @@ namespace SIGEN_GUI
     {
         protected int _ci;
         protected string _nombre;
-        protected List<string> _telefonos;
+        protected List<string> _telefono;
         protected DateTime? _fechanacimiento;
         protected string _direccion;
         protected string _departamentos;
@@ -27,7 +27,7 @@ namespace SIGEN_GUI
         {
             _ci = 0;
             _nombre = "";
-            _telefonos = new List<string>();
+            _telefono = new List<string>();
             _fechanacimiento = null;
             _direccion = "";
             _departamentos = "";
@@ -38,11 +38,11 @@ namespace SIGEN_GUI
             _conexion = new ADODB.Connection();
         }
 
-        public Cliente(int ci, string nombre, List<string> telefonos, DateTime? fechanacimiento, string direccion, string departamentos, string gmail, string genero, bool dificultad, string descripciondificultad, Connection conexion)
+        public Cliente(int ci, string nombre, List<string> telefono, DateTime? fechanacimiento, string direccion, string departamentos, string gmail, string genero, bool dificultad, string descripciondificultad, Connection conexion)
         {
             _ci = ci;
             _nombre = nombre;
-            _telefonos = telefonos;
+            _telefono = telefono;
             _fechanacimiento = null;
             _direccion = direccion;
             _departamentos = departamentos;
@@ -66,10 +66,10 @@ namespace SIGEN_GUI
             set { _nombre = value; }
         }
 
-        public List<string> Telefonos
+        public List<string> Telefono
         {
-            get { return _telefonos; }
-            set { _telefonos = value; }
+            get { return _telefono; }
+            set { _telefono = value; }
         }
 
         public DateTime? FechaNacimiento
@@ -164,10 +164,10 @@ namespace SIGEN_GUI
                     {
                         return (4);
                     }
-                    _telefonos.Clear();
+                    _telefono.Clear();
                     while (!rs.EOF)/*INDICADOR DE QUE TERMINO EL RECORRIDO */
                     {
-                        _telefonos.Add(Convert.ToString(rs.Fields[0].Value));
+                        _telefono.Add(Convert.ToString(rs.Fields[0].Value));
                         rs.MoveNext();
                     }
                 }//if Record Count
@@ -191,17 +191,18 @@ namespace SIGEN_GUI
             try
             {
                 // Insertar nuevo cliente
-                sql = "INSERT INTO clientes (CI, nombre, fechanacimiento, direccion, departamentos, gmail, genero, dificultad, descripciondificultad, fecha_ingreso) " +
-                      "VALUES (" + _ci + ", " +
-                      "'" + _nombre + "', " +
-                      (_fechanacimiento.HasValue ? "'" + _fechanacimiento.Value.ToString("yyyy-MM-dd") + "'" : "NULL") + ", " +
-                      "'" + _direccion + "', " +
-                      "'" + _departamentos + "', " + // Corregido a 'departamento'
-                      "'" + _gmail + "', " +
-                      "'" + _genero + "', " +
-                      (_dificultad ? "SI" : "NO") + ", " +
-                      "'" + _descripciondificultad + "', " +
-                      "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+                sql = "INSERT INTO clientes (CI, nombre, fechanacimiento, direccion, departamentos, gmail, genero, dificultad, descripciondificultad, fecha_ingreso, telefono) " +
+                    "VALUES (" + _ci + ", " +
+                    "'" + _nombre + "', " +
+                    (_fechanacimiento.HasValue ? "'" + _fechanacimiento.Value.ToString("yyyy-MM-dd") + "'" : "NULL") + ", " +
+                    "'" + _direccion + "', " +
+                    "'" + _departamentos + "', " +
+                    "'" + _gmail + "', " +
+                    "'" + _genero + "', " +
+                    (_dificultad ? "1" : "0") + ", " +
+                    "'" + _descripciondificultad + "', " +
+                    "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " + // Agregada la coma
+                    "'" + _telefono + "')";
 
                 _conexion.Execute(sql, out filasAfectadas);
             }
@@ -212,7 +213,7 @@ namespace SIGEN_GUI
             }
 
             // Insertar teléfonos del cliente
-            foreach (string tel in _telefonos)
+            foreach (string tel in _telefono)
             {
                 try
                 {

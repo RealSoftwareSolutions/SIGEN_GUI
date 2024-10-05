@@ -4,7 +4,9 @@ using System.Windows.Forms;
 
 namespace SIGEN_GUI
 {
-
+    /// <summary>
+    /
+    /// </summary>
     internal static class Program
     {
         /// <summary>

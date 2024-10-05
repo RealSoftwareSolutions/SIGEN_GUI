@@ -109,7 +109,11 @@ namespace SIGEN_GUI
         {
 
         }
-
+        /// <summary>
+        /// //////////////////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menuIngresarUusarioBasicos_Click(object sender, EventArgs e)
         {
             Program.frmBasico = new IngresarUsuarioBasico();

@@ -47,7 +47,7 @@ namespace SIGEN_GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnMostrar_Click(object sender, EventArgs e)
         {
             if (txtContrasenia.PasswordChar == '*')
             {

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.btnSalir = new System.Windows.Forms.Button();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.cboGenero = new System.Windows.Forms.ComboBox();
             this.cboDepartamento = new System.Windows.Forms.ComboBox();
             this.dpkFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.txtDescripcionDificultad = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnQuitarTelefono = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.cboTelefonos = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -61,7 +61,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.streamClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cboGenero = new System.Windows.Forms.ComboBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.gbDatos.SuspendLayout();
             this.gbBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.streamClassBindingSource)).BeginInit();
@@ -80,6 +80,7 @@
             // 
             // gbDatos
             // 
+            this.gbDatos.Controls.Add(this.txtTelefono);
             this.gbDatos.Controls.Add(this.cboGenero);
             this.gbDatos.Controls.Add(this.cboDepartamento);
             this.gbDatos.Controls.Add(this.dpkFechaNacimiento);
@@ -100,7 +101,6 @@
             this.gbDatos.Controls.Add(this.btnEliminar);
             this.gbDatos.Controls.Add(this.btnQuitarTelefono);
             this.gbDatos.Controls.Add(this.btnAgregar);
-            this.gbDatos.Controls.Add(this.cboTelefonos);
             this.gbDatos.Controls.Add(this.label4);
             this.gbDatos.Controls.Add(this.btnGuardar);
             this.gbDatos.Controls.Add(this.txtNombre);
@@ -114,6 +114,19 @@
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Ingresar Datos";
             this.gbDatos.Enter += new System.EventHandler(this.gbDatos_Enter);
+            // 
+            // cboGenero
+            // 
+            this.cboGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGenero.FormattingEnabled = true;
+            this.cboGenero.Items.AddRange(new object[] {
+            "Hombre",
+            "Mujer",
+            "Otro"});
+            this.cboGenero.Location = new System.Drawing.Point(295, 61);
+            this.cboGenero.Name = "cboGenero";
+            this.cboGenero.Size = new System.Drawing.Size(121, 24);
+            this.cboGenero.TabIndex = 30;
             // 
             // cboDepartamento
             // 
@@ -324,16 +337,6 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // cboTelefonos
-            // 
-            this.cboTelefonos.FormattingEnabled = true;
-            this.cboTelefonos.Location = new System.Drawing.Point(473, 31);
-            this.cboTelefonos.Margin = new System.Windows.Forms.Padding(4);
-            this.cboTelefonos.Name = "cboTelefonos";
-            this.cboTelefonos.Size = new System.Drawing.Size(132, 24);
-            this.cboTelefonos.TabIndex = 5;
-            this.cboTelefonos.SelectedIndexChanged += new System.EventHandler(this.cboTelefonos_SelectedIndexChanged);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -422,18 +425,13 @@
             // 
             this.clienteBindingSource.DataSource = typeof(SIGEN_GUI.Cliente);
             // 
-            // cboGenero
+            // txtTelefono
             // 
-            this.cboGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboGenero.FormattingEnabled = true;
-            this.cboGenero.Items.AddRange(new object[] {
-            "Hombre",
-            "Mujer",
-            "Otro"});
-            this.cboGenero.Location = new System.Drawing.Point(295, 61);
-            this.cboGenero.Name = "cboGenero";
-            this.cboGenero.Size = new System.Drawing.Size(121, 24);
-            this.cboGenero.TabIndex = 30;
+            this.txtTelefono.Location = new System.Drawing.Point(473, 31);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(132, 22);
+            this.txtTelefono.TabIndex = 31;
             // 
             // IngresarUsuarioBasico
             // 
@@ -465,7 +463,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnQuitarTelefono;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.ComboBox cboTelefonos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtNombre;
@@ -492,5 +489,6 @@
         private System.Windows.Forms.BindingSource streamClassBindingSource;
         private System.Windows.Forms.BindingSource clienteBindingSource;
         private System.Windows.Forms.ComboBox cboGenero;
+        private System.Windows.Forms.TextBox txtTelefono;
     }
 }

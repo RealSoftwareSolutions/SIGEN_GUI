@@ -59,17 +59,17 @@ namespace SIGEN_GUI
             txtGmail.Text = "";
             cboGenero.SelectedItem = -1;
             txtDescripcionDificultad.Text = "";
-            cboTelefonos.Text = "";
+            txtTelefono.Text = "";  // Nuevo txtTelefono
             cbSi.Checked = false;
             dpkFechaNacimiento.Value = DateTime.Now;
 
         }
-        static bool IsGmail(string email)
+        static bool IsGmail(string email) //funcion que hace 1 numerador nulo
         {
             string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
             return Regex.IsMatch(email, pattern);
         }
-
+        
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             int cedula = 0;
@@ -81,9 +81,10 @@ namespace SIGEN_GUI
             }
             else if (!IsGmail(txtGmail.Text))
             {
-              MessageBox.Show("El gmail tiene que ser @gmail.com ejemplo: gonzalo@gmail.com"); 
-
-            } else {
+                MessageBox.Show("El gmail tiene que ser @gmail.com ejemplo: gonzalo@gmail.com");
+            }
+            else
+            {
                 c = new Cliente
                 {
                     Ci = cedula,
@@ -93,20 +94,20 @@ namespace SIGEN_GUI
                     Departamentos = cboDepartamento.SelectedItem.ToString(),
                     Gmail = txtGmail.Text,
                     Genero = cboGenero.SelectedItem.ToString(),
-                    FechaNacimiento = dpkFechaNacimiento.Value, // Asumiendo que tienes un DateTimePicker
-                    Dificultad = cbSi.Checked, // Asumiendo que tienes un CheckBox
+                    FechaNacimiento = dpkFechaNacimiento.Value,
+                    Dificultad = cbSi.Checked,
                     DescripcionDificultad = txtDescripcionDificultad.Text
                 };
 
-                // Agregar teléfonos
-                c.Telefonos.Clear(); // Limpiar lista existente de teléfonos
-                foreach (string telefono in cboTelefonos.Items)
+                // Aquí agregamos el teléfono ingresado en txtTelefono
+                c.Telefono.Clear();  // Limpiar lista existente de teléfonos
+                if (!string.IsNullOrEmpty(txtTelefono.Text))
                 {
-                    c.Telefonos.Add(telefono);
+                    c.Telefono.Add(txtTelefono.Text);
                 }
 
                 // Guardar datos del cliente
-                switch (c.Guardar()) // Llamar al método Guardar sin argumentos
+                switch (c.Guardar())
                 {
                     case 0:
                         LimpiarFormulario();
@@ -159,16 +160,15 @@ namespace SIGEN_GUI
         {
 
         }
-     
+
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
             Cliente c;
             int documento;
             if (!Int32.TryParse(txtCi.Text, out documento))
             {
-                MessageBox.Show("la cedula de indentidad debe ser numerica" + txtCedula);
+                MessageBox.Show("La cédula de identidad debe ser numérica: " + txtCedula);
             }
             else
             {
@@ -177,27 +177,22 @@ namespace SIGEN_GUI
                 c.Conexion = Program.cn;
                 switch (c.Buscar())
                 {
-                    case 0: //Encontre - Modificaciòn
+                    case 0: // Encontré - Modificación
                         gbBuscar.Enabled = false;
                         gbDatos.Visible = true;
                         btnEliminar.Enabled = true;
                         txtNombre.Text = c.Nombre;
-                        cboTelefonos.Items.Clear();
+                        txtTelefono.Text = c.Telefono.Count > 0 ? c.Telefono[0] : "";  // Mostrar el primer teléfono
                         btnGuardar.Text = "Modificar";
-
-                        foreach (string telefono in c.Telefonos)
-                        {
-                            cboTelefonos.Items.Add(telefono);
-                        }
-                        cboTelefonos.SelectedIndex = 0; //MOSTRAR PRIMER NÙMERO SELECCIONADO
                         break;
 
+                    case 1:
+                        MessageBox.Show("Ha perdido la sesión. Debe loguearse nuevamente.");
+                        break;
 
-                    case 1: MessageBox.Show("ha perdido la sesión. Debe loguearse nuevamente"); break;
                     case 2:
-                    case 3: //no se encontró
-
-                        DialogResult resultado = MessageBox.Show("¿desea agregar el usuario?" /*DAR DE ALTA*/, "¿Agregar?", MessageBoxButtons.YesNo);
+                    case 3: // No se encontró
+                        DialogResult resultado = MessageBox.Show("¿Desea agregar el usuario?", "¿Agregar?", MessageBoxButtons.YesNo);
 
                         if (resultado == DialogResult.Yes)
                         {
@@ -205,26 +200,23 @@ namespace SIGEN_GUI
                             gbDatos.Visible = true;
                             btnEliminar.Enabled = false;
                             txtNombre.Clear();
-                            cboTelefonos.Items.Clear();
+                            txtTelefono.Clear();  // Limpiar el campo de teléfono
                             gbDatos.Visible = Enabled;
                             btnGuardar.Text = "Guardar";
-                            cboTelefonos.Text = "";
                         }
-                        /*PROPIEDAD ACCEPT BUTTON EN EL FORMULARIO PARA PODER DARLE ENTER*/
                         break;
-                    case 4: MessageBox.Show("hubo errores al buscar. en caso de repetirse, avisar al administrador"); break;
 
-
+                    case 4:
+                        MessageBox.Show("Hubo errores al buscar. En caso de repetirse, avisar al administrador.");
+                        break;
                 }
                 c = null;
-
             }
-
         }
 
-       
-       }
+
     }
+}
     
 
 
