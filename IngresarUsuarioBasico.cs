@@ -52,7 +52,7 @@ namespace SIGEN_GUI
         private void LimpiarFormulario()
         {
             // Limpiar todos los campos del formulario
-            txtCedula.Text = "";
+            txtCedula.Text = "";    
             txtNombre.Text = "";
             txtDireccionLoc.Text = "";
             cboDepartamento.SelectedItem = -1;
@@ -73,11 +73,16 @@ namespace SIGEN_GUI
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             int cedula = 0;
+            int telefono = 0;
             Cliente c;
 
             if (!int.TryParse(txtCedula.Text, out cedula))
             {
                 MessageBox.Show("CI debe ser numérico");
+            }
+            else if (!int.TryParse(txtTelefono.Text, out telefono))
+            {
+                MessageBox.Show("El teléfono debe ser numérico");
             }
             else if (!IsGmail(txtGmail.Text))
             {
@@ -96,15 +101,11 @@ namespace SIGEN_GUI
                     Genero = cboGenero.SelectedItem.ToString(),
                     FechaNacimiento = dpkFechaNacimiento.Value,
                     Dificultad = cbSi.Checked,
-                    DescripcionDificultad = txtDescripcionDificultad.Text
+                    DescripcionDificultad = txtDescripcionDificultad.Text,
+                    Telefono = telefono
                 };
 
                 // Aquí agregamos el teléfono ingresado en txtTelefono
-                c.Telefono.Clear();  // Limpiar lista existente de teléfonos
-                if (!string.IsNullOrEmpty(txtTelefono.Text))
-                {
-                    c.Telefono.Add(txtTelefono.Text);
-                }
 
                 // Guardar datos del cliente
                 switch (c.Guardar())
@@ -182,7 +183,7 @@ namespace SIGEN_GUI
                         gbDatos.Visible = true;
                         btnEliminar.Enabled = true;
                         txtNombre.Text = c.Nombre;
-                        txtTelefono.Text = c.Telefono.Count > 0 ? c.Telefono[0] : "";  // Mostrar el primer teléfono
+// txtTelefono.Text = c.Telefono.Count > 0 ? c.Telefono[0] : "";  // Mostrar el primer teléfono
                         btnGuardar.Text = "Modificar";
                         break;
 
@@ -214,7 +215,15 @@ namespace SIGEN_GUI
             }
         }
 
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void lblCi_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     

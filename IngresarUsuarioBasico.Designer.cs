@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.btnSalir = new System.Windows.Forms.Button();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.cboGenero = new System.Windows.Forms.ComboBox();
             this.cboDepartamento = new System.Windows.Forms.ComboBox();
             this.dpkFechaNacimiento = new System.Windows.Forms.DateTimePicker();
@@ -61,7 +62,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.streamClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.gbDatos.SuspendLayout();
             this.gbBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.streamClassBindingSource)).BeginInit();
@@ -114,6 +114,14 @@
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Ingresar Datos";
             this.gbDatos.Enter += new System.EventHandler(this.gbDatos_Enter);
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(473, 31);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(132, 22);
+            this.txtTelefono.TabIndex = 31;
             // 
             // cboGenero
             // 
@@ -263,6 +271,7 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(132, 22);
             this.txtCedula.TabIndex = 13;
+            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             // 
             // lblCi
             // 
@@ -273,6 +282,7 @@
             this.lblCi.Size = new System.Drawing.Size(22, 16);
             this.lblCi.TabIndex = 12;
             this.lblCi.Text = "C.I";
+            this.lblCi.Click += new System.EventHandler(this.lblCi_Click);
             // 
             // txtDireccionLoc
             // 
@@ -424,14 +434,6 @@
             // clienteBindingSource
             // 
             this.clienteBindingSource.DataSource = typeof(SIGEN_GUI.Cliente);
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(473, 31);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(132, 22);
-            this.txtTelefono.TabIndex = 31;
             // 
             // IngresarUsuarioBasico
             // 

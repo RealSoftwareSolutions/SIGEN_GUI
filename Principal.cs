@@ -125,12 +125,20 @@ namespace SIGEN_GUI
 
         private void menuingresarDeportes_Click(object sender, EventArgs e)
         {
-
+            Program.frmDeporteIng = new IngresarDeporte();
+            Program.frmDeporteIng.MdiParent = this;
+            Program.frmDeporteIng.Show();
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+            this.LayoutMdi(MdiLayout.TileVertical);
         }
 
         private void menuIngresarEjercicios_Click(object sender, EventArgs e)
         {
-
+            Program.frmEjercicosIng = new EjercicioIngresar();
+            Program.frmEjercicosIng.MdiParent = this;
+            Program.frmEjercicosIng.Show();
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+            this.LayoutMdi(MdiLayout.TileVertical);
         }
     }
 }

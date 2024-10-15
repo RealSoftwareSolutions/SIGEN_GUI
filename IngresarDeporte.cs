@@ -8,5 +8,15 @@ namespace SIGEN_GUI
         {
             InitializeComponent();
         }
+
+        private void gbDatosDeportes_Enter(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void lblrequiereequipo_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

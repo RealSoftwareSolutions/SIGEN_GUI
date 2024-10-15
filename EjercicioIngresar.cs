@@ -8,5 +8,15 @@ namespace SIGEN_GUI
         {
             InitializeComponent();
         }
+
+        private void gbDatosIngreso_Enter(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void EjercicioIngresar_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

@@ -236,6 +236,7 @@
     <Compile Include="ClubsSelecionadorRol.Designer.cs">
       <DependentUpon>ClubsSelecionadorRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Deporte.cs" />
     <Compile Include="DeporteSeleccioandorrol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +307,15 @@
     </Compile>
     <EmbeddedResource Include="Agenda_Cliente.resx">
       <DependentUpon>Agenda_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EjercicioIngresar.resx">
+      <DependentUpon>EjercicioIngresar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngresarDeporte.resx">
+      <DependentUpon>IngresarDeporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngresarEntrenador.resx">
+      <DependentUpon>IngresarEntrenador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IngresarUsuarioBasico.resx">
       <DependentUpon>IngresarUsuarioBasico.cs</DependentUpon>

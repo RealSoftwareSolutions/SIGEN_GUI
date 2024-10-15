@@ -5,7 +5,7 @@ using System.Windows.Forms;
 namespace SIGEN_GUI
 {
     /// <summary>
-    /
+    
     /// </summary>
     internal static class Program
     {
@@ -14,6 +14,9 @@ namespace SIGEN_GUI
         /// </summary>
         public static LoginInicial frmLogin;
         public static IngresarUsuarioBasico frmBasico;
+        public static EjercicioIngresar frmEjercicosIng;
+        public static IngresarDeporte frmDeporteIng;
+
 
         public static Principal frmPrincipal;
         public static ADODB.Connection cn = new ADODB.Connection(); /*Conector a una base de datos - 21/05/2024 - Público para que lo tengan todos los archivos del proyecto y Est+atico porque est+a en la clase estática program*/

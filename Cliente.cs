@@ -13,7 +13,7 @@ namespace SIGEN_GUI
     {
         protected int _ci;
         protected string _nombre;
-        protected List<string> _telefono;
+        protected int _telefono;
         protected DateTime? _fechanacimiento;
         protected string _direccion;
         protected string _departamentos;
@@ -27,7 +27,7 @@ namespace SIGEN_GUI
         {
             _ci = 0;
             _nombre = "";
-            _telefono = new List<string>();
+            _telefono = 0;
             _fechanacimiento = null;
             _direccion = "";
             _departamentos = "";
@@ -38,7 +38,7 @@ namespace SIGEN_GUI
             _conexion = new ADODB.Connection();
         }
 
-        public Cliente(int ci, string nombre, List<string> telefono, DateTime? fechanacimiento, string direccion, string departamentos, string gmail, string genero, bool dificultad, string descripciondificultad, Connection conexion)
+        public Cliente(int ci, string nombre, int telefono, DateTime? fechanacimiento, string direccion, string departamentos, string gmail, string genero, bool dificultad, string descripciondificultad, Connection conexion)
         {
             _ci = ci;
             _nombre = nombre;
@@ -66,7 +66,7 @@ namespace SIGEN_GUI
             set { _nombre = value; }
         }
 
-        public List<string> Telefono
+        public int Telefono
         {
             get { return _telefono; }
             set { _telefono = value; }
@@ -164,10 +164,9 @@ namespace SIGEN_GUI
                     {
                         return (4);
                     }
-                    _telefono.Clear();
                     while (!rs.EOF)/*INDICADOR DE QUE TERMINO EL RECORRIDO */
                     {
-                        _telefono.Add(Convert.ToString(rs.Fields[0].Value));
+                      
                         rs.MoveNext();
                     }
                 }//if Record Count
@@ -206,15 +205,16 @@ namespace SIGEN_GUI
 
                 _conexion.Execute(sql, out filasAfectadas);
             }
+           
             catch (Exception ex)
             {
                 MessageBox.Show("Error al ejecutar la consulta: " + ex.Message);
                 return 2; // ERROR AL GUARDAR CLIENTE
             }
-
+           /*
             // Insertar teléfonos del cliente
-            foreach (string tel in _telefono)
-            {
+            //foreach (string tel in _telefono)
+            //{
                 try
                 {
                     sql = "INSERT INTO cliente_telefonos (cliente, telefono) VALUES (" + _ci + ", '" + tel + "')";
@@ -227,11 +227,9 @@ namespace SIGEN_GUI
                     return 3; // ERROR AL INSERTAR TELÉFONO
                 }
             }
-
+        */
             return resultado;
         }// guardar
-
+        }
     }
 
-
-}
