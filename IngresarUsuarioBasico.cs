@@ -15,12 +15,13 @@ namespace SIGEN_GUI
         public IngresarUsuarioBasico()
         {
             InitializeComponent();
+
             
         }
 
         private void IngresarUsuarioBasico_Load(object sender, EventArgs e)
         {
-
+            gbDatos.Enabled = false;
         }
 
         private void cboTelefonos_SelectedIndexChanged(object sender, EventArgs e)
@@ -35,7 +36,7 @@ namespace SIGEN_GUI
 
         private void gbDatos_Enter(object sender, EventArgs e)
         {
-
+  
         }
 
         private void cbSi_CheckedChanged(object sender, EventArgs e)
@@ -112,6 +113,8 @@ namespace SIGEN_GUI
                 {
                     case 0:
                         LimpiarFormulario();
+                        gbDatos.Enabled = false;
+                        gbBuscar.Enabled = true;
                         break;
 
                     case 1:
@@ -162,58 +165,59 @@ namespace SIGEN_GUI
 
         }
 
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Cliente c;
+            Cliente c = new Cliente();
             int documento;
-            if (!Int32.TryParse(txtCi.Text, out documento))
+
+            // Verificar que el documento sea numérico
+            if (!Int32.TryParse(txtBuscar.Text, out documento))
             {
-                MessageBox.Show("La cédula de identidad debe ser numérica: " + txtCedula);
+                MessageBox.Show("El documento debe ser numérico: " + txtBuscar.Text);
+                return; // Salir del método si la validación falla
             }
-            else
+
+            c.Conexion = Program.cn;
+            c.Ci = documento; // Asignar directamente el documento como cédula
+
+            switch (c.Buscar())
             {
-                c = new Cliente();
-                c.Ci = documento;
-                c.Conexion = Program.cn;
-                switch (c.Buscar())
-                {
-                    case 0: // Encontré - Modificación
+                case 0: // Cliente encontrado
+                    gbBuscar.Enabled = true;
+                    MessageBox.Show("El usuario con cédula " + c.Ci + " ya está registrado.");
+                    gbDatos.Enabled = false;
+                    txtBuscar.Text = "";
+                    break;
+
+                case 1:
+                    MessageBox.Show("Ha perdido la sesión. Debe loguearse nuevamente.");
+                    break;
+
+                
+                case 2:
+                    MessageBox.Show("deha");
+                    break;
+
+                case 3: // No encontrado
+                    MessageBox.Show("Error:"+ c.Ci);
+                    DialogResult resultado = MessageBox.Show("¿Desea agregar el usuario?", "¿Agregar?", MessageBoxButtons.YesNo);
+                    if (resultado == DialogResult.Yes)
+                    {
+                       
                         gbBuscar.Enabled = false;
                         gbDatos.Visible = true;
-                        btnEliminar.Enabled = true;
-                        txtNombre.Text = c.Nombre;
-// txtTelefono.Text = c.Telefono.Count > 0 ? c.Telefono[0] : "";  // Mostrar el primer teléfono
-                        btnGuardar.Text = "Modificar";
-                        break;
+                        gbDatos.Enabled = true;
+                        txtNombre.Clear();
+                        btnGuardar.Text = "Guardar";
+                    }
+                    break;
 
-                    case 1:
-                        MessageBox.Show("Ha perdido la sesión. Debe loguearse nuevamente.");
-                        break;
-
-                    case 2:
-                    case 3: // No se encontró
-                        DialogResult resultado = MessageBox.Show("¿Desea agregar el usuario?", "¿Agregar?", MessageBoxButtons.YesNo);
-
-                        if (resultado == DialogResult.Yes)
-                        {
-                            gbBuscar.Enabled = false;
-                            gbDatos.Visible = true;
-                            btnEliminar.Enabled = false;
-                            txtNombre.Clear();
-                            txtTelefono.Clear();  // Limpiar el campo de teléfono
-                            gbDatos.Visible = Enabled;
-                            btnGuardar.Text = "Guardar";
-                        }
-                        break;
-
-                    case 4:
-                        MessageBox.Show("Hubo errores al buscar. En caso de repetirse, avisar al administrador.");
-                        break;
-                }
-                c = null;
+                case 4:
+                    MessageBox.Show("Hubo errores al buscar. En caso de repetirse, avisar al administrador.");
+                    break;
             }
         }
+
 
         private void txtCedula_TextChanged(object sender, EventArgs e)
         {
@@ -221,6 +225,11 @@ namespace SIGEN_GUI
         }
 
         private void lblCi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

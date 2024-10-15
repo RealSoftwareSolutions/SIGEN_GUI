@@ -49,8 +49,6 @@
             this.txtDireccionLoc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnQuitarTelefono = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -58,7 +56,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gbBuscar = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtCi = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.streamClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -98,8 +96,6 @@
             this.gbDatos.Controls.Add(this.txtDireccionLoc);
             this.gbDatos.Controls.Add(this.label1);
             this.gbDatos.Controls.Add(this.btnCancelar);
-            this.gbDatos.Controls.Add(this.btnEliminar);
-            this.gbDatos.Controls.Add(this.btnQuitarTelefono);
             this.gbDatos.Controls.Add(this.btnAgregar);
             this.gbDatos.Controls.Add(this.label4);
             this.gbDatos.Controls.Add(this.btnGuardar);
@@ -304,7 +300,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(367, 225);
+            this.btnCancelar.Location = new System.Drawing.Point(328, 225);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
@@ -313,32 +309,9 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(259, 225);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(100, 28);
-            this.btnEliminar.TabIndex = 8;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnQuitarTelefono
-            // 
-            this.btnQuitarTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnQuitarTelefono.Location = new System.Drawing.Point(45, 225);
-            this.btnQuitarTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.btnQuitarTelefono.Name = "btnQuitarTelefono";
-            this.btnQuitarTelefono.Size = new System.Drawing.Size(98, 28);
-            this.btnQuitarTelefono.TabIndex = 7;
-            this.btnQuitarTelefono.Text = "Remover";
-            this.btnQuitarTelefono.UseVisualStyleBackColor = true;
-            this.btnQuitarTelefono.Click += new System.EventHandler(this.btnQuitarTelefono_Click);
-            // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(475, 225);
+            this.btnAgregar.Location = new System.Drawing.Point(435, 225);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 28);
@@ -359,7 +332,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(151, 225);
+            this.btnGuardar.Location = new System.Drawing.Point(221, 225);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(100, 28);
@@ -390,20 +363,20 @@
             // gbBuscar
             // 
             this.gbBuscar.Controls.Add(this.btnBuscar);
-            this.gbBuscar.Controls.Add(this.txtCi);
+            this.gbBuscar.Controls.Add(this.txtBuscar);
             this.gbBuscar.Controls.Add(this.label9);
             this.gbBuscar.Location = new System.Drawing.Point(829, 27);
             this.gbBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.gbBuscar.Name = "gbBuscar";
             this.gbBuscar.Padding = new System.Windows.Forms.Padding(4);
-            this.gbBuscar.Size = new System.Drawing.Size(432, 135);
+            this.gbBuscar.Size = new System.Drawing.Size(432, 211);
             this.gbBuscar.TabIndex = 7;
             this.gbBuscar.TabStop = false;
             this.gbBuscar.Text = "Buscar";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(223, 47);
+            this.btnBuscar.Location = new System.Drawing.Point(120, 164);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(100, 28);
@@ -412,19 +385,19 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // txtCi
+            // txtBuscar
             // 
-            this.txtCi.Location = new System.Drawing.Point(56, 49);
-            this.txtCi.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCi.MaxLength = 8;
-            this.txtCi.Name = "txtCi";
-            this.txtCi.Size = new System.Drawing.Size(132, 22);
-            this.txtCi.TabIndex = 1;
+            this.txtBuscar.Location = new System.Drawing.Point(227, 110);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscar.MaxLength = 8;
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(132, 22);
+            this.txtBuscar.TabIndex = 1;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(27, 53);
+            this.label9.Location = new System.Drawing.Point(92, 110);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(19, 16);
@@ -462,8 +435,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.GroupBox gbDatos;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnQuitarTelefono;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGuardar;
@@ -484,7 +455,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox gbBuscar;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txtCi;
+        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dpkFechaNacimiento;
         private System.Windows.Forms.ComboBox cboDepartamento;

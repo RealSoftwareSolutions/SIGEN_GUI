@@ -127,57 +127,46 @@ namespace SIGEN_GUI
         }
         public byte Buscar()
         {
-            string sql;
-            ADODB.Recordset rs;
-            object filasAfectadas;
-            byte resultado = 0;// POR DEFECTO ASUME QUE LO ENCONTRE
             if (_conexion.State == 0)
             {
-                resultado = 1; //CONEXION CERRADA
-
+                return 1; // CONEXIÓN CERRADA
             }
-            else
-            {
-                sql = "SELECT nombre, cliente_telefono FROM clientes WHERE CI =" + _ci;
-                try
-                {
-                    rs = _conexion.Execute(sql, out filasAfectadas);
-                }
-                catch
-                {
-                    return (2);// ERROR AL CONSULTAR CLIENTE
 
-                }
+            if (_ci <= 0)
+            {
+                return 2; // ERROR: No hay CI válido para buscar
+            }
+
+            string sql = "SELECT `CI` FROM `clientes` WHERE CI = " + _ci;
+            ADODB.Recordset rs = null; // Inicializamos rs como null
+
+            try
+            {
+                rs = _conexion.Execute(sql, out object filasAfectadas);
+
                 if (rs.RecordCount == 0)
                 {
-                    resultado = 3;//NO ENCONTRE
+                    return 3; // NO ENCONTRÉ EL CLIENTE
                 }
-                else
+
+                _nombre = Convert.ToString(rs.Fields[0].Value); // Asignar el nombre del cliente encontrado
+            }
+            catch
+            {
+                return 4; // ERROR AL CONSULTAR CLIENTE
+            }
+            finally
+            {
+                if (rs != null)
                 {
-                    _nombre = Convert.ToString(rs.Fields[0].Value);
-                    sql = "select telefono from cliente_telefonos where cliente=" + _ci;
-                    try
-                    {
-                        rs = _conexion.Execute(sql, out filasAfectadas);
-                    }
-                    catch
-                    {
-                        return (4);
-                    }
-                    while (!rs.EOF)/*INDICADOR DE QUE TERMINO EL RECORRIDO */
-                    {
-                      
-                        rs.MoveNext();
-                    }
-                }//if Record Count
-                rs = null;
-                filasAfectadas = null;
-            } //if conection State
+                    rs.Close(); // Asegurarse de cerrar el recordset si se abrió
+                }
+            }
 
-            return resultado;
-
-
+            return 0; // CLIENTE ENCONTRADO
         }
+
+
         public byte Guardar()
         {
             string sql;
