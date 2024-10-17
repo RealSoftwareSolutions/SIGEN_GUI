@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IngresarUsuarioBasico));
             this.btnSalir = new System.Windows.Forms.Button();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.lblTipoDocumento = new System.Windows.Forms.Label();
+            this.cbDocumentoTipo = new System.Windows.Forms.ComboBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.cboGenero = new System.Windows.Forms.ComboBox();
             this.cboDepartamento = new System.Windows.Forms.ComboBox();
@@ -55,12 +57,12 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gbBuscar = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboTipoDocumento = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.lblCedula = new System.Windows.Forms.Label();
+            this.lblQueCambia = new System.Windows.Forms.Label();
             this.streamClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cbDocumentoTipo = new System.Windows.Forms.ComboBox();
-            this.lblTipoDocumento = new System.Windows.Forms.Label();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbDatos.SuspendLayout();
             this.gbBuscar.SuspendLayout();
@@ -114,6 +116,30 @@
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Ingresar Datos";
             this.gbDatos.Enter += new System.EventHandler(this.gbDatos_Enter);
+            // 
+            // lblTipoDocumento
+            // 
+            this.lblTipoDocumento.AutoSize = true;
+            this.lblTipoDocumento.Location = new System.Drawing.Point(9, 28);
+            this.lblTipoDocumento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTipoDocumento.Name = "lblTipoDocumento";
+            this.lblTipoDocumento.Size = new System.Drawing.Size(81, 15);
+            this.lblTipoDocumento.TabIndex = 33;
+            this.lblTipoDocumento.Text = "Documento";
+            this.lblTipoDocumento.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // cbDocumentoTipo
+            // 
+            this.cbDocumentoTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDocumentoTipo.FormattingEnabled = true;
+            this.cbDocumentoTipo.Items.AddRange(new object[] {
+            "C.I",
+            "Pasaporte"});
+            this.cbDocumentoTipo.Location = new System.Drawing.Point(97, 23);
+            this.cbDocumentoTipo.Name = "cbDocumentoTipo";
+            this.cbDocumentoTipo.Size = new System.Drawing.Size(121, 23);
+            this.cbDocumentoTipo.TabIndex = 32;
+            this.cbDocumentoTipo.SelectedIndexChanged += new System.EventHandler(this.cbDocumentoTipo_SelectedIndexChanged);
             // 
             // txtTelefono
             // 
@@ -370,22 +396,47 @@
             // 
             // gbBuscar
             // 
+            this.gbBuscar.Controls.Add(this.label7);
+            this.gbBuscar.Controls.Add(this.cboTipoDocumento);
             this.gbBuscar.Controls.Add(this.btnBuscar);
             this.gbBuscar.Controls.Add(this.txtBuscar);
-            this.gbBuscar.Controls.Add(this.lblCedula);
+            this.gbBuscar.Controls.Add(this.lblQueCambia);
             this.gbBuscar.Location = new System.Drawing.Point(1035, 72);
             this.gbBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.gbBuscar.Name = "gbBuscar";
             this.gbBuscar.Padding = new System.Windows.Forms.Padding(4);
-            this.gbBuscar.Size = new System.Drawing.Size(216, 151);
+            this.gbBuscar.Size = new System.Drawing.Size(284, 188);
             this.gbBuscar.TabIndex = 7;
             this.gbBuscar.TabStop = false;
             this.gbBuscar.Text = "Buscar";
             this.gbBuscar.Enter += new System.EventHandler(this.gbBuscar_Enter);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 40);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 15);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Documento";
+            // 
+            // cboTipoDocumento
+            // 
+            this.cboTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoDocumento.FormattingEnabled = true;
+            this.cboTipoDocumento.Items.AddRange(new object[] {
+            "C.I",
+            "Pasaporte"});
+            this.cboTipoDocumento.Location = new System.Drawing.Point(92, 34);
+            this.cboTipoDocumento.Name = "cboTipoDocumento";
+            this.cboTipoDocumento.Size = new System.Drawing.Size(121, 23);
+            this.cboTipoDocumento.TabIndex = 34;
+            this.cboTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cboTipoDocumento_SelectedIndexChanged);
+            // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(58, 92);
+            this.btnBuscar.Location = new System.Drawing.Point(92, 151);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(100, 26);
@@ -396,7 +447,7 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(58, 41);
+            this.txtBuscar.Location = new System.Drawing.Point(92, 92);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.MaxLength = 8;
             this.txtBuscar.Name = "txtBuscar";
@@ -404,44 +455,20 @@
             this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
-            // lblCedula
+            // lblQueCambia
             // 
-            this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(30, 41);
-            this.lblCedula.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(22, 15);
-            this.lblCedula.TabIndex = 0;
-            this.lblCedula.Text = "C.I";
-            this.lblCedula.Click += new System.EventHandler(this.label9_Click);
+            this.lblQueCambia.AutoSize = true;
+            this.lblQueCambia.Location = new System.Drawing.Point(8, 95);
+            this.lblQueCambia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblQueCambia.Name = "lblQueCambia";
+            this.lblQueCambia.Size = new System.Drawing.Size(45, 15);
+            this.lblQueCambia.TabIndex = 0;
+            this.lblQueCambia.Text = "VACIO";
+            this.lblQueCambia.Click += new System.EventHandler(this.label9_Click);
             // 
             // streamClassBindingSource
             // 
             this.streamClassBindingSource.CurrentChanged += new System.EventHandler(this.streamClassBindingSource_CurrentChanged);
-            // 
-            // cbDocumentoTipo
-            // 
-            this.cbDocumentoTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDocumentoTipo.FormattingEnabled = true;
-            this.cbDocumentoTipo.Items.AddRange(new object[] {
-            "C.I",
-            "Pasaporte"});
-            this.cbDocumentoTipo.Location = new System.Drawing.Point(97, 23);
-            this.cbDocumentoTipo.Name = "cbDocumentoTipo";
-            this.cbDocumentoTipo.Size = new System.Drawing.Size(121, 23);
-            this.cbDocumentoTipo.TabIndex = 32;
-            this.cbDocumentoTipo.SelectedIndexChanged += new System.EventHandler(this.cbDocumentoTipo_SelectedIndexChanged);
-            // 
-            // lblTipoDocumento
-            // 
-            this.lblTipoDocumento.AutoSize = true;
-            this.lblTipoDocumento.Location = new System.Drawing.Point(9, 28);
-            this.lblTipoDocumento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTipoDocumento.Name = "lblTipoDocumento";
-            this.lblTipoDocumento.Size = new System.Drawing.Size(81, 15);
-            this.lblTipoDocumento.TabIndex = 33;
-            this.lblTipoDocumento.Text = "Documento";
-            this.lblTipoDocumento.Click += new System.EventHandler(this.label7_Click);
             // 
             // clienteBindingSource
             // 
@@ -452,7 +479,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 572);
+            this.ClientSize = new System.Drawing.Size(1344, 572);
             this.Controls.Add(this.gbBuscar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gbDatos);
@@ -498,7 +525,7 @@
         private System.Windows.Forms.GroupBox gbBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.Label lblCedula;
+        private System.Windows.Forms.Label lblQueCambia;
         private System.Windows.Forms.DateTimePicker dpkFechaNacimiento;
         private System.Windows.Forms.ComboBox cboDepartamento;
         private System.Windows.Forms.BindingSource streamClassBindingSource;
@@ -507,5 +534,7 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label lblTipoDocumento;
         private System.Windows.Forms.ComboBox cbDocumentoTipo;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboTipoDocumento;
     }
 }

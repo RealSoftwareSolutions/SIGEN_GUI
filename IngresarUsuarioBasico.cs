@@ -205,35 +205,57 @@ namespace SIGEN_GUI
         {
 
         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Cliente c = new Cliente();
+            Cliente cliente = new Cliente(); // Cambiado de 'c' a 'cliente'
             string documento = txtBuscar.Text.Trim(); // Captura el documento como string
 
-            // Verificar que el documento no esté vacío
+            // Obtener el tipo de documento seleccionado
+            string tipoDocumento = cboTipoDocumento.SelectedItem?.ToString();
+
+            // Verificar que se haya seleccionado un tipo de documento
+            if (string.IsNullOrEmpty(tipoDocumento))
+            {
+                MessageBox.Show("Por favor, seleccione un tipo de documento.");
+                return; // Salir si no hay selección
+            }
+
+            // Validar que el documento no esté vacío
             if (string.IsNullOrEmpty(documento))
             {
                 MessageBox.Show("El documento no puede estar vacío.");
                 return; // Salir del método si la validación falla
             }
 
-            // Asignar el documento directamente
-            c.Conexion = Program.cn;
-            c.iddocumento = documento; // Asignar el documento como string
+            // Validar el formato del documento según el tipo
+            if (tipoDocumento == "C.I" && !documento.All(char.IsDigit))
+            {
+                MessageBox.Show("El documento de tipo C.I debe contener solo números.");
+                return; // Salir si la validación falla
+            }
+            else if (tipoDocumento == "Pasaporte" && documento.Any(c => !char.IsLetterOrDigit(c)))
+            {
+                MessageBox.Show("El documento de tipo Pasaporte solo puede contener letras y números.");
+                return; // Salir si la validación falla
+            }
 
-            switch (c.Buscar())
+            // Asignar el documento y el tipo de documento a la clase Cliente
+            cliente.Conexion = Program.cn;
+            cliente.iddocumento = documento; // Asignar el documento como string
+            cliente.tipodocumento = tipoDocumento; // Asignar el tipo de documento
+
+            switch (cliente.Buscar())
             {
                 case 0: // Cliente encontrado
                     gbBuscar.Enabled = true;
-                    MessageBox.Show("El usuario con documento " + c.iddocumento + " ya está registrado.");
+                    MessageBox.Show("El usuario con documento " + cliente.iddocumento + " ya está registrado.");
 
                     // Preguntar si desea eliminar el cliente
-                    DialogResult resultadoEliminar = MessageBox.Show("¿Desea eliminar al usuario con documento " + c.iddocumento + "?", "Eliminar usuario", MessageBoxButtons.YesNo);
+                    DialogResult resultadoEliminar = MessageBox.Show("¿Desea eliminar al usuario con documento " + cliente.iddocumento + "?", "Eliminar usuario", MessageBoxButtons.YesNo);
                     if (resultadoEliminar == DialogResult.Yes)
                     {
                         // Llamar al método para eliminar el cliente
-                        if (c.Eliminar())
+                        if (cliente.Eliminar())
                         {
                             MessageBox.Show("El usuario ha sido eliminado.");
                         }
@@ -255,7 +277,7 @@ namespace SIGEN_GUI
                     break;
 
                 case 3: // No encontrado
-                    MessageBox.Show("El documento " + c.iddocumento + " no fue encontrado.");
+                    MessageBox.Show("El documento " + cliente.iddocumento + " no fue encontrado.");
                     DialogResult resultadoAgregar = MessageBox.Show("¿Desea agregar el usuario?", "¿Agregar?", MessageBoxButtons.YesNo);
                     if (resultadoAgregar == DialogResult.Yes)
                     {
@@ -402,10 +424,17 @@ namespace SIGEN_GUI
         {
 
         }
+
+        private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboTipoDocumento.SelectedItem != null)
+            {
+                // Obtiene el texto seleccionado del ComboBox
+                string tipoDocumentoSeleccionado = cboTipoDocumento.SelectedItem.ToString();
+
+                // Asigna el texto seleccionado al Label
+                lblQueCambia.Text = tipoDocumentoSeleccionado;
+            }
+        }
     }
 }
-    
-
-
-
-

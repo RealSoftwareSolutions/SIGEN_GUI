@@ -159,48 +159,54 @@ namespace SIGEN_GUI
                 return false; // Error en la eliminación
             }
         }
-
-        public byte Buscar()
-        {
-            if (_conexion.State == 0)
-            {
-                return 1; // CONEXIÓN CERRADA
-            }
-
-            if (string.IsNullOrEmpty(_iddocumento))
-            {
-                return 2; // ERROR: No hay CI válido para buscar
-            }
-
-            string sql = "SELECT `id_documento` FROM `clientes` WHERE id_documento = " + _iddocumento;
-            ADODB.Recordset rs = null; // Inicializamos rs como null
-
-            try
-            {
-                rs = _conexion.Execute(sql, out object filasAfectadas);
-
-                if (rs.RecordCount == 0)
+        
+                public byte Buscar()
                 {
-                    return 3; // NO ENCONTRÉ EL CLIENTE
+                    // Verifica si la conexión está abierta
+                    if (_conexion.State != 1)
+                    {
+                        return 1; // CONEXIÓN CERRADA
+                    }
+
+                    // Verifica que el ID y tipo de documento no sean nulos o vacíos
+                    if (string.IsNullOrEmpty(_iddocumento) || string.IsNullOrEmpty(_tipodocumento))
+                    {
+                        return 2; // ERROR: No hay CI válido para buscar
+                    }
+
+                   // Consulta SQL
+                   string sql = "SELECT `id_documento`, `tipo_documento` FROM `clientes` WHERE `id_documento` = '" + _iddocumento + "' AND TRIM(`tipo_documento`) = '" + _tipodocumento + "';";
+                   ADODB.Recordset rs = null; // Inicializamos rs como null
+
+                    try
+                    {
+
+                        rs = _conexion.Execute(sql, out object filasAfectadas);
+
+                        if (rs.RecordCount == 0)
+                        {
+                            return 3; // NO ENCONTRÉ EL CLIENTE
+                        }
+
+                        _nombre = Convert.ToString(rs.Fields[0].Value); // Asignar el nombre del cliente encontrado
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error: {ex.Message}"); // Log para depuración
+                        return 4; // ERROR AL CONSULTAR CLIENTE
+                    }
+
+                    finally
+                    {
+                        if (rs != null)
+                        {
+                            rs.Close(); // Asegurarse de cerrar el recordset si se abrió
+                        }
+                    }
+
+                    return 0; // CLIENTE ENCONTRADO
                 }
-
-                _nombre = Convert.ToString(rs.Fields[0].Value); // Asignar el nombre del cliente encontrado
-            }
-            catch
-            {
-                return 4; // ERROR AL CONSULTAR CLIENTE
-            }
-            finally
-            {
-                if (rs != null)
-                {
-                    rs.Close(); // Asegurarse de cerrar el recordset si se abrió
-                }
-            }
-
-            return 0; // CLIENTE ENCONTRADO
-        }
-
+        
 
         public byte Guardar()
         {
