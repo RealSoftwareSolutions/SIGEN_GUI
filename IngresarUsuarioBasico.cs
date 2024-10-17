@@ -53,7 +53,8 @@ namespace SIGEN_GUI
         private void LimpiarFormulario()
         {
             // Limpiar todos los campos del formulario
-            txtDocumentoId.Text = "";    
+            txtDocumentoId.Text = "";
+            cbDocumentoTipo.SelectedItem = -1;
             txtNombre.Text = "";
             txtDireccionLoc.Text = "";
             cboDepartamento.SelectedItem = -1;
@@ -70,71 +71,111 @@ namespace SIGEN_GUI
             string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
             return Regex.IsMatch(email, pattern);
         }
-        
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            int cedula = 0;
-            int telefono = 0;
+            int telefono = 0; // Solo se requiere para el teléfono
             Cliente c;
 
-            if (!int.TryParse(txtDocumentoId.Text, out cedula))
+            // Verificar si hay un elemento seleccionado en el ComboBox
+            if (cbDocumentoTipo.SelectedItem == null)
             {
-                MessageBox.Show("CI debe ser numérico");
+                MessageBox.Show("Por favor, seleccione un tipo de documento.");
+                return; // Salir si no hay selección
             }
-            else if (!int.TryParse(txtTelefono.Text, out telefono))
+
+            if (cboDepartamento.SelectedItem == null)
             {
-                MessageBox.Show("El teléfono debe ser numérico");
+                MessageBox.Show("Por favor, seleccione un departamento.");
+                return;
             }
-            else if (!IsGmail(txtGmail.Text))
+
+            if (cboGenero.SelectedItem == null)
             {
-                MessageBox.Show("El gmail tiene que ser @gmail.com ejemplo: gonzalo@gmail.com");
+                MessageBox.Show("Por favor, seleccione un departamento.");
+                return;
+            }
+
+
+            // Obtener el tipo de documento seleccionado
+            string tipoDocumento = cbDocumentoTipo.SelectedItem.ToString();
+            string documentoId = txtDocumentoId.Text.Trim(); // Captura el documento como string
+
+            // Validar según el tipo de documento
+            if (tipoDocumento == "C.I")
+            {
+                // Asegurarse de que el documento solo contenga números
+                if (!int.TryParse(documentoId, out _)) // Solo verificar que sea numérico, no guardamos en cedula
+                {
+                    MessageBox.Show("La C.I. debe ser numérica.");
+                    return; // Salir si la validación falla
+                }
+            }
+            else if (tipoDocumento == "Pasaporte")
+            {
+                // Para el pasaporte, no se requiere validación adicional aquí
+                // Puedes agregar validaciones específicas si lo deseas
             }
             else
             {
-                c = new Cliente
-                {
-                    iddocumento = cedula,
-                    Conexion = Program.cn,
-                    Nombre = txtNombre.Text,
-                    Direccion = txtDireccionLoc.Text,
-                    Departamentos = cboDepartamento.SelectedItem.ToString(),
-                    Gmail = txtGmail.Text,
-                    Genero = cboGenero.SelectedItem.ToString(),
-                    FechaNacimiento = dpkFechaNacimiento.Value,
-                    Dificultad = cbSi.Checked,
-                    DescripcionDificultad = txtDescripcionDificultad.Text,
-                    Telefono = telefono
-                };
-
-                // Aquí agregamos el teléfono ingresado en txtTelefono
-
-                // Guardar datos del cliente
-                switch (c.Guardar())
-                {
-                    case 0:
-                        LimpiarFormulario();
-                        gbDatos.Enabled = false;
-                        gbBuscar.Enabled = true;
-                        break;
-
-                    case 1:
-                        MessageBox.Show("Perdió la sesión. Debe loguearse nuevamente.");
-                        break;
-
-                    case 2:
-                        MessageBox.Show("Error al guardar el cliente.");
-                        break;
-
-                    case 3:
-                        MessageBox.Show("Error al insertar teléfonos.");
-                        break;
-                }
-
-                c = null;
+                MessageBox.Show("Seleccione un tipo de documento válido.");
+                return; // Salir si no se selecciona un tipo
             }
+
+            // Validar el teléfono
+            if (!int.TryParse(txtTelefono.Text, out telefono))
+            {
+                MessageBox.Show("El teléfono debe ser numérico.");
+                return; // Salir si la validación falla
+            }
+
+            // Validar el correo
+            if (!IsGmail(txtGmail.Text))
+            {
+                MessageBox.Show("El gmail tiene que ser @gmail.com ejemplo: gonzalo@gmail.com");
+                return; // Salir si la validación falla
+            }
+
+            c = new Cliente
+            {
+                iddocumento = documentoId, // Asignar el documento como string
+                tipodocumento = cbDocumentoTipo.SelectedItem.ToString(), // Asignar el tipo de documento
+                Conexion = Program.cn,
+                Nombre = txtNombre.Text,
+                Direccion = txtDireccionLoc.Text,
+                Departamentos = cboDepartamento.SelectedItem.ToString(),
+                Gmail = txtGmail.Text,
+                Genero = cboGenero.SelectedItem.ToString(),
+                FechaNacimiento = dpkFechaNacimiento.Value,
+                Dificultad = cbSi.Checked,
+                DescripcionDificultad = txtDescripcionDificultad.Text,
+                Telefono = telefono
+            };
+
+            // Guardar datos del cliente
+            switch (c.Guardar())
+            {
+                case 0:
+                    LimpiarFormulario();
+                    gbDatos.Enabled = false;
+                    gbBuscar.Enabled = true;
+                    break;
+
+                case 1:
+                    MessageBox.Show("Perdió la sesión. Debe loguearse nuevamente.");
+                    break;
+
+                case 2:
+                    MessageBox.Show("Error al guardar el cliente.");
+                    break;
+
+                case 3:
+                    MessageBox.Show("Error al insertar teléfonos.");
+                    break;
+            }
+
+            c = null; // Limpiar referencia
         }
-
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {  
            
@@ -168,26 +209,27 @@ namespace SIGEN_GUI
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Cliente c = new Cliente();
-            int documento;
+            string documento = txtBuscar.Text.Trim(); // Captura el documento como string
 
-            // Verificar que el documento sea numérico
-            if (!Int32.TryParse(txtBuscar.Text, out documento))
+            // Verificar que el documento no esté vacío
+            if (string.IsNullOrEmpty(documento))
             {
-                MessageBox.Show("El documento debe ser numérico: " + txtBuscar.Text);
+                MessageBox.Show("El documento no puede estar vacío.");
                 return; // Salir del método si la validación falla
             }
 
+            // Asignar el documento directamente
             c.Conexion = Program.cn;
-            c.iddocumento = documento; // Asignar directamente el documento como cédula
+            c.iddocumento = documento; // Asignar el documento como string
 
             switch (c.Buscar())
             {
                 case 0: // Cliente encontrado
                     gbBuscar.Enabled = true;
-                    MessageBox.Show("El usuario con cédula " + c.iddocumento + " ya está registrado.");
+                    MessageBox.Show("El usuario con documento " + c.iddocumento + " ya está registrado.");
 
                     // Preguntar si desea eliminar el cliente
-                    DialogResult resultadoEliminar = MessageBox.Show("¿Desea eliminar al usuario con cédula " + c.iddocumento + "?", "Eliminar usuario", MessageBoxButtons.YesNo);
+                    DialogResult resultadoEliminar = MessageBox.Show("¿Desea eliminar al usuario con documento " + c.iddocumento + "?", "Eliminar usuario", MessageBoxButtons.YesNo);
                     if (resultadoEliminar == DialogResult.Yes)
                     {
                         // Llamar al método para eliminar el cliente
@@ -201,7 +243,7 @@ namespace SIGEN_GUI
                         }
                     }
                     gbDatos.Enabled = false;
-                    txtBuscar.Text = "";
+                    txtBuscar.Text = ""; // Limpiar el campo de búsqueda
                     break;
 
                 case 1:
@@ -209,19 +251,19 @@ namespace SIGEN_GUI
                     break;
 
                 case 2:
-                    MessageBox.Show("deha");
+                    MessageBox.Show("Error en la búsqueda.");
                     break;
 
                 case 3: // No encontrado
-                    MessageBox.Show("Error:" + c.iddocumento);
+                    MessageBox.Show("El documento " + c.iddocumento + " no fue encontrado.");
                     DialogResult resultadoAgregar = MessageBox.Show("¿Desea agregar el usuario?", "¿Agregar?", MessageBoxButtons.YesNo);
                     if (resultadoAgregar == DialogResult.Yes)
                     {
                         gbBuscar.Enabled = false;
-                        gbDatos.Visible = true;
-                        gbDatos.Enabled = true;
-                        txtNombre.Clear();
-                        btnGuardar.Text = "Guardar";
+                        gbDatos.Visible = true; // Mostrar la sección de datos
+                        gbDatos.Enabled = true; // Habilitar la sección de datos
+                        txtNombre.Clear(); // Limpiar el campo de nombre
+                        btnGuardar.Text = "Guardar"; // Cambiar el texto del botón a "Guardar"
                     }
                     break;
 
@@ -230,7 +272,6 @@ namespace SIGEN_GUI
                     break;
             }
         }
-
 
         private void txtCedula_TextChanged(object sender, EventArgs e)
         {
@@ -353,6 +394,11 @@ namespace SIGEN_GUI
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbDocumentoTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

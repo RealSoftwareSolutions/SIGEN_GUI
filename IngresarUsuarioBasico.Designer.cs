@@ -59,9 +59,9 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblCedula = new System.Windows.Forms.Label();
             this.streamClassBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbDocumentoTipo = new System.Windows.Forms.ComboBox();
             this.lblTipoDocumento = new System.Windows.Forms.Label();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbDatos.SuspendLayout();
             this.gbBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.streamClassBindingSource)).BeginInit();
@@ -419,23 +419,18 @@
             // 
             this.streamClassBindingSource.CurrentChanged += new System.EventHandler(this.streamClassBindingSource_CurrentChanged);
             // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataSource = typeof(SIGEN_GUI.Cliente);
-            this.clienteBindingSource.CurrentChanged += new System.EventHandler(this.clienteBindingSource_CurrentChanged);
-            // 
             // cbDocumentoTipo
             // 
             this.cbDocumentoTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDocumentoTipo.FormattingEnabled = true;
             this.cbDocumentoTipo.Items.AddRange(new object[] {
-            "Hombre",
-            "Mujer",
-            "Otro"});
+            "C.I",
+            "Pasaporte"});
             this.cbDocumentoTipo.Location = new System.Drawing.Point(97, 23);
             this.cbDocumentoTipo.Name = "cbDocumentoTipo";
             this.cbDocumentoTipo.Size = new System.Drawing.Size(121, 23);
             this.cbDocumentoTipo.TabIndex = 32;
+            this.cbDocumentoTipo.SelectedIndexChanged += new System.EventHandler(this.cbDocumentoTipo_SelectedIndexChanged);
             // 
             // lblTipoDocumento
             // 
@@ -447,6 +442,11 @@
             this.lblTipoDocumento.TabIndex = 33;
             this.lblTipoDocumento.Text = "Documento";
             this.lblTipoDocumento.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataSource = typeof(SIGEN_GUI.Cliente);
+            this.clienteBindingSource.CurrentChanged += new System.EventHandler(this.clienteBindingSource_CurrentChanged);
             // 
             // IngresarUsuarioBasico
             // 

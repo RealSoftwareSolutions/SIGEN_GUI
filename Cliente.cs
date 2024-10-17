@@ -11,7 +11,8 @@ namespace SIGEN_GUI
 {
     class Cliente
     {
-        protected int _iddocumento;
+        protected string _iddocumento;
+        protected string _tipodocumento;
         protected string _nombre;
         protected int _telefono;
         protected DateTime? _fechanacimiento;
@@ -25,7 +26,8 @@ namespace SIGEN_GUI
 
         public Cliente()
         {
-            _iddocumento = 0;
+            _iddocumento = "";
+            _tipodocumento = "";
             _nombre = "";
             _telefono = 0;
             _fechanacimiento = null;
@@ -38,9 +40,10 @@ namespace SIGEN_GUI
             _conexion = new ADODB.Connection();
         }
 
-        public Cliente(int iddocumento, string nombre, int telefono, DateTime? fechanacimiento, string direccion, string departamentos, string gmail, string genero, bool dificultad, string descripciondificultad, Connection conexion)
+        public Cliente(string iddocumento, string tipodocumento, string nombre, int telefono, DateTime? fechanacimiento, string direccion, string departamentos, string gmail, string genero, bool dificultad, string descripciondificultad, Connection conexion)
         {
             _iddocumento = iddocumento;
+            _tipodocumento = tipodocumento;
             _nombre = nombre;
             _telefono = telefono;
             _fechanacimiento = null;
@@ -54,10 +57,15 @@ namespace SIGEN_GUI
         }
 
         // Propiedades públicas (getters y setters)
-        public int iddocumento
+        public string iddocumento
         {
             get { return _iddocumento; }
             set { _iddocumento = value; }
+        }
+        public string tipodocumento
+        {
+            get { return _tipodocumento; }
+            set { _tipodocumento = value; }
         }
 
         public string Nombre
@@ -133,13 +141,13 @@ namespace SIGEN_GUI
                 return false;
             }
 
-            if (_iddocumento <= 0) // Verificar que el CI sea válido
+            if (string.IsNullOrEmpty(_iddocumento)) // Verificar que el CI sea válido
             {
                 MessageBox.Show("No hay CI válido para eliminar.");
                 return false;
             }
 
-            string sql = "DELETE FROM clientes WHERE CI = " + _iddocumento; // Consulta para eliminar al cliente
+            string sql = "DELETE FROM clientes WHERE id_documento = " + _iddocumento; // Consulta para eliminar al cliente
             try
             {
                 _conexion.Execute(sql, out object filasAfectadas); // Ejecutar la consulta
@@ -159,12 +167,12 @@ namespace SIGEN_GUI
                 return 1; // CONEXIÓN CERRADA
             }
 
-            if (_iddocumento <= 0)
+            if (string.IsNullOrEmpty(_iddocumento))
             {
                 return 2; // ERROR: No hay CI válido para buscar
             }
 
-            string sql = "SELECT `CI` FROM `clientes` WHERE CI = " + _iddocumento;
+            string sql = "SELECT `id_documento` FROM `clientes` WHERE id_documento = " + _iddocumento;
             ADODB.Recordset rs = null; // Inicializamos rs como null
 
             try
@@ -206,18 +214,20 @@ namespace SIGEN_GUI
             try
             {
                 // Insertar nuevo cliente
-                sql = "INSERT INTO clientes (CI, nombre, fechanacimiento, direccion, departamentos, gmail, genero, dificultad, descripciondificultad, fecha_ingreso, telefono) " +
-                    "VALUES (" + _iddocumento + ", " +
-                    "'" + _nombre + "', " +
-                    (_fechanacimiento.HasValue ? "'" + _fechanacimiento.Value.ToString("yyyy-MM-dd") + "'" : "NULL") + ", " +
-                    "'" + _direccion + "', " +
-                    "'" + _departamentos + "', " +
-                    "'" + _gmail + "', " +
-                    "'" + _genero + "', " +
-                    (_dificultad ? "1" : "0") + ", " +
-                    "'" + _descripciondificultad + "', " +
-                    "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " + // Agregada la coma
-                    "'" + _telefono + "')";
+                sql = "INSERT INTO clientes(id_documento, tipo_documento, nombre, fechanacimiento, direccion, departamentos, gmail, genero, dificultad, descripciondificultad, fecha_ingreso, telefono) " +
+               "VALUES (" +
+               "'" + _iddocumento + "', " + // ENTRE COMILLAS
+               "'" + _tipodocumento + "', " + // ENTRE COMILLAS
+               "'" + _nombre + "', " +
+               (_fechanacimiento.HasValue ? "'" + _fechanacimiento.Value.ToString("yyyy-MM-dd") + "'" : "NULL") + ", " +
+               "'" + _direccion + "', " +
+               "'" + _departamentos + "', " +
+               "'" + _gmail + "', " +
+               "'" + _genero + "', " +
+               (_dificultad ? "1" : "0") + ", " +
+               "'" + _descripciondificultad + "', " +
+               "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
+               "'" + _telefono + "')";
 
                 _conexion.Execute(sql, out filasAfectadas);
             }
