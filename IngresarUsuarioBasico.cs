@@ -53,7 +53,7 @@ namespace SIGEN_GUI
         private void LimpiarFormulario()
         {
             // Limpiar todos los campos del formulario
-            txtCedula.Text = "";    
+            txtDocumentoId.Text = "";    
             txtNombre.Text = "";
             txtDireccionLoc.Text = "";
             cboDepartamento.SelectedItem = -1;
@@ -77,7 +77,7 @@ namespace SIGEN_GUI
             int telefono = 0;
             Cliente c;
 
-            if (!int.TryParse(txtCedula.Text, out cedula))
+            if (!int.TryParse(txtDocumentoId.Text, out cedula))
             {
                 MessageBox.Show("CI debe ser numérico");
             }
@@ -93,7 +93,7 @@ namespace SIGEN_GUI
             {
                 c = new Cliente
                 {
-                    Ci = cedula,
+                    iddocumento = cedula,
                     Conexion = Program.cn,
                     Nombre = txtNombre.Text,
                     Direccion = txtDireccionLoc.Text,
@@ -178,16 +178,16 @@ namespace SIGEN_GUI
             }
 
             c.Conexion = Program.cn;
-            c.Ci = documento; // Asignar directamente el documento como cédula
+            c.iddocumento = documento; // Asignar directamente el documento como cédula
 
             switch (c.Buscar())
             {
                 case 0: // Cliente encontrado
                     gbBuscar.Enabled = true;
-                    MessageBox.Show("El usuario con cédula " + c.Ci + " ya está registrado.");
+                    MessageBox.Show("El usuario con cédula " + c.iddocumento + " ya está registrado.");
 
                     // Preguntar si desea eliminar el cliente
-                    DialogResult resultadoEliminar = MessageBox.Show("¿Desea eliminar al usuario con cédula " + c.Ci + "?", "Eliminar usuario", MessageBoxButtons.YesNo);
+                    DialogResult resultadoEliminar = MessageBox.Show("¿Desea eliminar al usuario con cédula " + c.iddocumento + "?", "Eliminar usuario", MessageBoxButtons.YesNo);
                     if (resultadoEliminar == DialogResult.Yes)
                     {
                         // Llamar al método para eliminar el cliente
@@ -213,7 +213,7 @@ namespace SIGEN_GUI
                     break;
 
                 case 3: // No encontrado
-                    MessageBox.Show("Error:" + c.Ci);
+                    MessageBox.Show("Error:" + c.iddocumento);
                     DialogResult resultadoAgregar = MessageBox.Show("¿Desea agregar el usuario?", "¿Agregar?", MessageBoxButtons.YesNo);
                     if (resultadoAgregar == DialogResult.Yes)
                     {
@@ -348,6 +348,11 @@ namespace SIGEN_GUI
         }
 
         private void clienteBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

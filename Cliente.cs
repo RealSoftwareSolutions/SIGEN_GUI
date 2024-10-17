@@ -11,7 +11,7 @@ namespace SIGEN_GUI
 {
     class Cliente
     {
-        protected int _ci;
+        protected int _iddocumento;
         protected string _nombre;
         protected int _telefono;
         protected DateTime? _fechanacimiento;
@@ -25,7 +25,7 @@ namespace SIGEN_GUI
 
         public Cliente()
         {
-            _ci = 0;
+            _iddocumento = 0;
             _nombre = "";
             _telefono = 0;
             _fechanacimiento = null;
@@ -38,9 +38,9 @@ namespace SIGEN_GUI
             _conexion = new ADODB.Connection();
         }
 
-        public Cliente(int ci, string nombre, int telefono, DateTime? fechanacimiento, string direccion, string departamentos, string gmail, string genero, bool dificultad, string descripciondificultad, Connection conexion)
+        public Cliente(int iddocumento, string nombre, int telefono, DateTime? fechanacimiento, string direccion, string departamentos, string gmail, string genero, bool dificultad, string descripciondificultad, Connection conexion)
         {
-            _ci = ci;
+            _iddocumento = iddocumento;
             _nombre = nombre;
             _telefono = telefono;
             _fechanacimiento = null;
@@ -54,10 +54,10 @@ namespace SIGEN_GUI
         }
 
         // Propiedades públicas (getters y setters)
-        public int Ci
+        public int iddocumento
         {
-            get { return _ci; }
-            set { _ci = value; }
+            get { return _iddocumento; }
+            set { _iddocumento = value; }
         }
 
         public string Nombre
@@ -133,13 +133,13 @@ namespace SIGEN_GUI
                 return false;
             }
 
-            if (_ci <= 0) // Verificar que el CI sea válido
+            if (_iddocumento <= 0) // Verificar que el CI sea válido
             {
                 MessageBox.Show("No hay CI válido para eliminar.");
                 return false;
             }
 
-            string sql = "DELETE FROM clientes WHERE CI = " + _ci; // Consulta para eliminar al cliente
+            string sql = "DELETE FROM clientes WHERE CI = " + _iddocumento; // Consulta para eliminar al cliente
             try
             {
                 _conexion.Execute(sql, out object filasAfectadas); // Ejecutar la consulta
@@ -159,12 +159,12 @@ namespace SIGEN_GUI
                 return 1; // CONEXIÓN CERRADA
             }
 
-            if (_ci <= 0)
+            if (_iddocumento <= 0)
             {
                 return 2; // ERROR: No hay CI válido para buscar
             }
 
-            string sql = "SELECT `CI` FROM `clientes` WHERE CI = " + _ci;
+            string sql = "SELECT `CI` FROM `clientes` WHERE CI = " + _iddocumento;
             ADODB.Recordset rs = null; // Inicializamos rs como null
 
             try
@@ -207,7 +207,7 @@ namespace SIGEN_GUI
             {
                 // Insertar nuevo cliente
                 sql = "INSERT INTO clientes (CI, nombre, fechanacimiento, direccion, departamentos, gmail, genero, dificultad, descripciondificultad, fecha_ingreso, telefono) " +
-                    "VALUES (" + _ci + ", " +
+                    "VALUES (" + _iddocumento + ", " +
                     "'" + _nombre + "', " +
                     (_fechanacimiento.HasValue ? "'" + _fechanacimiento.Value.ToString("yyyy-MM-dd") + "'" : "NULL") + ", " +
                     "'" + _direccion + "', " +
