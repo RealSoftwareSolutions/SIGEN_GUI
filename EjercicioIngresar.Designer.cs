@@ -46,7 +46,7 @@
             this.gbDatosIngreso.Controls.Add(this.lblDescripcionDeDeporte);
             this.gbDatosIngreso.Controls.Add(this.lblcantidadjugadores);
             this.gbDatosIngreso.Controls.Add(this.lblingresardeporte);
-            this.gbDatosIngreso.Location = new System.Drawing.Point(127, 82);
+            this.gbDatosIngreso.Location = new System.Drawing.Point(52, 50);
             this.gbDatosIngreso.Margin = new System.Windows.Forms.Padding(4);
             this.gbDatosIngreso.Name = "gbDatosIngreso";
             this.gbDatosIngreso.Padding = new System.Windows.Forms.Padding(4);
@@ -112,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 507);
+            this.ClientSize = new System.Drawing.Size(822, 382);
             this.Controls.Add(this.gbDatosIngreso);
             this.Name = "EjercicioIngresar";
             this.Text = "EjercicioIngresar";

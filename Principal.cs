@@ -114,8 +114,17 @@ namespace SIGEN_GUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+        private void CloseAllChildForms()
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                frm.Close(); // Cerrar todos los formularios hijos
+            }
+        }
         private void menuIngresarUusarioBasicos_Click(object sender, EventArgs e)
         {
+            CloseAllChildForms();
             Program.frmBasico = new IngresarUsuarioBasico();
             Program.frmBasico.MdiParent = this;
             Program.frmBasico.Show();
@@ -125,6 +134,7 @@ namespace SIGEN_GUI
 
         private void menuingresarDeportes_Click(object sender, EventArgs e)
         {
+            CloseAllChildForms();
             Program.frmDeporteIng = new IngresarDeporte();
             Program.frmDeporteIng.MdiParent = this;
             Program.frmDeporteIng.Show();
@@ -134,6 +144,7 @@ namespace SIGEN_GUI
 
         private void menuIngresarEjercicios_Click(object sender, EventArgs e)
         {
+            CloseAllChildForms();
             Program.frmEjercicosIng = new EjercicioIngresar();
             Program.frmEjercicosIng.MdiParent = this;
             Program.frmEjercicosIng.Show();

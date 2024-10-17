@@ -49,7 +49,6 @@
             this.txtDireccionLoc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -75,6 +74,7 @@
             this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // gbDatos
             // 
@@ -96,7 +96,6 @@
             this.gbDatos.Controls.Add(this.txtDireccionLoc);
             this.gbDatos.Controls.Add(this.label1);
             this.gbDatos.Controls.Add(this.btnCancelar);
-            this.gbDatos.Controls.Add(this.btnAgregar);
             this.gbDatos.Controls.Add(this.label4);
             this.gbDatos.Controls.Add(this.btnGuardar);
             this.gbDatos.Controls.Add(this.txtNombre);
@@ -309,17 +308,6 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(435, 225);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(100, 28);
-            this.btnAgregar.TabIndex = 6;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -412,7 +400,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1462, 663);
+            this.ClientSize = new System.Drawing.Size(1268, 502);
             this.Controls.Add(this.gbBuscar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gbDatos);
@@ -435,7 +423,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.GroupBox gbDatos;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtNombre;

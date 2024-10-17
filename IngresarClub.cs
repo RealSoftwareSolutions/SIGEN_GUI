@@ -8,5 +8,15 @@ namespace SIGEN_GUI
         {
             InitializeComponent();
         }
+
+        private void lblDepartamento_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void IngresarClub_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
