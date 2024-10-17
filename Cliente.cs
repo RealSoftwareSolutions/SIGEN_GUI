@@ -125,6 +125,33 @@ namespace SIGEN_GUI
             public string Usuario { get; set; }
             public string Contrasenia { get; set; }
         }
+        public bool Eliminar()
+        {
+            if (_conexion.State == 0) // Verificar si la conexión está cerrada
+            {
+                MessageBox.Show("Conexión cerrada. No se puede eliminar el cliente.");
+                return false;
+            }
+
+            if (_ci <= 0) // Verificar que el CI sea válido
+            {
+                MessageBox.Show("No hay CI válido para eliminar.");
+                return false;
+            }
+
+            string sql = "DELETE FROM clientes WHERE CI = " + _ci; // Consulta para eliminar al cliente
+            try
+            {
+                _conexion.Execute(sql, out object filasAfectadas); // Ejecutar la consulta
+                return true; // Eliminación exitosa
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el cliente: " + ex.Message);
+                return false; // Error en la eliminación
+            }
+        }
+
         public byte Buscar()
         {
             if (_conexion.State == 0)

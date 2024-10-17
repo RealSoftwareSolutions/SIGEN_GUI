@@ -28,24 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IngresarClub));
             this.gbIngresarClub = new System.Windows.Forms.GroupBox();
+            this.txtDeportesDisponibles = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtCapacidad = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtTelefonoContacto = new System.Windows.Forms.TextBox();
+            this.txtListaEntrenadores = new System.Windows.Forms.TextBox();
+            this.cbDepartamento = new System.Windows.Forms.ComboBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblCapacidadDelClub = new System.Windows.Forms.Label();
+            this.lblTelefonosDeContacto = new System.Windows.Forms.Label();
+            this.lblDeportesDisponibles = new System.Windows.Forms.Label();
+            this.lblListaEntrenadores = new System.Windows.Forms.Label();
+            this.lblDepartamento = new System.Windows.Forms.Label();
+            this.lblDireccionCalle = new System.Windows.Forms.Label();
             this.txtNombreClub = new System.Windows.Forms.TextBox();
             this.lblNombreClub = new System.Windows.Forms.Label();
-            this.lblDireccionCalle = new System.Windows.Forms.Label();
-            this.lblDepartamento = new System.Windows.Forms.Label();
-            this.lblListaEntrenadores = new System.Windows.Forms.Label();
-            this.lblDeportesDisponibles = new System.Windows.Forms.Label();
-            this.lblTelefonosDeContacto = new System.Windows.Forms.Label();
-            this.lblCapacidadDelClub = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.cbDepartamento = new System.Windows.Forms.ComboBox();
-            this.txtListaEntrenadores = new System.Windows.Forms.TextBox();
-            this.txtTelefonoContacto = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtCapacidad = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtDeportesDisponibles = new System.Windows.Forms.TextBox();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.gbIngresarClub.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,111 +70,56 @@
             this.gbIngresarClub.Controls.Add(this.lblDireccionCalle);
             this.gbIngresarClub.Controls.Add(this.txtNombreClub);
             this.gbIngresarClub.Controls.Add(this.lblNombreClub);
-            this.gbIngresarClub.Location = new System.Drawing.Point(13, 70);
-            this.gbIngresarClub.Margin = new System.Windows.Forms.Padding(4);
+            this.gbIngresarClub.Location = new System.Drawing.Point(13, 66);
+            this.gbIngresarClub.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.gbIngresarClub.Name = "gbIngresarClub";
-            this.gbIngresarClub.Padding = new System.Windows.Forms.Padding(4);
-            this.gbIngresarClub.Size = new System.Drawing.Size(832, 308);
+            this.gbIngresarClub.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.gbIngresarClub.Size = new System.Drawing.Size(863, 289);
             this.gbIngresarClub.TabIndex = 7;
             this.gbIngresarClub.TabStop = false;
             this.gbIngresarClub.Text = "Ingresar Club";
             // 
-            // txtNombreClub
+            // txtDeportesDisponibles
             // 
-            this.txtNombreClub.Location = new System.Drawing.Point(99, 34);
-            this.txtNombreClub.Name = "txtNombreClub";
-            this.txtNombreClub.Size = new System.Drawing.Size(180, 22);
-            this.txtNombreClub.TabIndex = 5;
+            this.txtDeportesDisponibles.Location = new System.Drawing.Point(684, 125);
+            this.txtDeportesDisponibles.Name = "txtDeportesDisponibles";
+            this.txtDeportesDisponibles.Size = new System.Drawing.Size(171, 25);
+            this.txtDeportesDisponibles.TabIndex = 20;
             // 
-            // lblNombreClub
+            // txtDireccion
             // 
-            this.lblNombreClub.AutoSize = true;
-            this.lblNombreClub.Location = new System.Drawing.Point(7, 40);
-            this.lblNombreClub.Name = "lblNombreClub";
-            this.lblNombreClub.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblNombreClub.Size = new System.Drawing.Size(86, 16);
-            this.lblNombreClub.TabIndex = 0;
-            this.lblNombreClub.Text = "Nombre Club";
+            this.txtDireccion.Location = new System.Drawing.Point(602, 38);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(171, 25);
+            this.txtDireccion.TabIndex = 19;
             // 
-            // lblDireccionCalle
+            // txtCapacidad
             // 
-            this.lblDireccionCalle.AutoSize = true;
-            this.lblDireccionCalle.Location = new System.Drawing.Point(515, 43);
-            this.lblDireccionCalle.Name = "lblDireccionCalle";
-            this.lblDireccionCalle.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblDireccionCalle.Size = new System.Drawing.Size(64, 16);
-            this.lblDireccionCalle.TabIndex = 6;
-            this.lblDireccionCalle.Text = "Direccion";
+            this.txtCapacidad.Location = new System.Drawing.Point(426, 123);
+            this.txtCapacidad.Name = "txtCapacidad";
+            this.txtCapacidad.Size = new System.Drawing.Size(100, 25);
+            this.txtCapacidad.TabIndex = 18;
             // 
-            // lblDepartamento
+            // txtEmail
             // 
-            this.lblDepartamento.AutoSize = true;
-            this.lblDepartamento.Location = new System.Drawing.Point(296, 40);
-            this.lblDepartamento.Name = "lblDepartamento";
-            this.lblDepartamento.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblDepartamento.Size = new System.Drawing.Size(93, 16);
-            this.lblDepartamento.TabIndex = 7;
-            this.lblDepartamento.Text = "Departamento";
-            this.lblDepartamento.Click += new System.EventHandler(this.lblDepartamento_Click);
+            this.txtEmail.Location = new System.Drawing.Point(425, 188);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(201, 25);
+            this.txtEmail.TabIndex = 17;
             // 
-            // lblListaEntrenadores
+            // txtTelefonoContacto
             // 
-            this.lblListaEntrenadores.AutoSize = true;
-            this.lblListaEntrenadores.Location = new System.Drawing.Point(7, 136);
-            this.lblListaEntrenadores.Name = "lblListaEntrenadores";
-            this.lblListaEntrenadores.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblListaEntrenadores.Size = new System.Drawing.Size(138, 16);
-            this.lblListaEntrenadores.TabIndex = 8;
-            this.lblListaEntrenadores.Text = "Lista de Entrenadores";
+            this.txtTelefonoContacto.Location = new System.Drawing.Point(172, 192);
+            this.txtTelefonoContacto.Name = "txtTelefonoContacto";
+            this.txtTelefonoContacto.Size = new System.Drawing.Size(100, 25);
+            this.txtTelefonoContacto.TabIndex = 16;
             // 
-            // lblDeportesDisponibles
+            // txtListaEntrenadores
             // 
-            this.lblDeportesDisponibles.AutoSize = true;
-            this.lblDeportesDisponibles.Location = new System.Drawing.Point(504, 136);
-            this.lblDeportesDisponibles.Name = "lblDeportesDisponibles";
-            this.lblDeportesDisponibles.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblDeportesDisponibles.Size = new System.Drawing.Size(138, 16);
-            this.lblDeportesDisponibles.TabIndex = 9;
-            this.lblDeportesDisponibles.Text = "Deportes Disponibles";
-            // 
-            // lblTelefonosDeContacto
-            // 
-            this.lblTelefonosDeContacto.AutoSize = true;
-            this.lblTelefonosDeContacto.Location = new System.Drawing.Point(9, 208);
-            this.lblTelefonosDeContacto.Name = "lblTelefonosDeContacto";
-            this.lblTelefonosDeContacto.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblTelefonosDeContacto.Size = new System.Drawing.Size(136, 16);
-            this.lblTelefonosDeContacto.TabIndex = 10;
-            this.lblTelefonosDeContacto.Text = "Telefono de Contacto";
-            // 
-            // lblCapacidadDelClub
-            // 
-            this.lblCapacidadDelClub.AutoSize = true;
-            this.lblCapacidadDelClub.Location = new System.Drawing.Point(253, 136);
-            this.lblCapacidadDelClub.Name = "lblCapacidadDelClub";
-            this.lblCapacidadDelClub.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblCapacidadDelClub.Size = new System.Drawing.Size(126, 16);
-            this.lblCapacidadDelClub.TabIndex = 11;
-            this.lblCapacidadDelClub.Text = "Capacidad del Club";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(253, 208);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblEmail.Size = new System.Drawing.Size(115, 16);
-            this.lblEmail.TabIndex = 12;
-            this.lblEmail.Text = "CorreoElectronico";
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(334, 254);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 13;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.txtListaEntrenadores.Location = new System.Drawing.Point(175, 125);
+            this.txtListaEntrenadores.Name = "txtListaEntrenadores";
+            this.txtListaEntrenadores.Size = new System.Drawing.Size(100, 25);
+            this.txtListaEntrenadores.TabIndex = 15;
             // 
             // cbDepartamento
             // 
@@ -199,60 +146,130 @@
             "Soriano",
             "Tacuarembó",
             "Treinta y Tres"});
-            this.cbDepartamento.Location = new System.Drawing.Point(388, 40);
+            this.cbDepartamento.Location = new System.Drawing.Point(405, 38);
             this.cbDepartamento.Name = "cbDepartamento";
-            this.cbDepartamento.Size = new System.Drawing.Size(121, 24);
+            this.cbDepartamento.Size = new System.Drawing.Size(121, 23);
             this.cbDepartamento.TabIndex = 14;
             // 
-            // txtListaEntrenadores
+            // btnGuardar
             // 
-            this.txtListaEntrenadores.Location = new System.Drawing.Point(147, 136);
-            this.txtListaEntrenadores.Name = "txtListaEntrenadores";
-            this.txtListaEntrenadores.Size = new System.Drawing.Size(100, 22);
-            this.txtListaEntrenadores.TabIndex = 15;
+            this.btnGuardar.Location = new System.Drawing.Point(334, 238);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 21);
+            this.btnGuardar.TabIndex = 13;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // txtTelefonoContacto
+            // lblEmail
             // 
-            this.txtTelefonoContacto.Location = new System.Drawing.Point(147, 205);
-            this.txtTelefonoContacto.Name = "txtTelefonoContacto";
-            this.txtTelefonoContacto.Size = new System.Drawing.Size(100, 22);
-            this.txtTelefonoContacto.TabIndex = 16;
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(281, 198);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblEmail.Size = new System.Drawing.Size(138, 15);
+            this.lblEmail.TabIndex = 12;
+            this.lblEmail.Text = "CorreoElectronico";
             // 
-            // txtEmail
+            // lblCapacidadDelClub
             // 
-            this.txtEmail.Location = new System.Drawing.Point(374, 202);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(200, 22);
-            this.txtEmail.TabIndex = 17;
+            this.lblCapacidadDelClub.AutoSize = true;
+            this.lblCapacidadDelClub.Location = new System.Drawing.Point(281, 129);
+            this.lblCapacidadDelClub.Name = "lblCapacidadDelClub";
+            this.lblCapacidadDelClub.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblCapacidadDelClub.Size = new System.Drawing.Size(141, 15);
+            this.lblCapacidadDelClub.TabIndex = 11;
+            this.lblCapacidadDelClub.Text = "Capacidad del Club";
             // 
-            // txtCapacidad
+            // lblTelefonosDeContacto
             // 
-            this.txtCapacidad.Location = new System.Drawing.Point(385, 133);
-            this.txtCapacidad.Name = "txtCapacidad";
-            this.txtCapacidad.Size = new System.Drawing.Size(100, 22);
-            this.txtCapacidad.TabIndex = 18;
+            this.lblTelefonosDeContacto.AutoSize = true;
+            this.lblTelefonosDeContacto.Location = new System.Drawing.Point(9, 195);
+            this.lblTelefonosDeContacto.Name = "lblTelefonosDeContacto";
+            this.lblTelefonosDeContacto.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblTelefonosDeContacto.Size = new System.Drawing.Size(157, 15);
+            this.lblTelefonosDeContacto.TabIndex = 10;
+            this.lblTelefonosDeContacto.Text = "Telefono de Contacto";
             // 
-            // txtDireccion
+            // lblDeportesDisponibles
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(585, 43);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(171, 22);
-            this.txtDireccion.TabIndex = 19;
+            this.lblDeportesDisponibles.AutoSize = true;
+            this.lblDeportesDisponibles.Location = new System.Drawing.Point(532, 129);
+            this.lblDeportesDisponibles.Name = "lblDeportesDisponibles";
+            this.lblDeportesDisponibles.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblDeportesDisponibles.Size = new System.Drawing.Size(150, 15);
+            this.lblDeportesDisponibles.TabIndex = 9;
+            this.lblDeportesDisponibles.Text = "Deportes Disponibles";
             // 
-            // txtDeportesDisponibles
+            // lblListaEntrenadores
             // 
-            this.txtDeportesDisponibles.Location = new System.Drawing.Point(648, 130);
-            this.txtDeportesDisponibles.Name = "txtDeportesDisponibles";
-            this.txtDeportesDisponibles.Size = new System.Drawing.Size(171, 22);
-            this.txtDeportesDisponibles.TabIndex = 20;
+            this.lblListaEntrenadores.AutoSize = true;
+            this.lblListaEntrenadores.Location = new System.Drawing.Point(7, 129);
+            this.lblListaEntrenadores.Name = "lblListaEntrenadores";
+            this.lblListaEntrenadores.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblListaEntrenadores.Size = new System.Drawing.Size(162, 15);
+            this.lblListaEntrenadores.TabIndex = 8;
+            this.lblListaEntrenadores.Text = "Lista de Entrenadores";
+            // 
+            // lblDepartamento
+            // 
+            this.lblDepartamento.AutoSize = true;
+            this.lblDepartamento.Location = new System.Drawing.Point(296, 38);
+            this.lblDepartamento.Name = "lblDepartamento";
+            this.lblDepartamento.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblDepartamento.Size = new System.Drawing.Size(109, 15);
+            this.lblDepartamento.TabIndex = 7;
+            this.lblDepartamento.Text = "Departamento";
+            this.lblDepartamento.Click += new System.EventHandler(this.lblDepartamento_Click);
+            // 
+            // lblDireccionCalle
+            // 
+            this.lblDireccionCalle.AutoSize = true;
+            this.lblDireccionCalle.Location = new System.Drawing.Point(532, 38);
+            this.lblDireccionCalle.Name = "lblDireccionCalle";
+            this.lblDireccionCalle.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblDireccionCalle.Size = new System.Drawing.Size(71, 15);
+            this.lblDireccionCalle.TabIndex = 6;
+            this.lblDireccionCalle.Text = "Direccion";
+            // 
+            // txtNombreClub
+            // 
+            this.txtNombreClub.Location = new System.Drawing.Point(99, 32);
+            this.txtNombreClub.Name = "txtNombreClub";
+            this.txtNombreClub.Size = new System.Drawing.Size(180, 25);
+            this.txtNombreClub.TabIndex = 5;
+            // 
+            // lblNombreClub
+            // 
+            this.lblNombreClub.AutoSize = true;
+            this.lblNombreClub.Location = new System.Drawing.Point(7, 38);
+            this.lblNombreClub.Name = "lblNombreClub";
+            this.lblNombreClub.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblNombreClub.Size = new System.Drawing.Size(91, 15);
+            this.lblNombreClub.TabIndex = 0;
+            this.lblNombreClub.Text = "Nombre Club";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(418, 381);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(100, 26);
+            this.btnSalir.TabIndex = 8;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
             // 
             // IngresarClub
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(911, 437);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gbIngresarClub);
+            this.Font = new System.Drawing.Font("Algerian", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "IngresarClub";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IngresarClub";
             this.Load += new System.EventHandler(this.IngresarClub_Load);
             this.gbIngresarClub.ResumeLayout(false);
@@ -281,5 +298,6 @@
         private System.Windows.Forms.TextBox txtCapacidad;
         private System.Windows.Forms.TextBox txtDeportesDisponibles;
         private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

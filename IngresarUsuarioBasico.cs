@@ -185,6 +185,21 @@ namespace SIGEN_GUI
                 case 0: // Cliente encontrado
                     gbBuscar.Enabled = true;
                     MessageBox.Show("El usuario con cédula " + c.Ci + " ya está registrado.");
+
+                    // Preguntar si desea eliminar el cliente
+                    DialogResult resultadoEliminar = MessageBox.Show("¿Desea eliminar al usuario con cédula " + c.Ci + "?", "Eliminar usuario", MessageBoxButtons.YesNo);
+                    if (resultadoEliminar == DialogResult.Yes)
+                    {
+                        // Llamar al método para eliminar el cliente
+                        if (c.Eliminar())
+                        {
+                            MessageBox.Show("El usuario ha sido eliminado.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Hubo un error al eliminar el usuario. Inténtelo de nuevo.");
+                        }
+                    }
                     gbDatos.Enabled = false;
                     txtBuscar.Text = "";
                     break;
@@ -193,17 +208,15 @@ namespace SIGEN_GUI
                     MessageBox.Show("Ha perdido la sesión. Debe loguearse nuevamente.");
                     break;
 
-                
                 case 2:
                     MessageBox.Show("deha");
                     break;
 
                 case 3: // No encontrado
-                    MessageBox.Show("Error:"+ c.Ci);
-                    DialogResult resultado = MessageBox.Show("¿Desea agregar el usuario?", "¿Agregar?", MessageBoxButtons.YesNo);
-                    if (resultado == DialogResult.Yes)
+                    MessageBox.Show("Error:" + c.Ci);
+                    DialogResult resultadoAgregar = MessageBox.Show("¿Desea agregar el usuario?", "¿Agregar?", MessageBoxButtons.YesNo);
+                    if (resultadoAgregar == DialogResult.Yes)
                     {
-                       
                         gbBuscar.Enabled = false;
                         gbDatos.Visible = true;
                         gbDatos.Enabled = true;
@@ -237,6 +250,106 @@ namespace SIGEN_GUI
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboGenero_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dpkFechaNacimiento_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbFechaNacimiento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtGmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDepartamento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDireccionLoc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbBuscar_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void streamClassBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clienteBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

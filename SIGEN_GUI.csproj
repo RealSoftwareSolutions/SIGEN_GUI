@@ -242,7 +242,13 @@
     <EmbeddedResource Include="IngresarUsuarioBasico.resx">
       <DependentUpon>IngresarUsuarioBasico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginInicial.agq.resx">
+      <DependentUpon>LoginInicial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginInicial.resx">
+      <DependentUpon>LoginInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginInicial.uz-Cyrl.resx">
       <DependentUpon>LoginInicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">

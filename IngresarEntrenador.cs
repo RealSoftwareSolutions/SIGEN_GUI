@@ -8,5 +8,15 @@ namespace SIGEN_GUI
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void txtNombreApellido_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

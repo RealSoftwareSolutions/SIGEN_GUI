@@ -37,8 +37,8 @@ namespace SIGEN_GUI
 
         private void menuLogin_Click(object sender, EventArgs e)
         {
-            if (Program.cn.State == 0)
-            { //Coneccion Abierta
+            if (Program.cn.State == 0) // Conexión Abierta
+            {
                 menuLogin.Text = "Cerrar Sesión";
                 Program.frmLogin = new LoginInicial();
                 Program.frmLogin.MdiParent = this;
@@ -52,12 +52,27 @@ namespace SIGEN_GUI
                     Program.cn.Close();
                     menuLogin.Text = "Login";
 
+                    // Llama a un método para deshabilitar permisos
+                    DeshabilitarPermisos();
+                    CloseAllChildForms();
                 }
-
             }
 
             this.LayoutMdi(MdiLayout.TileHorizontal);
             this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        // Método para deshabilitar permisos
+        private void DeshabilitarPermisos()
+        {
+            Program.CambiarEstadoMenuItem(Program.frmPrincipal.menuAplicasiones, false);
+            Program.CambiarEstadoMenuItem(Program.frmPrincipal.menuAvanzado, false);
+            Program.CambiarEstadoMenuItem(Program.frmPrincipal.menuClientes, false);
+            Program.CambiarEstadoMenuItem(Program.frmPrincipal.menuEntrenador, false);
+            Program.CambiarEstadoMenuItem(Program.frmPrincipal.menuAdministradorTI, false);
+            Program.CambiarEstadoMenuItem(Program.frmPrincipal.menuIngresarUusarioBasicos, false);
+            Program.CambiarEstadoMenuItem(Program.frmPrincipal.menuingresarDeportes, false);
+            Program.CambiarEstadoMenuItem(Program.frmPrincipal.menuIngresarEjercicios, false);
         }
 
         private void menuIngresar_Click(object sender, EventArgs e)
@@ -67,7 +82,7 @@ namespace SIGEN_GUI
 
         private void menuSalir_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void menuCalendario_Click(object sender, EventArgs e)
@@ -150,6 +165,16 @@ namespace SIGEN_GUI
             Program.frmEjercicosIng.Show();
             this.LayoutMdi(MdiLayout.TileHorizontal);
             this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void menuAdministrativo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuSeleccionador_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -16,11 +17,25 @@ namespace SIGEN_GUI
         public static IngresarUsuarioBasico frmBasico;
         public static EjercicioIngresar frmEjercicosIng;
         public static IngresarDeporte frmDeporteIng;
-
+       
 
         public static Principal frmPrincipal;
         public static ADODB.Connection cn = new ADODB.Connection(); /*Conector a una base de datos - 21/05/2024 - Público para que lo tengan todos los archivos del proyecto y Est+atico porque est+a en la clase estática program*/
 
+        // Método para cambiar el estado y el color de los ítems del menú
+        public static void CambiarEstadoMenuItem(ToolStripMenuItem menuStrip1, bool habilitado)
+        {
+            if (habilitado)
+            {
+                menuStrip1.Enabled = true;
+                menuStrip1.BackColor = Color.LightGreen; // Color verde si tiene permisos
+            }
+            else
+            {
+                menuStrip1.Enabled = false;
+                menuStrip1.BackColor = Color.DarkRed; // Color gris si no tiene permisos
+            }
+        }
 
         [STAThread]
 
@@ -31,17 +46,20 @@ namespace SIGEN_GUI
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(frmPrincipal = new Principal()); //istacia ecesaria
         }
+        
         public static void Doypermisos(string usuario)
         {
             string sql;// cada vez que tengamos que hacer un select uvamos a tener que hacer esto
             object filasafectadas;
             ADODB.Recordset rs;
             byte rol = 0;
-            frmPrincipal.menuAplicasiones.Enabled = false; //ponerlo como public 
-            frmPrincipal.menuAvanzado.Enabled = false;
-            frmPrincipal.menuClientes.Enabled = false;
-            frmPrincipal.menuEntrenador.Enabled = false;
-            frmPrincipal.menuAdministrador.Enabled = false;
+            CambiarEstadoMenuItem(frmPrincipal.menuAplicasiones, false); //0 Principal 
+            CambiarEstadoMenuItem(frmPrincipal.menuClientes, false); //1 rol
+            CambiarEstadoMenuItem(frmPrincipal.menuEntrenador, false); //2
+            CambiarEstadoMenuItem(frmPrincipal.menuSeleccionador, false);
+            CambiarEstadoMenuItem(frmPrincipal.menuAdministrativo, false); //3
+            CambiarEstadoMenuItem(frmPrincipal.menuAvanzado, false); //4
+            CambiarEstadoMenuItem(frmPrincipal.menuAdministradorTI, false); //5
 
 
             if (cn.State != 0) //conexion abierta del login
@@ -74,40 +92,66 @@ namespace SIGEN_GUI
                     switch (rol)
                     {
 
-
-                        case 1:
-                            frmPrincipal.menuAplicasiones.Enabled = true;
-                            frmPrincipal.menuClientes.Enabled = true;
-
+                        case 1: //Rol de cliente
+                            CambiarEstadoMenuItem(frmPrincipal.menuAplicasiones, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuClientes, true);
                             break;
 
-                        case 2: //esto es 1 rol o se refiere al rol.
-                            frmPrincipal.menuAplicasiones.Enabled = true;
-                            frmPrincipal.menuClientes.Enabled = true;
-
-                            break;
-                        case 3:
-
+                        case 2: // Rol de administrativo
+                            CambiarEstadoMenuItem(frmPrincipal.menuAplicasiones, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuClientes, true);
                             break;
 
-                        case 5: //rol de avanzado usuario
-                            frmPrincipal.menuAplicasiones.Enabled = true;
-                            frmPrincipal.menuAvanzado.Enabled = true;
-                            frmPrincipal.menuIngresarUusarioBasicos.Enabled = true;
+                        case 3:// Rol de avanzado
+                            CambiarEstadoMenuItem(frmPrincipal.menuAplicasiones, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuAvanzado, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuIngresarUusarioBasicos, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuingresarDeportes, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuIngresarEjercicios, true);
                             break;
 
-                        case 6: //rol del dev :p osea el bagre que hizo este codigo feo xd
-                            frmPrincipal.menuAplicasiones.Enabled = true;
-                            frmPrincipal.menuAvanzado.Enabled = true;
-                            frmPrincipal.menuIngresarUusarioBasicos.Enabled = true;
+                        case 4: // Rol de entrenador
+                            CambiarEstadoMenuItem(frmPrincipal.menuAplicasiones, true);
                             break;
+
+
+                        case 5: // Rol de seleccionador
+                            CambiarEstadoMenuItem(frmPrincipal.menuAplicasiones, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuAvanzado, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuIngresarUusarioBasicos, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuingresarDeportes, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuIngresarEjercicios, true);
+                            break;
+
+                        case 6: // Rol del administradorti
+                            CambiarEstadoMenuItem(frmPrincipal.menuAplicasiones, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuAvanzado, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuIngresarUusarioBasicos, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuingresarDeportes, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuIngresarEjercicios, true);
+                            break;
+
+
+                        case 7: // Rol del desarrollador
+                            CambiarEstadoMenuItem(frmPrincipal.menuAplicasiones, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuAvanzado, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuIngresarUusarioBasicos, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuingresarDeportes, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuIngresarEjercicios, true);
+                            break;
+
+
+
 
                     }//switch
+
+
 
                 }
 
 
             }
+            
         }
 
     }
