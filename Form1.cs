@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace SIGEN_GUI
 {
-    public partial class Rutina : Form
+    public partial class Form1 : Form
     {
-        public Rutina()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void dGridViewRutina_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close(); 
         }
     }
 }
