@@ -709,7 +709,7 @@ namespace SIGEN_GUI
                     break;
             }
 
-            c = null; // Limpiar referencia
+            c = null; // Limpiar todo
         }
 
     }
