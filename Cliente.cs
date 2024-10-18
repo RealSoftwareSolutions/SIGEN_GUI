@@ -46,7 +46,7 @@ namespace SIGEN_GUI
             _tipodocumento = tipodocumento;
             _nombre = nombre;
             _telefono = telefono;
-            _fechanacimiento = null;
+            _fechanacimiento = fechanacimiento;
             _direccion = direccion;
             _departamentos = departamentos;
             _gmail = gmail;
@@ -133,6 +133,49 @@ namespace SIGEN_GUI
             public string Usuario { get; set; }
             public string Contrasenia { get; set; }
         }
+
+        public byte Modificar(bool modificacion)
+        {
+            string sql = ""; // Asignar un valor por defecto
+            object filasAfectadas;
+            byte resultado = 0;
+
+            if (_conexion.State == 0) // CONEXIÓN CERRADA
+            {
+                return 1; // ERROR DE CONEXIÓN
+            }
+
+            if (modificacion) // Si es una modificación
+            {
+                sql = "UPDATE clientes SET " +
+                      "telefono = " + _telefono + ", " +
+                      "direccion = '" + _direccion + "', " +
+                      "departamentos = '" + _departamentos + "', " +
+                      "gmail = '" + _gmail + "', " +
+                      "genero = '" + _genero + "', " +
+                      "dificultad = " + (_dificultad ? "1" : "0") + ", " +
+                      "descripciondificultad = '" + _descripciondificultad + "' " +
+                      "WHERE id_documento = '" + _iddocumento + "';"; // Usar solo id_documento
+            }
+            else
+            {
+                // Si es un caso no de modificación, puedes decidir qué hacer aquí o simplemente no hacer nada
+                return 0; // O puedes lanzar un error o manejarlo de otra forma
+            }
+
+            try
+            {
+                // Ejecutar la consulta de modificación
+                _conexion.Execute(sql, out filasAfectadas); // Cualquier sentencia SQL que no sea un SELECT se ejecutará de esta forma
+            }
+            catch
+            {
+                return 2; // ERROR AL EJECUTAR LA CONSULTA
+            }
+
+            return resultado; // MODIFICACIÓN EXITOSA
+        }
+
         public bool Eliminar()
         {
             if (_conexion.State == 0) // Verificar si la conexión está cerrada

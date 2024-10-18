@@ -15,6 +15,14 @@ namespace SIGEN_GUI
             this.menuAplicasiones.Enabled = false;
         }
 
+        private void CloseAllChildForms()
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                frm.Close(); // Cerrar todos los formularios hijos
+            }
+        }
+
         private void menuAplicasiones_Click(object sender, EventArgs e)
         {
 
@@ -112,31 +120,29 @@ namespace SIGEN_GUI
 
         private void menuRutina_Click(object sender, EventArgs e)
         {
-
+            CloseAllChildForms();
+            Program.frmRutina = new Rutina();
+            Program.frmRutina.MdiParent = this;
+            Program.frmRutina.Show();
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+            this.LayoutMdi(MdiLayout.TileVertical);
         }
 
         private void menuAgenda_Click(object sender, EventArgs e)
         {
-
+            CloseAllChildForms();
+            Program.frmAgenda = new Agenda();
+            Program.frmAgenda.MdiParent = this;
+            Program.frmAgenda.Show();
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+            this.LayoutMdi(MdiLayout.TileVertical);
         }
 
         private void menuAvanzado_Click(object sender, EventArgs e)
         {
 
         }
-        /// <summary>
-        /// //////////////////////////
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// 
-        private void CloseAllChildForms()
-        {
-            foreach (Form frm in this.MdiChildren)
-            {
-                frm.Close(); // Cerrar todos los formularios hijos
-            }
-        }
+
         private void menuIngresarUusarioBasicos_Click(object sender, EventArgs e)
         {
             CloseAllChildForms();
@@ -175,6 +181,17 @@ namespace SIGEN_GUI
         private void menuSeleccionador_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void menuRendimiento_Click(object sender, EventArgs e)
+        {
+            //frmRendimiento
+            CloseAllChildForms();
+            Program.frmRendimiento = new Rendimiento();
+            Program.frmRendimiento.MdiParent = this;
+            Program.frmRendimiento.Show();
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+            this.LayoutMdi(MdiLayout.TileVertical);
         }
     }
 }

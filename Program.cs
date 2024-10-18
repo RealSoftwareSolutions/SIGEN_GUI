@@ -17,7 +17,9 @@ namespace SIGEN_GUI
         public static IngresarUsuarioBasico frmBasico;
         public static EjercicioIngresar frmEjercicosIng;
         public static IngresarDeporte frmDeporteIng;
-       
+        public static Rutina frmRutina;
+        public static Rendimiento frmRendimiento;
+        public static Agenda frmAgenda;
 
         public static Principal frmPrincipal;
         public static ADODB.Connection cn = new ADODB.Connection(); /*Conector a una base de datos - 21/05/2024 - Público para que lo tengan todos los archivos del proyecto y Est+atico porque est+a en la clase estática program*/
@@ -134,6 +136,10 @@ namespace SIGEN_GUI
 
                         case 7: // Rol del desarrollador
                             CambiarEstadoMenuItem(frmPrincipal.menuAplicasiones, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuClientes, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuAgenda, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuRutina, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuRendimiento, true);
                             CambiarEstadoMenuItem(frmPrincipal.menuAvanzado, true);
                             CambiarEstadoMenuItem(frmPrincipal.menuIngresarUusarioBasicos, true);
                             CambiarEstadoMenuItem(frmPrincipal.menuingresarDeportes, true);

@@ -18,5 +18,10 @@ namespace SIGEN_GUI
         {
 
         }
+
+        private void btnSalir_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
