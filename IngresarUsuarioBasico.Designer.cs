@@ -39,7 +39,7 @@
             this.cboDepartamento = new System.Windows.Forms.ComboBox();
             this.dpkFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.txtDescripcionDificultad = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblDescripcionDificultad = new System.Windows.Forms.Label();
             this.lbFechaNacimiento = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbSi = new System.Windows.Forms.CheckBox();
@@ -50,7 +50,7 @@
             this.txtDocumentoId = new System.Windows.Forms.TextBox();
             this.lblDocumento = new System.Windows.Forms.Label();
             this.txtDireccionLoc = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblDireccion = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -90,7 +90,7 @@
             this.gbDatos.Controls.Add(this.cboDepartamento);
             this.gbDatos.Controls.Add(this.dpkFechaNacimiento);
             this.gbDatos.Controls.Add(this.txtDescripcionDificultad);
-            this.gbDatos.Controls.Add(this.label8);
+            this.gbDatos.Controls.Add(this.lblDescripcionDificultad);
             this.gbDatos.Controls.Add(this.lbFechaNacimiento);
             this.gbDatos.Controls.Add(this.label6);
             this.gbDatos.Controls.Add(this.cbSi);
@@ -101,7 +101,7 @@
             this.gbDatos.Controls.Add(this.txtDocumentoId);
             this.gbDatos.Controls.Add(this.lblDocumento);
             this.gbDatos.Controls.Add(this.txtDireccionLoc);
-            this.gbDatos.Controls.Add(this.label1);
+            this.gbDatos.Controls.Add(this.lblDireccion);
             this.gbDatos.Controls.Add(this.btnCancelar);
             this.gbDatos.Controls.Add(this.label4);
             this.gbDatos.Controls.Add(this.btnGuardar);
@@ -215,16 +215,16 @@
             this.txtDescripcionDificultad.TabIndex = 27;
             this.txtDescripcionDificultad.TextChanged += new System.EventHandler(this.txtDescripcionDificultad_TextChanged);
             // 
-            // label8
+            // lblDescripcionDificultad
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(155, 143);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(180, 15);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Descripcion de Dificultad";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.lblDescripcionDificultad.AutoSize = true;
+            this.lblDescripcionDificultad.Location = new System.Drawing.Point(155, 143);
+            this.lblDescripcionDificultad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescripcionDificultad.Name = "lblDescripcionDificultad";
+            this.lblDescripcionDificultad.Size = new System.Drawing.Size(180, 15);
+            this.lblDescripcionDificultad.TabIndex = 26;
+            this.lblDescripcionDificultad.Text = "Descripcion de Dificultad";
+            this.lblDescripcionDificultad.Click += new System.EventHandler(this.label8_Click);
             // 
             // lbFechaNacimiento
             // 
@@ -330,16 +330,16 @@
             this.txtDireccionLoc.TabIndex = 11;
             this.txtDireccionLoc.TextChanged += new System.EventHandler(this.txtDireccionLoc_TextChanged);
             // 
-            // label1
+            // lblDireccion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(250, 60);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 15);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Direccion";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Location = new System.Drawing.Point(250, 60);
+            this.lblDireccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(71, 15);
+            this.lblDireccion.TabIndex = 10;
+            this.lblDireccion.Text = "Direccion";
+            this.lblDireccion.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnCancelar
             // 
@@ -510,7 +510,7 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDireccionLoc;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.TextBox txtDocumentoId;
         private System.Windows.Forms.Label lblDocumento;
         private System.Windows.Forms.Label lblDepartamento;
@@ -521,7 +521,7 @@
         private System.Windows.Forms.CheckBox cbSi;
         private System.Windows.Forms.Label lbFechaNacimiento;
         private System.Windows.Forms.TextBox txtDescripcionDificultad;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblDescripcionDificultad;
         private System.Windows.Forms.GroupBox gbBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;

@@ -175,6 +175,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agenda.Designer.cs">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cliente.cs" />
     <Compile Include="Deporte.cs" />
     <Compile Include="EjercicioIngresar.cs">
@@ -221,12 +227,28 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rendimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rendimiento.Designer.cs">
+      <DependentUpon>Rendimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rutina.Designer.cs">
+      <DependentUpon>Rutina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rutinas.cs" />
     <Compile Include="SeleccionadordeIdioma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SeleccionadordeIdioma.Designer.cs">
       <DependentUpon>SeleccionadordeIdioma.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Agenda.resx">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EjercicioIngresar.resx">
       <DependentUpon>EjercicioIngresar.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +286,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Rendimiento.resx">
+      <DependentUpon>Rendimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rutina.resx">
+      <DependentUpon>Rutina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SeleccionadordeIdioma.resx">
       <DependentUpon>SeleccionadordeIdioma.cs</DependentUpon>
     </EmbeddedResource>

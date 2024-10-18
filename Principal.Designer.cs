@@ -64,7 +64,7 @@
             this.menuIngresar});
             this.mstPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mstPrincipal.Name = "mstPrincipal";
-            this.mstPrincipal.Size = new System.Drawing.Size(775, 24);
+            this.mstPrincipal.Size = new System.Drawing.Size(1143, 28);
             this.mstPrincipal.TabIndex = 0;
             this.mstPrincipal.Text = "SIGEN";
             // 
@@ -79,7 +79,7 @@
             this.menuAdministradorTI});
             this.menuAplicasiones.Font = new System.Drawing.Font("Algerian", 9F);
             this.menuAplicasiones.Name = "menuAplicasiones";
-            this.menuAplicasiones.Size = new System.Drawing.Size(122, 20);
+            this.menuAplicasiones.Size = new System.Drawing.Size(122, 24);
             this.menuAplicasiones.Text = "Aplicasiones";
             this.menuAplicasiones.Click += new System.EventHandler(this.menuAplicasiones_Click);
             // 
@@ -97,22 +97,23 @@
             // menuAgenda
             // 
             this.menuAgenda.Name = "menuAgenda";
-            this.menuAgenda.Size = new System.Drawing.Size(182, 26);
+            this.menuAgenda.Size = new System.Drawing.Size(224, 26);
             this.menuAgenda.Text = "Agenda";
             this.menuAgenda.Click += new System.EventHandler(this.menuAgenda_Click);
             // 
             // menuRutina
             // 
             this.menuRutina.Name = "menuRutina";
-            this.menuRutina.Size = new System.Drawing.Size(182, 26);
+            this.menuRutina.Size = new System.Drawing.Size(224, 26);
             this.menuRutina.Text = "Rutina";
             this.menuRutina.Click += new System.EventHandler(this.menuRutina_Click);
             // 
             // menuRendimiento
             // 
             this.menuRendimiento.Name = "menuRendimiento";
-            this.menuRendimiento.Size = new System.Drawing.Size(182, 26);
+            this.menuRendimiento.Size = new System.Drawing.Size(224, 26);
             this.menuRendimiento.Text = "Rendimiento";
+            this.menuRendimiento.Click += new System.EventHandler(this.menuRendimiento_Click);
             // 
             // menuEntrenador
             // 
@@ -166,14 +167,14 @@
             // menuCalendario
             // 
             this.menuCalendario.Name = "menuCalendario";
-            this.menuCalendario.Size = new System.Drawing.Size(224, 26);
+            this.menuCalendario.Size = new System.Drawing.Size(178, 26);
             this.menuCalendario.Text = "Calendario";
             this.menuCalendario.Click += new System.EventHandler(this.menuCalendario_Click);
             // 
             // menuClienteAdministrativo
             // 
             this.menuClienteAdministrativo.Name = "menuClienteAdministrativo";
-            this.menuClienteAdministrativo.Size = new System.Drawing.Size(224, 26);
+            this.menuClienteAdministrativo.Size = new System.Drawing.Size(178, 26);
             this.menuClienteAdministrativo.Text = "Cliente";
             this.menuClienteAdministrativo.Click += new System.EventHandler(this.menuClienteAdministrativo_Click);
             // 
@@ -239,21 +240,21 @@
             this.menuSalir});
             this.menuIngresar.Font = new System.Drawing.Font("Algerian", 9F);
             this.menuIngresar.Name = "menuIngresar";
-            this.menuIngresar.Size = new System.Drawing.Size(93, 20);
+            this.menuIngresar.Size = new System.Drawing.Size(93, 24);
             this.menuIngresar.Text = "Ingresar";
             this.menuIngresar.Click += new System.EventHandler(this.menuIngresar_Click);
             // 
             // menuLogin
             // 
             this.menuLogin.Name = "menuLogin";
-            this.menuLogin.Size = new System.Drawing.Size(224, 26);
+            this.menuLogin.Size = new System.Drawing.Size(130, 26);
             this.menuLogin.Text = "Login";
             this.menuLogin.Click += new System.EventHandler(this.menuLogin_Click);
             // 
             // menuSalir
             // 
             this.menuSalir.Name = "menuSalir";
-            this.menuSalir.Size = new System.Drawing.Size(224, 26);
+            this.menuSalir.Size = new System.Drawing.Size(130, 26);
             this.menuSalir.Text = "Salir";
             this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
             // 
@@ -261,7 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 483);
+            this.ClientSize = new System.Drawing.Size(1143, 543);
             this.Controls.Add(this.mstPrincipal);
             this.Font = new System.Drawing.Font("Algerian", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
