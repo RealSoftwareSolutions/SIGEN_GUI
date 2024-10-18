@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IngresarUsuarioBasico));
             this.btnSalir = new System.Windows.Forms.Button();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.lblTipoDocumento = new System.Windows.Forms.Label();
             this.cbDocumentoTipo = new System.Windows.Forms.ComboBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -45,7 +46,7 @@
             this.cbSi = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtGmail = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.lblDepartamento = new System.Windows.Forms.Label();
             this.txtDocumentoId = new System.Windows.Forms.TextBox();
             this.lblDocumento = new System.Windows.Forms.Label();
@@ -83,6 +84,7 @@
             // 
             // gbDatos
             // 
+            this.gbDatos.Controls.Add(this.btnModificar);
             this.gbDatos.Controls.Add(this.lblTipoDocumento);
             this.gbDatos.Controls.Add(this.cbDocumentoTipo);
             this.gbDatos.Controls.Add(this.txtTelefono);
@@ -96,7 +98,7 @@
             this.gbDatos.Controls.Add(this.cbSi);
             this.gbDatos.Controls.Add(this.label5);
             this.gbDatos.Controls.Add(this.txtGmail);
-            this.gbDatos.Controls.Add(this.label3);
+            this.gbDatos.Controls.Add(this.lblEmail);
             this.gbDatos.Controls.Add(this.lblDepartamento);
             this.gbDatos.Controls.Add(this.txtDocumentoId);
             this.gbDatos.Controls.Add(this.lblDocumento);
@@ -116,6 +118,17 @@
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Ingresar Datos";
             this.gbDatos.Enter += new System.EventHandler(this.gbDatos_Enter);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(274, 222);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(100, 26);
+            this.btnModificar.TabIndex = 34;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // lblTipoDocumento
             // 
@@ -218,7 +231,7 @@
             // lblDescripcionDificultad
             // 
             this.lblDescripcionDificultad.AutoSize = true;
-            this.lblDescripcionDificultad.Location = new System.Drawing.Point(155, 143);
+            this.lblDescripcionDificultad.Location = new System.Drawing.Point(145, 162);
             this.lblDescripcionDificultad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcionDificultad.Name = "lblDescripcionDificultad";
             this.lblDescripcionDificultad.Size = new System.Drawing.Size(180, 15);
@@ -251,7 +264,7 @@
             // cbSi
             // 
             this.cbSi.AutoSize = true;
-            this.cbSi.Location = new System.Drawing.Point(97, 139);
+            this.cbSi.Location = new System.Drawing.Point(113, 140);
             this.cbSi.Name = "cbSi";
             this.cbSi.Size = new System.Drawing.Size(46, 19);
             this.cbSi.TabIndex = 22;
@@ -279,16 +292,16 @@
             this.txtGmail.TabIndex = 19;
             this.txtGmail.TextChanged += new System.EventHandler(this.txtGmail_TextChanged);
             // 
-            // label3
+            // lblEmail
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(2, 88);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 15);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Correo Electronico";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(2, 88);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(141, 15);
+            this.lblEmail.TabIndex = 18;
+            this.lblEmail.Text = "Correo Electronico";
+            this.lblEmail.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblDepartamento
             // 
@@ -343,7 +356,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(328, 211);
+            this.btnCancelar.Location = new System.Drawing.Point(546, 258);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 26);
@@ -365,7 +378,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(221, 211);
+            this.btnGuardar.Location = new System.Drawing.Point(408, 222);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(100, 26);
@@ -436,7 +449,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(92, 151);
+            this.btnBuscar.Location = new System.Drawing.Point(21, 144);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(100, 26);
@@ -515,7 +528,7 @@
         private System.Windows.Forms.Label lblDocumento;
         private System.Windows.Forms.Label lblDepartamento;
         private System.Windows.Forms.TextBox txtGmail;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox cbSi;
@@ -536,5 +549,6 @@
         private System.Windows.Forms.ComboBox cbDocumentoTipo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cboTipoDocumento;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

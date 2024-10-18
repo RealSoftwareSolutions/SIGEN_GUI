@@ -16,13 +16,14 @@ namespace SIGEN_GUI
         {
             InitializeComponent();
 
-            
+
         }
 
         private void IngresarUsuarioBasico_Load(object sender, EventArgs e)
         {
             gbDatos.Enabled = false;
             lblDescripcionDificultad.Visible = false;
+            btnModificar.Enabled = false;
             txtDescripcionDificultad.Visible = false;
         }
 
@@ -38,7 +39,7 @@ namespace SIGEN_GUI
 
         private void gbDatos_Enter(object sender, EventArgs e)
         {
-  
+
         }
 
         private void cbSi_CheckedChanged(object sender, EventArgs e)
@@ -82,7 +83,7 @@ namespace SIGEN_GUI
             int telefono = 0; // Solo se requiere para el teléfono
             Cliente c;
 
-            // Verificar si todos los campos obligatorios están completos
+            // Verifico si todos los campos obligatorios están completos
             if (cbDocumentoTipo.SelectedItem == null)
             {
                 MessageBox.Show("Por favor, seleccione un tipo de documento.");
@@ -117,28 +118,25 @@ namespace SIGEN_GUI
             }
             else
             {
-                // Todo está correcto, se puede proceder con la operación
-                // Aquí puedes agregar el código para continuar con el guardado o el siguiente paso.
 
-
-                // Obtener el tipo de documento seleccionado
                 string tipoDocumento = cbDocumentoTipo.SelectedItem.ToString();
                 string documentoId = txtDocumentoId.Text.Trim(); // Captura el documento como string
 
                 // Validar según el tipo de documento
                 if (tipoDocumento == "C.I")
                 {
-                    // Asegurarse de que el documento solo contenga números
-                    if (!int.TryParse(documentoId, out _)) // Solo verificar que sea numérico, no guardamos en cedula
+                    //g Asegurarse de que el documento solo contena números
+                    if (!int.TryParse(documentoId, out _)) // verifica si es un numerico
                     {
                         MessageBox.Show("La C.I. debe ser numérica.");
                         return; // Salir si la validación falla
                     }
+
+
                 }
                 else if (tipoDocumento == "Pasaporte")
                 {
-                    // Para el pasaporte, no se requiere validación adicional aquí
-                    // Puedes agregar validaciones específicas si lo deseas
+
                 }
                 else
                 {
@@ -152,18 +150,21 @@ namespace SIGEN_GUI
                     MessageBox.Show("El teléfono debe ser numérico.");
                     return; // Salir si la validación falla
                 }
-                else if(txtTelefono.Text.Length > 9)
+                else if (txtTelefono.Text.Length > 9)
                 {
-                    MessageBox.Show("El teléfono debe tener 9 maximos numberos");
+                    MessageBox.Show("El teléfono debe tener un máximo de 9 números.");
+                    return; // Salir si la longitud es incorrecta
                 }
-                
 
                 // Validar el correo
                 if (!IsGmail(txtGmail.Text))
                 {
-                    MessageBox.Show("El gmail tiene que ser @gmail.com ejemplo: gonzalo@gmail.com");
+                    MessageBox.Show("El correo debe ser un Gmail válido. Ejemplo: gonzalo@gmail.com");
                     return; // Salir si la validación falla
                 }
+
+                // Si todo es válido, aquí puedes continuar con la operación de guardado o el siguiente paso
+
 
                 c = new Cliente
                 {
@@ -206,11 +207,6 @@ namespace SIGEN_GUI
 
             c = null; // Limpiar referencia
         }
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {  
-           
-          
-        }
         private void txtDescripcionDificultad_TextChanged(object sender, EventArgs e)
         {
 
@@ -245,8 +241,8 @@ namespace SIGEN_GUI
 
             // Restablecer los ComboBox 
             cbDocumentoTipo.SelectedIndex = -1;
-            cboTipoDocumento.SelectedIndex = -1; 
-            cboGenero.SelectedIndex = -1;  
+            cboTipoDocumento.SelectedIndex = -1;
+            cboGenero.SelectedIndex = -1;
             cboDepartamento.SelectedIndex = -1;
 
 
@@ -276,133 +272,71 @@ namespace SIGEN_GUI
                 }
             }
         }
-        /*
-                private void btnBuscar_Click(object sender, EventArgs e)
-                {
-                    cbDocumentoTipo.SelectedItem = cboTipoDocumento.SelectedItem;
-
-                    // Deshabilita el cbDocumentoTipo para que no se pueda modificar
-                    cbDocumentoTipo.Enabled = false;
-
-                    Cliente cliente = new Cliente(); // Cambiado de 'c' a 'cliente'
-                    string documento = txtBuscar.Text.Trim(); // Captura el documento como string
-
-                    // Obtener el tipo de documento seleccionado
-                    string tipoDocumento = cboTipoDocumento.SelectedItem?.ToString();
-
-
-                    // Verificar que se haya seleccionado un tipo de documento
-                    if (string.IsNullOrEmpty(tipoDocumento))
-                    {
-                        MessageBox.Show("Por favor, seleccione un tipo de documento.");
-                        return; // Salir si no hay selección
-                    }
-
-                    // Validar que el documento no esté vacío
-                    if (string.IsNullOrEmpty(documento))
-                    {
-                        MessageBox.Show("El documento no puede estar vacío.");
-                        return; // Salir del método si la validación falla
-                    }
-
-                    // Validar el formato del documento según el tipo
-                    if (tipoDocumento == "C.I" && !documento.All(char.IsDigit))
-                    {
-                        MessageBox.Show("El documento de tipo C.I debe contener solo números.");
-                        return; // Salir si la validación falla
-                    }
-                    else if (tipoDocumento == "Pasaporte" && documento.Any(c => !char.IsLetterOrDigit(c)))
-                    {
-                        MessageBox.Show("El documento de tipo Pasaporte solo puede contener letras y números.");
-                        return; // Salir si la validación falla
-                    }
-
-                    // Asignar el documento y el tipo de documento a la clase Cliente
-                    cliente.Conexion = Program.cn;
-                    cliente.iddocumento = documento; // Asignar el documento como string
-                    cliente.tipodocumento = tipoDocumento; // Asignar el tipo de documento
-
-                    switch (cliente.Buscar())
-                    {
-                        case 0: // Cliente encontrado
-                            gbBuscar.Enabled = true;
-                            MessageBox.Show("El usuario con documento " + cliente.iddocumento + " ya está registrado.");
-                            lblDescripcionDificultad.Visible = false;
-                            txtDescripcionDificultad.Visible = false;
-                            // Preguntar si desea eliminar el cliente
-                            DialogResult resultadoEliminar = MessageBox.Show("¿Desea eliminar al usuario con documento " + cliente.iddocumento + "?", "Eliminar usuario", MessageBoxButtons.YesNo);
-                            if (resultadoEliminar == DialogResult.Yes)
-                            {
-                                // Llamar al método para eliminar el cliente
-                                if (cliente.Eliminar())
-                                {
-                                    MessageBox.Show("El usuario ha sido eliminado.");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Hubo un error al eliminar el usuario. Inténtelo de nuevo.");
-                                }
-                            }
-                            gbDatos.Enabled = false;
-                            txtBuscar.Text = ""; // Limpiar el campo de búsqueda
-                            break;
-
-                        case 1:
-                            MessageBox.Show("Ha perdido la sesión. Debe loguearse nuevamente.");
-                            break;
-
-                        case 2:
-                            MessageBox.Show("Error en la búsqueda.");
-                            break;
-
-                        case 3: // No encontrado
-                            MessageBox.Show("El documento " + cliente.iddocumento + " no fue encontrado.");
-                            DialogResult resultadoAgregar = MessageBox.Show("¿Desea agregar el usuario?", "¿Agregar?", MessageBoxButtons.YesNo);
-                            if (resultadoAgregar == DialogResult.Yes)
-                            {
-                                gbBuscar.Enabled = false;
-                                gbDatos.Visible = true; // Mostrar la sección de datos
-                                gbDatos.Enabled = true; // Habilitar la sección de datos
-                                txtNombre.Clear(); // Limpiar el campo de nombre
-
-                                lblDescripcionDificultad.Visible = false;
-                                txtDescripcionDificultad.Visible = false;
-                                btnGuardar.Text = "Guardar"; // Cambiar el texto del botón a "Guardar"
-                            }
-                            break;
-
-                        case 4:
-                            MessageBox.Show("Hubo errores al buscar. En caso de repetirse, avisar al administrador.");
-                            break;
-                    }
-                }
-                */
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             // Selecciona el tipo de documento en cbDocumentoTipo
             cbDocumentoTipo.SelectedItem = cboTipoDocumento.SelectedItem;
+            cbDocumentoTipo.Enabled = false; // Deshabilita el cbDocumentoTipo
 
-            // Deshabilita el cbDocumentoTipo para que no se pueda modificar
-            cbDocumentoTipo.Enabled = false;
-
-            Cliente cliente = new Cliente(); // Cambiado de 'c' a 'cliente'
             string documento = txtBuscar.Text.Trim(); // Captura el documento como string
+            string tipoDocumento = cboTipoDocumento.SelectedItem?.ToString(); // Obtener el tipo de documento seleccionado
 
-            // Obtener el tipo de documento seleccionado
-            string tipoDocumento = cboTipoDocumento.SelectedItem?.ToString();
-
-            // Verificar que se haya seleccionado un tipo de documento
-            if (string.IsNullOrEmpty(tipoDocumento))
+            // Validar el tipo de documento y el documento ingresado
+            if (!ValidarDocumento(tipoDocumento, documento))
             {
-                MessageBox.Show("Por favor, seleccione un tipo de documento.");
-                return; // Salir si no hay selección
+                return; // Salir si hay un error en la validación
             }
 
-            // Validar que el documento no esté vacío
-            if (string.IsNullOrEmpty(documento))
+            Cliente cliente = new Cliente
+            {
+                Conexion = Program.cn,
+                iddocumento = documento,
+                tipodocumento = tipoDocumento
+            };
+
+            try
+            {
+                switch (cliente.Buscar())
+                {
+                    case 0: // Cliente encontrado
+                        ManejarClienteEncontrado(cliente);
+                        break;
+
+                    case 1:
+                        MessageBox.Show("Ha perdido la sesión. Debe loguearse nuevamente.");
+                        break;
+
+                    case 2:
+                        MessageBox.Show("Error en la búsqueda.");
+                        break;
+
+                    case 3: // No encontrado
+                        ManejarClienteNoEncontrado(cliente);
+                        break;
+
+                    case 4:
+                        MessageBox.Show("Hubo errores al buscar. En caso de repetirse, avisar al administrador.");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error inesperado: {ex.Message}");
+            }
+        }
+
+        private bool ValidarDocumento(string tipoDocumento, string documento)
+        {
+            if (string.IsNullOrWhiteSpace(tipoDocumento))
+            {
+                MessageBox.Show("Por favor, seleccione un tipo de documento.");
+                return false; // Salir si no hay selección
+            }
+
+            if (string.IsNullOrWhiteSpace(documento))
             {
                 MessageBox.Show("El documento no puede estar vacío.");
-                return; // Salir del método si la validación falla
+                return false; // Salir si la validación falla
             }
 
             // Validar el formato del documento según el tipo
@@ -411,7 +345,7 @@ namespace SIGEN_GUI
                 if (documento.Length != 8 || !documento.All(char.IsDigit))
                 {
                     MessageBox.Show("El documento de tipo C.I debe contener exactamente 8 dígitos.");
-                    return; // Salir si la validación falla
+                    return false; // Salir si la validación falla
                 }
             }
             else if (tipoDocumento == "Pasaporte")
@@ -419,68 +353,81 @@ namespace SIGEN_GUI
                 if (documento.Length < 8 || documento.Any(c => !char.IsLetterOrDigit(c)))
                 {
                     MessageBox.Show("El documento de tipo Pasaporte debe tener al menos 8 caracteres y solo puede contener letras y números.");
-                    return; // Salir si la validación falla
+                    return false; // Salir si la validación falla
                 }
             }
 
-            // Asignar el documento y el tipo de documento a la clase Cliente
-            cliente.Conexion = Program.cn;
-            cliente.iddocumento = documento; // Asignar el documento como string
-            cliente.tipodocumento = tipoDocumento; // Asignar el tipo de documento
+            return true; // Todo es válido
+        }
 
-            switch (cliente.Buscar())
+        private void ManejarClienteEncontrado(Cliente cliente)
+        {
+            gbBuscar.Enabled = true;
+            MessageBox.Show("El usuario con documento " + cliente.iddocumento + " ya está registrado.");
+            lblDescripcionDificultad.Visible = false;
+            txtDescripcionDificultad.Visible = false;
+
+            // desea ?eliminar el cliente
+            DialogResult resultadoEliminar = MessageBox.Show("¿Desea eliminar al usuario con documento " + cliente.iddocumento + "?", "Eliminar usuario", MessageBoxButtons.YesNo);
+            if (resultadoEliminar == DialogResult.Yes)
             {
-                case 0: // Cliente encontrado
-                    gbBuscar.Enabled = true;
-                    MessageBox.Show("El usuario con documento " + cliente.iddocumento + " ya está registrado.");
-                    lblDescripcionDificultad.Visible = false;
-                    txtDescripcionDificultad.Visible = false;
-                    // Preguntar si desea eliminar el cliente
-                    DialogResult resultadoEliminar = MessageBox.Show("¿Desea eliminar al usuario con documento " + cliente.iddocumento + "?", "Eliminar usuario", MessageBoxButtons.YesNo);
-                    if (resultadoEliminar == DialogResult.Yes)
-                    {
-                        // Llamar al método para eliminar el cliente
-                        if (cliente.Eliminar())
-                        {
-                            MessageBox.Show("El usuario ha sido eliminado.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Hubo un error al eliminar el usuario. Inténtelo de nuevo.");
-                        }
-                    }
-                    gbDatos.Enabled = false;
-                    txtBuscar.Text = ""; // Limpiar el campo de búsqueda
-                    break;
-
-                case 1:
-                    MessageBox.Show("Ha perdido la sesión. Debe loguearse nuevamente.");
-                    break;
-
-                case 2:
-                    MessageBox.Show("Error en la búsqueda.");
-                    break;
-
-                case 3: // No encontrado
-                    MessageBox.Show("El documento " + cliente.iddocumento + " no fue encontrado.");
-                    DialogResult resultadoAgregar = MessageBox.Show("¿Desea agregar el usuario?", "¿Agregar?", MessageBoxButtons.YesNo);
-                    if (resultadoAgregar == DialogResult.Yes)
-                    {
-                        gbBuscar.Enabled = false;
-                        gbDatos.Visible = true; // Mostrar la sección de datos
-                        gbDatos.Enabled = true; // Habilitar la sección de datos
-                        txtNombre.Clear(); // Limpiar el campo de nombre
-
-                        lblDescripcionDificultad.Visible = false;
-                        txtDescripcionDificultad.Visible = false;
-                        btnGuardar.Text = "Guardar"; // Cambiar el texto del botón a "Guardar"
-                    }
-                    break;
-
-                case 4:
-                    MessageBox.Show("Hubo errores al buscar. En caso de repetirse, avisar al administrador.");
-                    break;
+                if (cliente.Eliminar())
+                {
+                    MessageBox.Show("El usuario ha sido eliminado.");
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un error al eliminar el usuario. Inténtelo de nuevo.");
+                }
             }
+            else
+            {
+                // Si no se desea eliminar, preguntar si desea modificar
+                DialogResult resultadoModificar = MessageBox.Show("¿Desea modificar los datos del usuario?", "Modificar usuario", MessageBoxButtons.YesNo);
+                if (resultadoModificar == DialogResult.Yes)
+                {
+                    CargarDatosCliente(cliente);
+                }
+            }
+        }
+
+        private void ManejarClienteNoEncontrado(Cliente cliente)
+        {
+            MessageBox.Show("El documento " + cliente.iddocumento + " no fue encontrado.");
+            DialogResult resultadoAgregar = MessageBox.Show("¿Desea agregar el usuario?", "¿Agregar?", MessageBoxButtons.YesNo);
+            if (resultadoAgregar == DialogResult.Yes)
+            {
+                gbBuscar.Enabled = false;
+                btnModificar.Enabled = false;
+                txtDocumentoId.Enabled = true;
+                txtNombre.Enabled = true;
+
+                gbDatos.Visible = true; // Mostrar la sección de datos
+                gbDatos.Enabled = true; // Habilitar la sección de datos
+                txtNombre.Clear(); // Limpiar el campo de nombre
+
+                lblDescripcionDificultad.Visible = false;
+                txtDescripcionDificultad.Visible = false;
+                btnGuardar.Text = "Guardar"; // Cambiar el texto del botón a "Guardar"
+            }
+        }
+
+        private void CargarDatosCliente(Cliente cliente)
+        {
+            // activo y desactivo
+            btnBuscar.Enabled = false;
+            txtBuscar.Enabled = false; // Desactivar el campo de búsqueda
+            gbDatos.Enabled = true;
+            btnModificar.Enabled = true;
+            btnGuardar.Enabled = false;
+
+            // Cargar los datos del cliente en los campos de gbDatos
+            txtDocumentoId.Text = cliente.iddocumento;
+            txtDocumentoId.Enabled = false; // desabilito la modificasion
+            txtNombre.Enabled = false;
+
+
+
         }
 
         private void txtCedula_TextChanged(object sender, EventArgs e)
@@ -627,5 +574,143 @@ namespace SIGEN_GUI
                 lblQueCambia.Text = tipoDocumentoSeleccionado;
             }
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            int telefono = 0; // Solo se requiere para el teléfono
+            Cliente c;
+
+            // Verifico si todos los campos obligatorios están completos
+            if (cbDocumentoTipo.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, seleccione un tipo de documento.");
+                return; // Salir si la validación falla
+            }
+            else if (string.IsNullOrEmpty(txtDocumentoId.Text))
+            {
+                MessageBox.Show("Por favor, ingrese un Documento ID.");
+                return; // Salir si la validación falla
+            }
+            else if (cboGenero.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, seleccione un Género.");
+                return; // Salir si la validación falla
+            }
+            else if (cboDepartamento.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, seleccione un Departamento.");
+                return; // Salir si la validación falla
+            }
+            else if (string.IsNullOrEmpty(txtDireccionLoc.Text))
+            {
+                MessageBox.Show("Por favor, ingrese una Dirección o Calle.");
+                return; // Salir si la validación falla
+            }
+            else if (string.IsNullOrEmpty(txtGmail.Text))
+            {
+                MessageBox.Show("Por favor, ingrese un Gmail.");
+                return; // Salir si la validación falla
+            }
+            else if (string.IsNullOrEmpty(txtTelefono.Text))
+            {
+                MessageBox.Show("Por favor, ingrese un Teléfono.");
+                return; // Salir si la validación falla
+            }
+
+            string tipoDocumento = cbDocumentoTipo.SelectedItem.ToString();
+            string documentoId = txtDocumentoId.Text; // Captura el documento como string
+
+            // Validar según el tipo de documento
+            if (tipoDocumento == "C.I")
+            {
+                // Asegurarse de que el documento solo contenga números
+                if (!int.TryParse(documentoId, out _)) // Verifica si es numérico
+                {
+                    MessageBox.Show("La C.I. debe ser numérica.");
+                    return; // Salir si la validación falla
+                }
+            }
+            else if (tipoDocumento == "Pasaporte")
+            {
+                // Si necesitas alguna validación específica para el pasaporte, inclúyela aquí
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un tipo de documento válido.");
+                return; // Salir si no se selecciona un tipo
+            }
+
+            // Validar el teléfono
+            if (!int.TryParse(txtTelefono.Text, out telefono))
+            {
+                MessageBox.Show("El teléfono debe ser numérico.");
+                return; // Salir si la validación falla
+            }
+            else if (txtTelefono.Text.Length > 9)
+            {
+                MessageBox.Show("El teléfono debe tener un máximo de 9 números.");
+                return; // Salir si la longitud es incorrecta
+            }
+
+            // Validar el correo
+            if (!IsGmail(txtGmail.Text))
+            {
+                MessageBox.Show("El correo debe ser un Gmail válido. Ejemplo: gonzalo@gmail.com");
+                return; // Salir si la validación falla
+            }
+
+            // Crear la instancia del Cliente para modificación
+            c = new Cliente
+            {
+                iddocumento = documentoId, // Asignar el documento como string
+                tipodocumento = tipoDocumento, // Asignar el tipo de documento
+                Conexion = Program.cn, // Conexión a la base de datos
+                Nombre = string.IsNullOrEmpty(txtNombre.Text) ? null : txtNombre.Text, // Asignar nombre, puede ser nulo
+                Direccion = txtDireccionLoc.Text, // Asignar dirección
+                Departamentos = cboDepartamento.SelectedItem.ToString(), // Asignar departamento
+                Gmail = txtGmail.Text, // Asignar correo electrónico
+                Genero = cboGenero.SelectedItem.ToString(), // Asignar género
+                FechaNacimiento = dpkFechaNacimiento.Value, // Asignar fecha de nacimiento
+                Dificultad = cbSi.Checked, // Asignar dificultad
+                DescripcionDificultad = txtDescripcionDificultad.Text, // Asignar descripción de dificultad
+                Telefono = telefono // Asignar teléfono
+            };
+
+            // Modificar datos del cliente
+            byte resultado = c.Modificar(true); // Llamar al método Modificar con true
+
+            // Manejar el resultado de la modificación
+            switch (resultado)
+            {
+                case 0:
+                    MessageBox.Show("Modificación exitosa.");
+                    LimpiarFormulario(); // Opcional, si quieres limpiar el formulario después
+                    gbDatos.Enabled = false;
+                    gbBuscar.Enabled = true;
+                    btnBuscar.Enabled = true;
+                    txtBuscar.Enabled = true;
+                    cboTipoDocumento.Enabled = true;
+                    break;
+
+                case 1:
+                    MessageBox.Show("Perdió la sesión. Debe loguearse nuevamente.");
+                    break;
+
+                case 2:
+                    MessageBox.Show("Error al modificar el cliente.");
+                    break;
+
+                case 3:
+                    MessageBox.Show("Error al insertar teléfonos.");
+                    break;
+
+                default:
+                    MessageBox.Show("Ocurrió un error inesperado.");
+                    break;
+            }
+
+            c = null; // Limpiar todo
+        }
+
     }
 }

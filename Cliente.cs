@@ -46,7 +46,7 @@ namespace SIGEN_GUI
             _tipodocumento = tipodocumento;
             _nombre = nombre;
             _telefono = telefono;
-            _fechanacimiento = null;
+            _fechanacimiento = fechanacimiento;
             _direccion = direccion;
             _departamentos = departamentos;
             _gmail = gmail;
@@ -133,6 +133,49 @@ namespace SIGEN_GUI
             public string Usuario { get; set; }
             public string Contrasenia { get; set; }
         }
+
+        public byte Modificar(bool modificacion)
+        {
+            string sql = ""; // Asignar un valor por defecto
+            object filasAfectadas;
+            byte resultado = 0;
+
+            if (_conexion.State == 0) // CONEXIÓN CERRADA
+            {
+                return 1; // ERROR DE CONEXIÓN
+            }
+
+            if (modificacion) // Si es una modificación
+            {
+                sql = "UPDATE clientes SET " +
+                      "telefono = " + _telefono + ", " +
+                      "direccion = '" + _direccion + "', " +
+                      "departamentos = '" + _departamentos + "', " +
+                      "gmail = '" + _gmail + "', " +
+                      "genero = '" + _genero + "', " +
+                      "dificultad = " + (_dificultad ? "1" : "0") + ", " +
+                      "descripciondificultad = '" + _descripciondificultad + "' " +
+                      "WHERE id_documento = '" + _iddocumento + "';"; // Usar solo id_documento
+            }
+            else
+            {
+                // Si es un caso no de modificación, puedes decidir qué hacer aquí o simplemente no hacer nada
+                return 0; // O puedes lanzar un error o manejarlo de otra forma
+            }
+
+            try
+            {
+                // Ejecutar la consulta de modificación
+                _conexion.Execute(sql, out filasAfectadas); // Cualquier sentencia SQL que no sea un SELECT se ejecutará de esta forma
+            }
+            catch
+            {
+                return 2; // ERROR AL EJECUTAR LA CONSULTA
+            }
+
+            return resultado; // MODIFICACIÓN EXITOSA
+        }
+
         public bool Eliminar()
         {
             if (_conexion.State == 0) // Verificar si la conexión está cerrada
@@ -159,54 +202,54 @@ namespace SIGEN_GUI
                 return false; // Error en la eliminación
             }
         }
-        
-                public byte Buscar()
+
+        public byte Buscar()
+        {
+            // Verifica si la conexión está abierta
+            if (_conexion.State != 1)
+            {
+                return 1; // CONEXIÓN CERRADA
+            }
+
+            // Verifica que el ID y tipo de documento no sean nulos o vacíos
+            if (string.IsNullOrEmpty(_iddocumento) || string.IsNullOrEmpty(_tipodocumento))
+            {
+                return 2; // ERROR: No hay CI válido para buscar
+            }
+
+            // Consulta SQL
+            string sql = "SELECT `id_documento`, `tipo_documento` FROM `clientes` WHERE `id_documento` = '" + _iddocumento + "' AND TRIM(`tipo_documento`) = '" + _tipodocumento + "';";
+            ADODB.Recordset rs = null; // Inicializamos rs como null
+
+            try
+            {
+
+                rs = _conexion.Execute(sql, out object filasAfectadas);
+
+                if (rs.RecordCount == 0)
                 {
-                    // Verifica si la conexión está abierta
-                    if (_conexion.State != 1)
-                    {
-                        return 1; // CONEXIÓN CERRADA
-                    }
-
-                    // Verifica que el ID y tipo de documento no sean nulos o vacíos
-                    if (string.IsNullOrEmpty(_iddocumento) || string.IsNullOrEmpty(_tipodocumento))
-                    {
-                        return 2; // ERROR: No hay CI válido para buscar
-                    }
-
-                   // Consulta SQL
-                   string sql = "SELECT `id_documento`, `tipo_documento` FROM `clientes` WHERE `id_documento` = '" + _iddocumento + "' AND TRIM(`tipo_documento`) = '" + _tipodocumento + "';";
-                   ADODB.Recordset rs = null; // Inicializamos rs como null
-
-                    try
-                    {
-
-                        rs = _conexion.Execute(sql, out object filasAfectadas);
-
-                        if (rs.RecordCount == 0)
-                        {
-                            return 3; // NO ENCONTRÉ EL CLIENTE
-                        }
-
-                        _nombre = Convert.ToString(rs.Fields[0].Value); // Asignar el nombre del cliente encontrado
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error: {ex.Message}"); // Log para depuración
-                        return 4; // ERROR AL CONSULTAR CLIENTE
-                    }
-
-                    finally
-                    {
-                        if (rs != null)
-                        {
-                            rs.Close(); // Asegurarse de cerrar el recordset si se abrió
-                        }
-                    }
-
-                    return 0; // CLIENTE ENCONTRADO
+                    return 3; // NO ENCONTRÉ EL CLIENTE
                 }
-        
+
+                _nombre = Convert.ToString(rs.Fields[0].Value); // Asignar el nombre del cliente encontrado
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}"); // Log para depuración
+                return 4; // ERROR AL CONSULTAR CLIENTE
+            }
+
+            finally
+            {
+                if (rs != null)
+                {
+                    rs.Close(); // Asegurarse de cerrar el recordset si se abrió
+                }
+            }
+
+            return 0; // CLIENTE ENCONTRADO
+        }
+
 
         public byte Guardar()
         {
@@ -237,31 +280,31 @@ namespace SIGEN_GUI
 
                 _conexion.Execute(sql, out filasAfectadas);
             }
-           
+
             catch (Exception ex)
             {
                 MessageBox.Show("Error al ejecutar la consulta: " + ex.Message);
                 return 2; // ERROR AL GUARDAR CLIENTE
             }
-           /*
-            // Insertar teléfonos del cliente
-            //foreach (string tel in _telefono)
-            //{
-                try
-                {
-                    sql = "INSERT INTO cliente_telefonos (cliente, telefono) VALUES (" + _ci + ", '" + tel + "')";
-                    _conexion.Execute(sql, out filasAfectadas);
-                }
-                catch (Exception ex)
+            /*
+             // Insertar teléfonos del cliente
+             //foreach (string tel in _telefono)
+             //{
+                 try
+                 {
+                     sql = "INSERT INTO cliente_telefonos (cliente, telefono) VALUES (" + _ci + ", '" + tel + "')";
+                     _conexion.Execute(sql, out filasAfectadas);
+                 }
+                 catch (Exception ex)
 
-                {
-                    MessageBox.Show("Error al insertar teléfono: " + ex.Message);
-                    return 3; // ERROR AL INSERTAR TELÉFONO
-                }
-            }
-        */
+                 {
+                     MessageBox.Show("Error al insertar teléfono: " + ex.Message);
+                     return 3; // ERROR AL INSERTAR TELÉFONO
+                 }
+             }
+         */
             return resultado;
         }// guardar
-        }
     }
+}
 
