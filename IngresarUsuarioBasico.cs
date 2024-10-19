@@ -16,7 +16,7 @@ namespace SIGEN_GUI
         {
             InitializeComponent();
 
-
+            
         }
 
         private void IngresarUsuarioBasico_Load(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace SIGEN_GUI
 
         private void gbDatos_Enter(object sender, EventArgs e)
         {
-
+  
         }
 
         private void cbSi_CheckedChanged(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace SIGEN_GUI
             }
             else
             {
-
+               
                 string tipoDocumento = cbDocumentoTipo.SelectedItem.ToString();
                 string documentoId = txtDocumentoId.Text.Trim(); // Captura el documento como string
 
@@ -131,12 +131,12 @@ namespace SIGEN_GUI
                         MessageBox.Show("La C.I. debe ser numérica.");
                         return; // Salir si la validación falla
                     }
-
-
+                    
+                 
                 }
                 else if (tipoDocumento == "Pasaporte")
                 {
-
+                    
                 }
                 else
                 {
@@ -164,9 +164,9 @@ namespace SIGEN_GUI
                 }
 
                 // Si todo es válido, aquí puedes continuar con la operación de guardado o el siguiente paso
+            
 
-
-                c = new Cliente
+            c = new Cliente
                 {
                     iddocumento = documentoId, // Asignar el documento como string
                     tipodocumento = cbDocumentoTipo.SelectedItem.ToString(), // Asignar el tipo de documento
@@ -177,7 +177,7 @@ namespace SIGEN_GUI
                     Gmail = txtGmail.Text,
                     Genero = cboGenero.SelectedItem.ToString(),
                     FechaNacimiento = dpkFechaNacimiento.Value,
-                    Motivo = cbSi.Checked ? "SI" : "NO",
+                    Dificultad = cbSi.Checked,
                     DescripcionDificultad = txtDescripcionDificultad.Text,
                     Telefono = telefono
                 };
@@ -241,15 +241,13 @@ namespace SIGEN_GUI
 
             // Restablecer los ComboBox 
             cbDocumentoTipo.SelectedIndex = -1;
-            cboTipoDocumento.SelectedIndex = -1;
-            cboGenero.SelectedIndex = -1;
+            cboTipoDocumento.SelectedIndex = -1; 
+            cboGenero.SelectedIndex = -1;  
             cboDepartamento.SelectedIndex = -1;
 
 
             // Habilitar el GroupBox de búsqueda 
             gbBuscar.Enabled = true; // Habilitar el gbBuscar
-            btnBuscar.Enabled = true;
-            txtBuscar.Enabled = true;
             gbDatos.Enabled = false; // Desabilitara el otro 
 
             // Limpiar combobox :d
@@ -389,7 +387,6 @@ namespace SIGEN_GUI
                 if (resultadoModificar == DialogResult.Yes)
                 {
                     CargarDatosCliente(cliente);
-                    
                 }
             }
         }
@@ -420,18 +417,17 @@ namespace SIGEN_GUI
             // activo y desactivo
             btnBuscar.Enabled = false;
             txtBuscar.Enabled = false; // Desactivar el campo de búsqueda
+            gbDatos.Enabled = true;
+            btnModificar.Enabled = true;
             btnGuardar.Enabled = false;
-            dpkFechaNacimiento.Enabled = false;
-            txtDocumentoId.Enabled = false; // desabilito la modificasion
 
             // Cargar los datos del cliente en los campos de gbDatos
             txtDocumentoId.Text = cliente.iddocumento;
+            txtDocumentoId.Enabled = false; // desabilito la modificasion
             txtNombre.Enabled = false;
-            gbDatos.Enabled = true;
-            btnModificar.Enabled = true;
 
 
-
+           
         }
 
         private void txtCedula_TextChanged(object sender, EventArgs e)
@@ -621,7 +617,6 @@ namespace SIGEN_GUI
                 return; // Salir si la validación falla
             }
 
-
             string tipoDocumento = cbDocumentoTipo.SelectedItem.ToString();
             string documentoId = txtDocumentoId.Text; // Captura el documento como string
 
@@ -676,7 +671,7 @@ namespace SIGEN_GUI
                 Gmail = txtGmail.Text, // Asignar correo electrónico
                 Genero = cboGenero.SelectedItem.ToString(), // Asignar género
                 FechaNacimiento = dpkFechaNacimiento.Value, // Asignar fecha de nacimiento
-                Motivo = cbSi.Checked ? "SI" : "NO", // Asignar dificultad
+                Dificultad = cbSi.Checked, // Asignar dificultad
                 DescripcionDificultad = txtDescripcionDificultad.Text, // Asignar descripción de dificultad
                 Telefono = telefono // Asignar teléfono
             };
@@ -717,9 +712,5 @@ namespace SIGEN_GUI
             c = null; // Limpiar todo
         }
 
-        private void cbRoles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
