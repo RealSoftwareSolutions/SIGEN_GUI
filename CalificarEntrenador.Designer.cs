@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalificarEntrenador));
             this.dgvCalificarEntrenador = new System.Windows.Forms.DataGridView();
             this.Nombre_Completo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,6 +117,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 560);
             this.Controls.Add(this.dgvCalificarEntrenador);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CalificarEntrenador";
             this.Text = "CalificarEntrenador";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalificarEntrenador)).EndInit();
