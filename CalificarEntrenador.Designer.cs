@@ -116,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1347, 525);
+            this.ClientSize = new System.Drawing.Size(1229, 525);
             this.Controls.Add(this.dgvCalificarEntrenador);
             this.Font = new System.Drawing.Font("Algerian", 7.8F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
