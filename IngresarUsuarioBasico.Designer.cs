@@ -318,6 +318,7 @@
             // 
             this.txtDocumentoId.Location = new System.Drawing.Point(329, 20);
             this.txtDocumentoId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDocumentoId.MaxLength = 50;
             this.txtDocumentoId.Name = "txtDocumentoId";
             this.txtDocumentoId.Size = new System.Drawing.Size(132, 25);
             this.txtDocumentoId.TabIndex = 13;
@@ -356,7 +357,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(546, 258);
+            this.btnCancelar.Location = new System.Drawing.Point(532, 222);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 26);
@@ -418,7 +419,7 @@
             this.gbBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.gbBuscar.Name = "gbBuscar";
             this.gbBuscar.Padding = new System.Windows.Forms.Padding(4);
-            this.gbBuscar.Size = new System.Drawing.Size(284, 188);
+            this.gbBuscar.Size = new System.Drawing.Size(264, 166);
             this.gbBuscar.TabIndex = 7;
             this.gbBuscar.TabStop = false;
             this.gbBuscar.Text = "Buscar";
@@ -449,7 +450,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(21, 144);
+            this.btnBuscar.Location = new System.Drawing.Point(92, 127);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(100, 26);
@@ -460,18 +461,18 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(92, 92);
+            this.txtBuscar.Location = new System.Drawing.Point(92, 80);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscar.MaxLength = 8;
+            this.txtBuscar.MaxLength = 50;
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(132, 25);
+            this.txtBuscar.Size = new System.Drawing.Size(131, 25);
             this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // lblQueCambia
             // 
             this.lblQueCambia.AutoSize = true;
-            this.lblQueCambia.Location = new System.Drawing.Point(8, 95);
+            this.lblQueCambia.Location = new System.Drawing.Point(8, 83);
             this.lblQueCambia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQueCambia.Name = "lblQueCambia";
             this.lblQueCambia.Size = new System.Drawing.Size(45, 15);

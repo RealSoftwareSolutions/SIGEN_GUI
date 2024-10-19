@@ -22,11 +22,11 @@ namespace SIGEN_GUI
                 // Program.cn.Open(connectionString);
 
                 /*Primero la direccion de coneccion*/
-                Program.cn.Open("miodbc", txtUsuario.Text, txtContrasenia.Text);
+                Program.cn.Open("sigenbd", txtUsuario.Text, txtContrasenia.Text);
             }
             catch //(Exception ex) //debug donde nos dira la variable
             {
-                //MessageBox.Show($"Error al intentar conectar: {ex.Message}"); //que error tendre? dira
+               // MessageBox.Show($"Error al intentar conectar: {ex.Message}"); //que error tendre? dira
                 //return;
                 MessageBox.Show("Usuario o Contraseña Incorrectos");
                 return;

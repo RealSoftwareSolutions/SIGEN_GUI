@@ -97,21 +97,21 @@
             // menuAgenda
             // 
             this.menuAgenda.Name = "menuAgenda";
-            this.menuAgenda.Size = new System.Drawing.Size(224, 26);
+            this.menuAgenda.Size = new System.Drawing.Size(182, 26);
             this.menuAgenda.Text = "Agenda";
             this.menuAgenda.Click += new System.EventHandler(this.menuAgenda_Click);
             // 
             // menuRutina
             // 
             this.menuRutina.Name = "menuRutina";
-            this.menuRutina.Size = new System.Drawing.Size(224, 26);
+            this.menuRutina.Size = new System.Drawing.Size(182, 26);
             this.menuRutina.Text = "Rutina";
             this.menuRutina.Click += new System.EventHandler(this.menuRutina_Click);
             // 
             // menuRendimiento
             // 
             this.menuRendimiento.Name = "menuRendimiento";
-            this.menuRendimiento.Size = new System.Drawing.Size(224, 26);
+            this.menuRendimiento.Size = new System.Drawing.Size(182, 26);
             this.menuRendimiento.Text = "Rendimiento";
             this.menuRendimiento.Click += new System.EventHandler(this.menuRendimiento_Click);
             // 
@@ -226,6 +226,7 @@
             this.menuIngresarEntrenador.Name = "menuIngresarEntrenador";
             this.menuIngresarEntrenador.Size = new System.Drawing.Size(258, 26);
             this.menuIngresarEntrenador.Text = "Ingresar Entrenador";
+            this.menuIngresarEntrenador.Click += new System.EventHandler(this.menuIngresarEntrenador_Click);
             // 
             // menuIngresarClub
             // 

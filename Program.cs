@@ -20,6 +20,7 @@ namespace SIGEN_GUI
         public static Rutina frmRutina;
         public static Rendimiento frmRendimiento;
         public static Agenda frmAgenda;
+        public static AgendaEntrenador frmAgendaEntrenador;
 
         public static Principal frmPrincipal;
         public static ADODB.Connection cn = new ADODB.Connection(); /*Conector a una base de datos - 21/05/2024 - Público para que lo tengan todos los archivos del proyecto y Est+atico porque est+a en la clase estática program*/
@@ -67,7 +68,7 @@ namespace SIGEN_GUI
             if (cn.State != 0) //conexion abierta del login
             {
 
-                sql = "select rol from usuario_rol where usuario='" + usuario + "'";
+                sql = "SELECT Rol FROM Usuario_Login WHERE Login ='" + usuario + "'";
                 try
                 {
                     rs = cn.Execute(sql, out filasafectadas); // ejecucion
@@ -88,7 +89,7 @@ namespace SIGEN_GUI
                     MessageBox.Show("el usuario no time rol asignado. Avisa al administrador");
                 }
                 else
-                { //encontre uno, pues busque por PK(primary key)
+                { //encontre uno, pues busque por PK(primary key en este caso login :o)
                   // MessageBox.Show(rs.Fields.Count.ToString());
                     rol = Convert.ToByte(rs.Fields[0].Value);
                     switch (rol)
@@ -137,6 +138,8 @@ namespace SIGEN_GUI
                         case 7: // Rol del desarrollador
                             CambiarEstadoMenuItem(frmPrincipal.menuAplicasiones, true);
                             CambiarEstadoMenuItem(frmPrincipal.menuClientes, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuEntrenador, true);
+                            CambiarEstadoMenuItem(frmPrincipal.menuAgendaEntrenador, true);
                             CambiarEstadoMenuItem(frmPrincipal.menuAgenda, true);
                             CambiarEstadoMenuItem(frmPrincipal.menuRutina, true);
                             CambiarEstadoMenuItem(frmPrincipal.menuRendimiento, true);

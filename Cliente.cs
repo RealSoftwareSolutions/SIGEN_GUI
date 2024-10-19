@@ -20,7 +20,7 @@ namespace SIGEN_GUI
         protected string _departamentos;
         protected string _gmail;
         protected string _genero;
-        protected bool _dificultad;
+        protected string _motivo;
         protected string _descripciondificultad;
         protected ADODB.Connection _conexion;
 
@@ -35,12 +35,12 @@ namespace SIGEN_GUI
             _departamentos = "";
             _gmail = "";
             _genero = "";
-            _dificultad = false;
+            _motivo = "";
             _descripciondificultad = "";
             _conexion = new ADODB.Connection();
         }
 
-        public Cliente(string iddocumento, string tipodocumento, string nombre, int telefono, DateTime? fechanacimiento, string direccion, string departamentos, string gmail, string genero, bool dificultad, string descripciondificultad, Connection conexion)
+        public Cliente(string iddocumento, string tipodocumento, string nombre, int telefono, DateTime? fechanacimiento, string direccion, string departamentos, string gmail, string genero, string motivo, string descripciondificultad, Connection conexion)
         {
             _iddocumento = iddocumento;
             _tipodocumento = tipodocumento;
@@ -51,7 +51,7 @@ namespace SIGEN_GUI
             _departamentos = departamentos;
             _gmail = gmail;
             _genero = genero;
-            _dificultad = dificultad;
+            _motivo = motivo;
             _descripciondificultad = descripciondificultad;
             _conexion = conexion;
         }
@@ -110,10 +110,10 @@ namespace SIGEN_GUI
             set { _genero = value; }
         }
 
-        public bool Dificultad
+        public string Motivo
         {
-            get { return _dificultad; }
-            set { _dificultad = value; }
+            get { return _motivo; }
+            set { _motivo = value; }
         }
 
         public string DescripcionDificultad
@@ -147,15 +147,15 @@ namespace SIGEN_GUI
 
             if (modificacion) // Si es una modificación
             {
-                sql = "UPDATE clientes SET " +
-                      "telefono = " + _telefono + ", " +
-                      "direccion = '" + _direccion + "', " +
-                      "departamentos = '" + _departamentos + "', " +
-                      "gmail = '" + _gmail + "', " +
-                      "genero = '" + _genero + "', " +
-                      "dificultad = " + (_dificultad ? "1" : "0") + ", " +
-                      "descripciondificultad = '" + _descripciondificultad + "' " +
-                      "WHERE id_documento = '" + _iddocumento + "';"; // Usar solo id_documento
+                sql = "UPDATE Usuario_Cliente SET " +
+                    "Telefono = '" + _telefono + "', " + // Telefono
+                    "Direccion = '" + _direccion + "', " + // Direccion
+                    "Departamento = '" + _departamentos + "', " + // Departamento
+                    "Correo = '" + _gmail + "', " + // Correo
+                    "Genero = '" + _genero + "', " + // Genero
+                    "Motivo = '" + _motivo + "' " + // Motivo (string: "SI" o "NO")
+                    "WHERE Nro_Documento = '" + _iddocumento + "';"; // Usar solo Nro_Documento
+
             }
             else
             {
@@ -190,7 +190,7 @@ namespace SIGEN_GUI
                 return false;
             }
 
-            string sql = "DELETE FROM clientes WHERE id_documento = " + _iddocumento; // Consulta para eliminar al cliente
+            string sql = "DELETE FROM usuario_cliente WHERE Nro_Documento = " + _iddocumento; // Consulta para eliminar al cliente
             try
             {
                 _conexion.Execute(sql, out object filasAfectadas); // Ejecutar la consulta
@@ -218,7 +218,7 @@ namespace SIGEN_GUI
             }
 
             // Consulta SQL
-            string sql = "SELECT `id_documento`, `tipo_documento` FROM `clientes` WHERE `id_documento` = '" + _iddocumento + "' AND TRIM(`tipo_documento`) = '" + _tipodocumento + "';";
+            string sql = "SELECT `Nro_Documento`, `Tipo_Documento` FROM `Usuario_Cliente` WHERE `Nro_Documento` = '" + _iddocumento + "' AND TRIM(`Tipo_Documento`) = '" + _tipodocumento + "';";
             ADODB.Recordset rs = null; // Inicializamos rs como null
 
             try
@@ -263,20 +263,21 @@ namespace SIGEN_GUI
             try
             {
                 // Insertar nuevo cliente
-                sql = "INSERT INTO clientes(id_documento, tipo_documento, nombre, fechanacimiento, direccion, departamentos, gmail, genero, dificultad, descripciondificultad, fecha_ingreso, telefono) " +
-               "VALUES (" +
-               "'" + _iddocumento + "', " + // ENTRE COMILLAS
-               "'" + _tipodocumento + "', " + // ENTRE COMILLAS
-               "'" + _nombre + "', " +
-               (_fechanacimiento.HasValue ? "'" + _fechanacimiento.Value.ToString("yyyy-MM-dd") + "'" : "NULL") + ", " +
-               "'" + _direccion + "', " +
-               "'" + _departamentos + "', " +
-               "'" + _gmail + "', " +
-               "'" + _genero + "', " +
-               (_dificultad ? "1" : "0") + ", " +
-               "'" + _descripciondificultad + "', " +
-               "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
-               "'" + _telefono + "')";
+                sql = "INSERT INTO Usuario_Cliente(Tipo_Documento, Nro_Documento, Nombre_Completo, Fecha_Nacimiento, Descripcion, Motivo, Correo, Telefono, Fecha_Inscripcion, Departamento, Direccion, Genero) " +
+                "VALUES (" +
+                "'" + _tipodocumento + "', " + // Tipo_Documento
+                "'" + _iddocumento + "', " + // Nro_Documento
+                "'" + _nombre + "', " + // Nombre_Completo
+                (_fechanacimiento.HasValue ? "'" + _fechanacimiento.Value.ToString("yyyy-MM-dd") + "'" : "NULL") + ", " + // Fecha_Nacimiento
+                "'" + _descripciondificultad + "', " + // Descripcion
+                "'" + _motivo + "', " + // Motivo (string: "SI" o "NO")
+                "'" + _gmail + "', " + // Correo
+                "'" + _telefono + "', " + // Telefono
+                "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " + // Fecha_Inscripcion
+                "'" + _departamentos + "', " + // Departamento
+                "'" + _direccion + "', " + // Direccion
+                "'" + _genero + "')"; // Genero
+
 
                 _conexion.Execute(sql, out filasAfectadas);
             }

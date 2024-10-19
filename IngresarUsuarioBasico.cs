@@ -177,7 +177,7 @@ namespace SIGEN_GUI
                     Gmail = txtGmail.Text,
                     Genero = cboGenero.SelectedItem.ToString(),
                     FechaNacimiento = dpkFechaNacimiento.Value,
-                    Dificultad = cbSi.Checked,
+                    Motivo = cbSi.Checked ? "SI" : "NO",
                     DescripcionDificultad = txtDescripcionDificultad.Text,
                     Telefono = telefono
                 };
@@ -248,6 +248,8 @@ namespace SIGEN_GUI
 
             // Habilitar el GroupBox de búsqueda 
             gbBuscar.Enabled = true; // Habilitar el gbBuscar
+            btnBuscar.Enabled = true;
+            txtBuscar.Enabled = true;
             gbDatos.Enabled = false; // Desabilitara el otro 
 
             // Limpiar combobox :d
@@ -387,6 +389,7 @@ namespace SIGEN_GUI
                 if (resultadoModificar == DialogResult.Yes)
                 {
                     CargarDatosCliente(cliente);
+                    
                 }
             }
         }
@@ -417,14 +420,15 @@ namespace SIGEN_GUI
             // activo y desactivo
             btnBuscar.Enabled = false;
             txtBuscar.Enabled = false; // Desactivar el campo de búsqueda
-            gbDatos.Enabled = true;
-            btnModificar.Enabled = true;
             btnGuardar.Enabled = false;
+            dpkFechaNacimiento.Enabled = false;
+            txtDocumentoId.Enabled = false; // desabilito la modificasion
 
             // Cargar los datos del cliente en los campos de gbDatos
             txtDocumentoId.Text = cliente.iddocumento;
-            txtDocumentoId.Enabled = false; // desabilito la modificasion
             txtNombre.Enabled = false;
+            gbDatos.Enabled = true;
+            btnModificar.Enabled = true;
 
 
 
@@ -617,6 +621,7 @@ namespace SIGEN_GUI
                 return; // Salir si la validación falla
             }
 
+
             string tipoDocumento = cbDocumentoTipo.SelectedItem.ToString();
             string documentoId = txtDocumentoId.Text; // Captura el documento como string
 
@@ -671,7 +676,7 @@ namespace SIGEN_GUI
                 Gmail = txtGmail.Text, // Asignar correo electrónico
                 Genero = cboGenero.SelectedItem.ToString(), // Asignar género
                 FechaNacimiento = dpkFechaNacimiento.Value, // Asignar fecha de nacimiento
-                Dificultad = cbSi.Checked, // Asignar dificultad
+                Motivo = cbSi.Checked ? "SI" : "NO", // Asignar dificultad
                 DescripcionDificultad = txtDescripcionDificultad.Text, // Asignar descripción de dificultad
                 Telefono = telefono // Asignar teléfono
             };
@@ -712,5 +717,9 @@ namespace SIGEN_GUI
             c = null; // Limpiar todo
         }
 
+        private void cbRoles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
