@@ -16,5 +16,10 @@ namespace SIGEN_GUI
         {
             InitializeComponent();
         }
+
+        private void dgvCalificarEntrenador_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

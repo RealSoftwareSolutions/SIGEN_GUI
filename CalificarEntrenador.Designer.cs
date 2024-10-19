@@ -55,12 +55,13 @@
             this.Direccion,
             this.Genero,
             this.Descripcion});
-            this.dgvCalificarEntrenador.Location = new System.Drawing.Point(55, 70);
+            this.dgvCalificarEntrenador.Location = new System.Drawing.Point(12, 66);
             this.dgvCalificarEntrenador.Name = "dgvCalificarEntrenador";
             this.dgvCalificarEntrenador.RowHeadersWidth = 51;
             this.dgvCalificarEntrenador.RowTemplate.Height = 24;
-            this.dgvCalificarEntrenador.Size = new System.Drawing.Size(619, 347);
+            this.dgvCalificarEntrenador.Size = new System.Drawing.Size(933, 325);
             this.dgvCalificarEntrenador.TabIndex = 0;
+            this.dgvCalificarEntrenador.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCalificarEntrenador_CellContentClick);
             // 
             // Nombre_Completo
             // 
@@ -113,10 +114,11 @@
             // 
             // CalificarEntrenador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 560);
+            this.ClientSize = new System.Drawing.Size(1347, 525);
             this.Controls.Add(this.dgvCalificarEntrenador);
+            this.Font = new System.Drawing.Font("Algerian", 7.8F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CalificarEntrenador";
