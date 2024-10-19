@@ -45,18 +45,18 @@
             this.lblVacio = new System.Windows.Forms.Label();
             this.gbBuscar = new System.Windows.Forms.GroupBox();
             this.gbAgendar = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAgendar = new System.Windows.Forms.Button();
+            this.lblVacioAgendar = new System.Windows.Forms.Label();
+            this.lblDocumento = new System.Windows.Forms.Label();
+            this.cboDocumento = new System.Windows.Forms.ComboBox();
+            this.cbDocumento = new System.Windows.Forms.TextBox();
+            this.txtHora = new System.Windows.Forms.TextBox();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.dpkFecha = new System.Windows.Forms.DateTimePicker();
             this.txtClaseNumero = new System.Windows.Forms.TextBox();
             this.lblNumberoClase = new System.Windows.Forms.Label();
-            this.dpkFecha = new System.Windows.Forms.DateTimePicker();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
-            this.txtHora = new System.Windows.Forms.TextBox();
-            this.cbDocumento = new System.Windows.Forms.TextBox();
-            this.cboDocumento = new System.Windows.Forms.ComboBox();
-            this.lblDocumento = new System.Windows.Forms.Label();
-            this.lblVacioAgendar = new System.Windows.Forms.Label();
-            this.btnAgendar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntrenadorAgenda)).BeginInit();
             this.gbBuscar.SuspendLayout();
             this.gbAgendar.SuspendLayout();
@@ -235,6 +235,97 @@
             this.gbAgendar.TabStop = false;
             this.gbAgendar.Text = "Agendar";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(337, 171);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 22);
+            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgendar
+            // 
+            this.btnAgendar.Location = new System.Drawing.Point(228, 171);
+            this.btnAgendar.Name = "btnAgendar";
+            this.btnAgendar.Size = new System.Drawing.Size(75, 22);
+            this.btnAgendar.TabIndex = 9;
+            this.btnAgendar.Text = "Agendar";
+            this.btnAgendar.UseVisualStyleBackColor = true;
+            // 
+            // lblVacioAgendar
+            // 
+            this.lblVacioAgendar.AutoSize = true;
+            this.lblVacioAgendar.Location = new System.Drawing.Point(211, 61);
+            this.lblVacioAgendar.Name = "lblVacioAgendar";
+            this.lblVacioAgendar.Size = new System.Drawing.Size(45, 15);
+            this.lblVacioAgendar.TabIndex = 9;
+            this.lblVacioAgendar.Text = "Vacio";
+            // 
+            // lblDocumento
+            // 
+            this.lblDocumento.AutoSize = true;
+            this.lblDocumento.Location = new System.Drawing.Point(197, 35);
+            this.lblDocumento.Name = "lblDocumento";
+            this.lblDocumento.Size = new System.Drawing.Size(81, 15);
+            this.lblDocumento.TabIndex = 9;
+            this.lblDocumento.Text = "Documento";
+            // 
+            // cboDocumento
+            // 
+            this.cboDocumento.FormattingEnabled = true;
+            this.cboDocumento.Items.AddRange(new object[] {
+            "C.I",
+            "Pasaporte"});
+            this.cboDocumento.Location = new System.Drawing.Point(312, 32);
+            this.cboDocumento.Name = "cboDocumento";
+            this.cboDocumento.Size = new System.Drawing.Size(121, 23);
+            this.cboDocumento.TabIndex = 9;
+            // 
+            // cbDocumento
+            // 
+            this.cbDocumento.Location = new System.Drawing.Point(312, 61);
+            this.cbDocumento.Name = "cbDocumento";
+            this.cbDocumento.Size = new System.Drawing.Size(121, 25);
+            this.cbDocumento.TabIndex = 9;
+            // 
+            // txtHora
+            // 
+            this.txtHora.Location = new System.Drawing.Point(74, 159);
+            this.txtHora.Name = "txtHora";
+            this.txtHora.Size = new System.Drawing.Size(121, 25);
+            this.txtHora.TabIndex = 13;
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Location = new System.Drawing.Point(18, 162);
+            this.lblHora.Margin = new System.Windows.Forms.Padding(4, 0, 5, 0);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(41, 15);
+            this.lblHora.TabIndex = 12;
+            this.lblHora.Text = "Hora";
+            this.lblHora.Click += new System.EventHandler(this.lblHora_Click);
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(18, 128);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 5, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(48, 15);
+            this.lblFecha.TabIndex = 11;
+            this.lblFecha.Text = "Fecha";
+            // 
+            // dpkFecha
+            // 
+            this.dpkFecha.Location = new System.Drawing.Point(74, 121);
+            this.dpkFecha.MinDate = new System.DateTime(2024, 11, 10, 0, 0, 0, 0);
+            this.dpkFecha.Name = "dpkFecha";
+            this.dpkFecha.Size = new System.Drawing.Size(200, 25);
+            this.dpkFecha.TabIndex = 10;
+            this.dpkFecha.Value = new System.DateTime(2024, 11, 10, 0, 0, 0, 0);
+            // 
             // txtClaseNumero
             // 
             this.txtClaseNumero.Location = new System.Drawing.Point(88, 77);
@@ -254,102 +345,11 @@
             this.lblNumberoClase.Text = "Clase N°";
             this.lblNumberoClase.Click += new System.EventHandler(this.lblNumberoClase_Click);
             // 
-            // dpkFecha
-            // 
-            this.dpkFecha.Location = new System.Drawing.Point(74, 121);
-            this.dpkFecha.MinDate = new System.DateTime(2024, 11, 10, 0, 0, 0, 0);
-            this.dpkFecha.Name = "dpkFecha";
-            this.dpkFecha.Size = new System.Drawing.Size(200, 25);
-            this.dpkFecha.TabIndex = 10;
-            this.dpkFecha.Value = new System.DateTime(2024, 11, 10, 0, 0, 0, 0);
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(18, 128);
-            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 5, 0);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(48, 15);
-            this.lblFecha.TabIndex = 11;
-            this.lblFecha.Text = "Fecha";
-            // 
-            // lblHora
-            // 
-            this.lblHora.AutoSize = true;
-            this.lblHora.Location = new System.Drawing.Point(18, 162);
-            this.lblHora.Margin = new System.Windows.Forms.Padding(4, 0, 5, 0);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(41, 15);
-            this.lblHora.TabIndex = 12;
-            this.lblHora.Text = "Hora";
-            this.lblHora.Click += new System.EventHandler(this.lblHora_Click);
-            // 
-            // txtHora
-            // 
-            this.txtHora.Location = new System.Drawing.Point(74, 159);
-            this.txtHora.Name = "txtHora";
-            this.txtHora.Size = new System.Drawing.Size(121, 25);
-            this.txtHora.TabIndex = 13;
-            // 
-            // cbDocumento
-            // 
-            this.cbDocumento.Location = new System.Drawing.Point(312, 61);
-            this.cbDocumento.Name = "cbDocumento";
-            this.cbDocumento.Size = new System.Drawing.Size(121, 25);
-            this.cbDocumento.TabIndex = 9;
-            // 
-            // cboDocumento
-            // 
-            this.cboDocumento.FormattingEnabled = true;
-            this.cboDocumento.Items.AddRange(new object[] {
-            "C.I",
-            "Pasaporte"});
-            this.cboDocumento.Location = new System.Drawing.Point(312, 32);
-            this.cboDocumento.Name = "cboDocumento";
-            this.cboDocumento.Size = new System.Drawing.Size(121, 23);
-            this.cboDocumento.TabIndex = 9;
-            // 
-            // lblDocumento
-            // 
-            this.lblDocumento.AutoSize = true;
-            this.lblDocumento.Location = new System.Drawing.Point(197, 35);
-            this.lblDocumento.Name = "lblDocumento";
-            this.lblDocumento.Size = new System.Drawing.Size(81, 15);
-            this.lblDocumento.TabIndex = 9;
-            this.lblDocumento.Text = "Documento";
-            // 
-            // lblVacioAgendar
-            // 
-            this.lblVacioAgendar.AutoSize = true;
-            this.lblVacioAgendar.Location = new System.Drawing.Point(211, 61);
-            this.lblVacioAgendar.Name = "lblVacioAgendar";
-            this.lblVacioAgendar.Size = new System.Drawing.Size(45, 15);
-            this.lblVacioAgendar.TabIndex = 9;
-            this.lblVacioAgendar.Text = "Vacio";
-            // 
-            // btnAgendar
-            // 
-            this.btnAgendar.Location = new System.Drawing.Point(228, 171);
-            this.btnAgendar.Name = "btnAgendar";
-            this.btnAgendar.Size = new System.Drawing.Size(75, 22);
-            this.btnAgendar.TabIndex = 9;
-            this.btnAgendar.Text = "Agendar";
-            this.btnAgendar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(337, 171);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 22);
-            this.btnCancelar.TabIndex = 14;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
             // AgendaEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1161, 469);
+            this.ClientSize = new System.Drawing.Size(1174, 469);
             this.Controls.Add(this.gbAgendar);
             this.Controls.Add(this.gbBuscar);
             this.Controls.Add(this.btnAtualizar);
