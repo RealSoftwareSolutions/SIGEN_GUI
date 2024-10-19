@@ -36,5 +36,10 @@ namespace SIGEN_GUI
         {
 
         }
+
+        private void AgendaEntrenador_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
