@@ -106,9 +106,9 @@ namespace SIGEN_GUI
         private void menuAgendaEntrenador_Click(object sender, EventArgs e)
         {
             CloseAllChildForms();
-            Program.frmAgendaEntrenador = new AgendaEntrenador();
-            Program.frmAgendaEntrenador.MdiParent = this;
-            Program.frmAgendaEntrenador.Show();
+            Program.frmcalificarEntrenador = new CalificarEntrenador();
+            Program.frmcalificarEntrenador.MdiParent = this;
+            Program.frmcalificarEntrenador.Show();
             this.LayoutMdi(MdiLayout.TileHorizontal);
             this.LayoutMdi(MdiLayout.TileVertical);
 
@@ -116,7 +116,12 @@ namespace SIGEN_GUI
 
         private void menuCalificarEntrenador_Click(object sender, EventArgs e)
         {
-
+            CloseAllChildForms();
+            Program.frmAgendaEntrenador = new AgendaEntrenador();
+            Program.frmAgendaEntrenador.MdiParent = this;
+            Program.frmAgendaEntrenador.Show();
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+            this.LayoutMdi(MdiLayout.TileVertical);
         }
 
         private void menuAsignarEntrenamiento_Click(object sender, EventArgs e)

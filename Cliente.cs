@@ -280,30 +280,21 @@ namespace SIGEN_GUI
 
 
                 _conexion.Execute(sql, out filasAfectadas);
+                //inserta datos a la tabla usuario_cliente_hace_rutina
+                sql = "";
+                _conexion.Execute(sql, out filasAfectadas);
+
+                // insertar datos a la tabla usuario_cliente_pasa_estado
+                sql = "";
+                _conexion.Execute(sql, out filasAfectadas);
             }
+             
 
             catch (Exception ex)
             {
                 MessageBox.Show("Error al ejecutar la consulta: " + ex.Message);
                 return 2; // ERROR AL GUARDAR CLIENTE
             }
-            /*
-             // Insertar teléfonos del cliente
-             //foreach (string tel in _telefono)
-             //{
-                 try
-                 {
-                     sql = "INSERT INTO cliente_telefonos (cliente, telefono) VALUES (" + _ci + ", '" + tel + "')";
-                     _conexion.Execute(sql, out filasAfectadas);
-                 }
-                 catch (Exception ex)
-
-                 {
-                     MessageBox.Show("Error al insertar teléfono: " + ex.Message);
-                     return 3; // ERROR AL INSERTAR TELÉFONO
-                 }
-             }
-         */
             return resultado;
         }// guardar
     }

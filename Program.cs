@@ -21,6 +21,7 @@ namespace SIGEN_GUI
         public static Rendimiento frmRendimiento;
         public static Agenda frmAgenda;
         public static AgendaEntrenador frmAgendaEntrenador;
+        public static CalificarEntrenador frmcalificarEntrenador;
 
         public static Principal frmPrincipal;
         public static ADODB.Connection cn = new ADODB.Connection(); /*Conector a una base de datos - 21/05/2024 - Público para que lo tengan todos los archivos del proyecto y Est+atico porque est+a en la clase estática program*/

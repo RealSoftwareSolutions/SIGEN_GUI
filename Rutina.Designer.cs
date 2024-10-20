@@ -42,6 +42,10 @@
             // 
             // dGridViewRutina
             // 
+            this.dGridViewRutina.AllowUserToAddRows = false;
+            this.dGridViewRutina.AllowUserToDeleteRows = false;
+            this.dGridViewRutina.AllowUserToResizeColumns = false;
+            this.dGridViewRutina.AllowUserToResizeRows = false;
             this.dGridViewRutina.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dGridViewRutina.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dGridViewRutina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -56,6 +60,8 @@
             this.dGridViewRutina.Name = "dGridViewRutina";
             this.dGridViewRutina.RowHeadersWidth = 51;
             this.dGridViewRutina.RowTemplate.Height = 24;
+            this.dGridViewRutina.ShowEditingIcon = false;
+            this.dGridViewRutina.ShowRowErrors = false;
             this.dGridViewRutina.Size = new System.Drawing.Size(681, 316);
             this.dGridViewRutina.TabIndex = 0;
             this.dGridViewRutina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGridViewRutina_CellContentClick);
