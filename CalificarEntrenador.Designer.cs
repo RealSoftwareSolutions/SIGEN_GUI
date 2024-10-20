@@ -37,7 +37,14 @@
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gbBuscar = new System.Windows.Forms.GroupBox();
+            this.lblVacio = new System.Windows.Forms.Label();
+            this.lblTipoDocumento = new System.Windows.Forms.Label();
+            this.cbTipoDocumento = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalificarEntrenador)).BeginInit();
+            this.gbBuscar.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvCalificarEntrenador
@@ -59,7 +66,7 @@
             this.dgvCalificarEntrenador.Name = "dgvCalificarEntrenador";
             this.dgvCalificarEntrenador.RowHeadersWidth = 51;
             this.dgvCalificarEntrenador.RowTemplate.Height = 24;
-            this.dgvCalificarEntrenador.Size = new System.Drawing.Size(933, 325);
+            this.dgvCalificarEntrenador.Size = new System.Drawing.Size(934, 325);
             this.dgvCalificarEntrenador.TabIndex = 0;
             this.dgvCalificarEntrenador.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCalificarEntrenador_CellContentClick);
             // 
@@ -112,11 +119,71 @@
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.Width = 125;
             // 
+            // gbBuscar
+            // 
+            this.gbBuscar.Controls.Add(this.lblVacio);
+            this.gbBuscar.Controls.Add(this.lblTipoDocumento);
+            this.gbBuscar.Controls.Add(this.cbTipoDocumento);
+            this.gbBuscar.Controls.Add(this.txtBuscar);
+            this.gbBuscar.Controls.Add(this.btnBuscar);
+            this.gbBuscar.Location = new System.Drawing.Point(29, 455);
+            this.gbBuscar.Name = "gbBuscar";
+            this.gbBuscar.Size = new System.Drawing.Size(415, 142);
+            this.gbBuscar.TabIndex = 10;
+            this.gbBuscar.TabStop = false;
+            this.gbBuscar.Text = "Buscar";
+            // 
+            // lblVacio
+            // 
+            this.lblVacio.AutoSize = true;
+            this.lblVacio.Location = new System.Drawing.Point(19, 83);
+            this.lblVacio.Name = "lblVacio";
+            this.lblVacio.Size = new System.Drawing.Size(45, 15);
+            this.lblVacio.TabIndex = 8;
+            this.lblVacio.Text = "Vacio";
+            // 
+            // lblTipoDocumento
+            // 
+            this.lblTipoDocumento.AutoSize = true;
+            this.lblTipoDocumento.Location = new System.Drawing.Point(19, 37);
+            this.lblTipoDocumento.Name = "lblTipoDocumento";
+            this.lblTipoDocumento.Size = new System.Drawing.Size(112, 15);
+            this.lblTipoDocumento.TabIndex = 7;
+            this.lblTipoDocumento.Text = "Tipo Documento";
+            // 
+            // cbTipoDocumento
+            // 
+            this.cbTipoDocumento.FormattingEnabled = true;
+            this.cbTipoDocumento.Items.AddRange(new object[] {
+            "C.I",
+            "Pasaporte"});
+            this.cbTipoDocumento.Location = new System.Drawing.Point(137, 34);
+            this.cbTipoDocumento.Name = "cbTipoDocumento";
+            this.cbTipoDocumento.Size = new System.Drawing.Size(121, 23);
+            this.cbTipoDocumento.TabIndex = 6;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(137, 73);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(121, 25);
+            this.txtBuscar.TabIndex = 3;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(308, 54);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 22);
+            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
             // CalificarEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 525);
+            this.ClientSize = new System.Drawing.Size(1229, 731);
+            this.Controls.Add(this.gbBuscar);
             this.Controls.Add(this.dgvCalificarEntrenador);
             this.Font = new System.Drawing.Font("Algerian", 7.8F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -124,6 +191,8 @@
             this.Name = "CalificarEntrenador";
             this.Text = "CalificarEntrenador";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalificarEntrenador)).EndInit();
+            this.gbBuscar.ResumeLayout(false);
+            this.gbBuscar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -138,5 +207,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.GroupBox gbBuscar;
+        private System.Windows.Forms.Label lblVacio;
+        private System.Windows.Forms.Label lblTipoDocumento;
+        private System.Windows.Forms.ComboBox cbTipoDocumento;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

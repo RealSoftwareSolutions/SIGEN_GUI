@@ -37,7 +37,7 @@
             this.Cupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.cbClientes = new System.Windows.Forms.ComboBox();
-            this.idBuscador = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.lblCupos = new System.Windows.Forms.Label();
             this.lblTipoDocumento = new System.Windows.Forms.Label();
@@ -144,12 +144,12 @@
             this.cbClientes.Size = new System.Drawing.Size(121, 23);
             this.cbClientes.TabIndex = 2;
             // 
-            // idBuscador
+            // txtBuscar
             // 
-            this.idBuscador.Location = new System.Drawing.Point(137, 73);
-            this.idBuscador.Name = "idBuscador";
-            this.idBuscador.Size = new System.Drawing.Size(121, 25);
-            this.idBuscador.TabIndex = 3;
+            this.txtBuscar.Location = new System.Drawing.Point(137, 73);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(121, 25);
+            this.txtBuscar.TabIndex = 3;
             // 
             // btnAtualizar
             // 
@@ -203,7 +203,7 @@
             this.gbBuscar.Controls.Add(this.lblVacio);
             this.gbBuscar.Controls.Add(this.lblTipoDocumento);
             this.gbBuscar.Controls.Add(this.cbTipoDocumento);
-            this.gbBuscar.Controls.Add(this.idBuscador);
+            this.gbBuscar.Controls.Add(this.txtBuscar);
             this.gbBuscar.Controls.Add(this.btnBuscar);
             this.gbBuscar.Location = new System.Drawing.Point(723, 29);
             this.gbBuscar.Name = "gbBuscar";
@@ -377,7 +377,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cupos;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ComboBox cbClientes;
-        private System.Windows.Forms.TextBox idBuscador;
+        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Label lblCupos;
         private System.Windows.Forms.Label lblTipoDocumento;
