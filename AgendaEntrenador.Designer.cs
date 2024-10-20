@@ -41,7 +41,7 @@
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.lblCupos = new System.Windows.Forms.Label();
             this.lblTipoDocumento = new System.Windows.Forms.Label();
-            this.cbTipoDocumento = new System.Windows.Forms.ComboBox();
+            this.cboTipoDocumento = new System.Windows.Forms.ComboBox();
             this.lblVacio = new System.Windows.Forms.Label();
             this.gbBuscar = new System.Windows.Forms.GroupBox();
             this.gbAgendar = new System.Windows.Forms.GroupBox();
@@ -178,16 +178,16 @@
             this.lblTipoDocumento.TabIndex = 7;
             this.lblTipoDocumento.Text = "Tipo Documento";
             // 
-            // cbTipoDocumento
+            // cboTipoDocumento
             // 
-            this.cbTipoDocumento.FormattingEnabled = true;
-            this.cbTipoDocumento.Items.AddRange(new object[] {
+            this.cboTipoDocumento.FormattingEnabled = true;
+            this.cboTipoDocumento.Items.AddRange(new object[] {
             "C.I",
             "Pasaporte"});
-            this.cbTipoDocumento.Location = new System.Drawing.Point(137, 34);
-            this.cbTipoDocumento.Name = "cbTipoDocumento";
-            this.cbTipoDocumento.Size = new System.Drawing.Size(121, 23);
-            this.cbTipoDocumento.TabIndex = 6;
+            this.cboTipoDocumento.Location = new System.Drawing.Point(137, 34);
+            this.cboTipoDocumento.Name = "cboTipoDocumento";
+            this.cboTipoDocumento.Size = new System.Drawing.Size(121, 23);
+            this.cboTipoDocumento.TabIndex = 6;
             // 
             // lblVacio
             // 
@@ -202,7 +202,7 @@
             // 
             this.gbBuscar.Controls.Add(this.lblVacio);
             this.gbBuscar.Controls.Add(this.lblTipoDocumento);
-            this.gbBuscar.Controls.Add(this.cbTipoDocumento);
+            this.gbBuscar.Controls.Add(this.cboTipoDocumento);
             this.gbBuscar.Controls.Add(this.txtBuscar);
             this.gbBuscar.Controls.Add(this.btnBuscar);
             this.gbBuscar.Location = new System.Drawing.Point(723, 29);
@@ -381,7 +381,7 @@
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Label lblCupos;
         private System.Windows.Forms.Label lblTipoDocumento;
-        private System.Windows.Forms.ComboBox cbTipoDocumento;
+        private System.Windows.Forms.ComboBox cboTipoDocumento;
         private System.Windows.Forms.Label lblVacio;
         private System.Windows.Forms.GroupBox gbBuscar;
         private System.Windows.Forms.GroupBox gbAgendar;
